@@ -17,12 +17,12 @@ public class MyDoorController : MonoBehaviour
     {
         if(!doorOpen)
         {
-            doorAnim.Play("Door Open Animation", 0, 0.0f);
+            doorAnim.Play("DoorOpenAnimation", 0, 0.0f);
             doorOpen = true;
         }
         else
         {
-            doorAnim.Play("Door Close Animation", 0, 0.0f);
+            doorAnim.Play("DoorCloseAnimation", 0, 0.0f);
             doorOpen = false;
         }
     }

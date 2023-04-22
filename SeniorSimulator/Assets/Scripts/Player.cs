@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public CharacterDatabase characterDB;
-    public SpriteRenderer artworkSprite;
+    //public SpriteRenderer artworkSprite;
 
     private int selectedOption = 0;
 
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
             Load();
         }
 
-        UpdateCharacter(selectedOption);
+        //UpdateCharacter(selectedOption);
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -47,13 +47,13 @@ public class Player : MonoBehaviour
     }
 
 
-    private void UpdateCharacter(int selectedOption)
-    {
-        Character character = characterDB.GetCharacter(selectedOption);
+    //private void UpdateCharacter(int selectedOption)
+    //{
+    //    Character character = characterDB.GetCharacter(selectedOption);
 
-        artworkSprite.sprite = character.characterSprite;
+    //    artworkSprite.sprite = character.characterSprite;
         
-    }
+    //}
 
     private void Load()
     {

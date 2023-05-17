@@ -13,7 +13,7 @@ public class CharacterSelection : MonoBehaviour
 
         characterList = new GameObject[2];
         // Wype³nianie tablicy modelami
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < 2; i++)
             characterList[i] = transform.GetChild(i).gameObject;
 
         // wy³¹czanie renderera modeli

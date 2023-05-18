@@ -24,7 +24,7 @@ public class Fridge : MonoBehaviour, IInteractable
         option3Text.text = "Drink beer";
         option1.onClick.AddListener(() => { Debug.Log("Drinking water!"); panel.SetActive(false); player.Heal(10); });
         option2.onClick.AddListener(() => { Debug.Log("Eating something"); panel.SetActive(false); });
-        option3.onClick.AddListener(() => { Debug.Log("Drinking beer"); panel.SetActive(false); });
+        option3.onClick.AddListener(() => { Debug.Log("Drinking beer"); panel.SetActive(false); player.TakeDamage(10); });
         return true;
     }
 }

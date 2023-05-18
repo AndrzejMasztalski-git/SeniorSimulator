@@ -30,9 +30,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
+
+    public void Heal(int health)
+    {
+        currentHealth += health;
         healthBar.SetHealth(currentHealth);
     }
 }

@@ -44,11 +44,10 @@ public class TVUnit : MonoBehaviour, IInteractable
         option13Text.text = "Some Turkish series";
         option31Text.text = "The colors of happiness";
         option33Text.text = "Eurosport";
-        option11.onClick.AddListener(() => { Debug.Log("Watching News"); panel.SetActive(false); player.TakeDamage(10); });
-        option13.onClick.AddListener(() => { Debug.Log("Watching Some Turkish series"); panel.SetActive(false); player.Heal(20); });
-        option31.onClick.AddListener(() => { Debug.Log("Watching The colors of happiness"); panel.SetActive(false); player.Heal(10); });
-        option33.onClick.AddListener(() => { Debug.Log("Watching Eurosport"); panel.SetActive(false); player.TakeDamage(10); });
-        interactionPrompt.gameObject.SetActive(true);
+        option11.onClick.AddListener(() => { Debug.Log("Watching News"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); });
+        option13.onClick.AddListener(() => { Debug.Log("Watching Some Turkish series"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); });
+        option31.onClick.AddListener(() => { Debug.Log("Watching The colors of happiness"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); });
+        option33.onClick.AddListener(() => { Debug.Log("Watching Eurosport"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); });
         return true;
     }
 }

@@ -46,12 +46,11 @@ public class LaptopDesk : MonoBehaviour, IInteractable
         option22Text.text = "Release CS2";
         option23Text.text = "Write some code in ASM";
         option32Text.text = "Watch newest WK film";
-        option12.onClick.AddListener(() => { Debug.Log("Selected Read news"); panel.SetActive(false); player.TakeDamage(10); });
-        option21.onClick.AddListener(() => { Debug.Log("Selected Play Senior Simulator"); panel.SetActive(false); player.Heal(20); });
-        option22.onClick.AddListener(() => { Debug.Log("Selected Release CS2"); panel.SetActive(false); player.Heal(10); });
-        option23.onClick.AddListener(() => { Debug.Log("Selected Write some code in ASM"); panel.SetActive(false); player.TakeDamage(100); });
-        option32.onClick.AddListener(() => { Debug.Log("Selected Watch newest WK film"); panel.SetActive(false); player.Heal(20); });
-        interactionPrompt.gameObject.SetActive(true);
+        option12.onClick.AddListener(() => { Debug.Log("Selected Read news"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); });
+        option21.onClick.AddListener(() => { Debug.Log("Selected Play Senior Simulator"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); });
+        option22.onClick.AddListener(() => { Debug.Log("Selected Release CS2"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); });
+        option23.onClick.AddListener(() => { Debug.Log("Selected Write some code in ASM"); panel.SetActive(false); player.TakeDamage(100); interactionPrompt.gameObject.SetActive(true); });
+        option32.onClick.AddListener(() => { Debug.Log("Selected Watch newest WK film"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); });
         return true;
     }
 }

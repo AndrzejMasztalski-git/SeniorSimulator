@@ -44,7 +44,6 @@ public class Fridge : MonoBehaviour, IInteractable
         option12.onClick.AddListener(() => { Debug.Log("Drinking water!"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); });
         option22.onClick.AddListener(() => { Debug.Log("Eating something"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); });
         option32.onClick.AddListener(() => { Debug.Log("Drinking beer"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); });
-        
         return true;
     }
 }

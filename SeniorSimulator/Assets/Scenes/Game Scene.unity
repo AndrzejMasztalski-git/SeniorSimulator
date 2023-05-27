@@ -1603,6 +1603,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b25277b7e28aa4446a996b11092272d7, type: 3}
+--- !u!1 &463486310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7461722530008948198, guid: 27b0bcb7fda86b3458767f6126a71381, type: 3}
+  m_PrefabInstance: {fileID: 925234746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &561294108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3320400766194581496, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
+  m_PrefabInstance: {fileID: 720453775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &589928568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,6 +1896,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sofa
       objectReference: {fileID: 0}
+    - target: {fileID: 6758570035299611668, guid: 7eb8f0ed299d70f429df582be35b81e5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eb8f0ed299d70f429df582be35b81e5, type: 3}
 --- !u!4 &630272266 stripped
@@ -1911,7 +1925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &637273527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2516,6 +2530,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8020492749066715962, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
   m_PrefabInstance: {fileID: 720453775}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &720453779
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561294108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8779441, y: 0.91948426, z: 0.87016803}
+  m_Center: {x: -0.00000047683716, y: 0, z: 0}
+--- !u!114 &720453780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561294108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a917f307863ef74990e9ca2827d8d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Laptop
+  panel: {fileID: 637273526}
+  option11: {fileID: 1028692318}
+  option12: {fileID: 1943839319}
+  option13: {fileID: 2139632454}
+  option21: {fileID: 1038196975}
+  option22: {fileID: 1538908139}
+  option23: {fileID: 1627892707}
+  option31: {fileID: 669918792}
+  option32: {fileID: 277849698}
+  option33: {fileID: 589928571}
+  image: {fileID: 433726558}
+  interactionPrompt: {fileID: 283443075}
+  option12Text: {fileID: 1720674292}
+  option21Text: {fileID: 63801855}
+  option22Text: {fileID: 622493067}
+  option23Text: {fileID: 243402770}
+  option32Text: {fileID: 1691701673}
+  player: {fileID: 1654488113}
 --- !u!1001 &725223531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2867,7 +2925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2116250034297617585, guid: 27b0bcb7fda86b3458767f6126a71381, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 2116250034297617585, guid: 27b0bcb7fda86b3458767f6126a71381, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2909,6 +2967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pc Chair
       objectReference: {fileID: 0}
+    - target: {fileID: 7461722530008948198, guid: 27b0bcb7fda86b3458767f6126a71381, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27b0bcb7fda86b3458767f6126a71381, type: 3}
 --- !u!4 &925234747 stripped
@@ -2916,6 +2978,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2116250034297617585, guid: 27b0bcb7fda86b3458767f6126a71381, type: 3}
   m_PrefabInstance: {fileID: 925234746}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &925234751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463486310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8461755, y: 1.3791984, z: 0.80166185}
+  m_Center: {x: 0.011893244, y: 0.1313404, z: -0.0071768174}
+--- !u!114 &925234752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463486310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a917f307863ef74990e9ca2827d8d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Laptop
+  panel: {fileID: 637273526}
+  option11: {fileID: 1028692318}
+  option12: {fileID: 1943839319}
+  option13: {fileID: 2139632454}
+  option21: {fileID: 1038196975}
+  option22: {fileID: 1538908139}
+  option23: {fileID: 1627892707}
+  option31: {fileID: 669918792}
+  option32: {fileID: 277849698}
+  option33: {fileID: 589928571}
+  image: {fileID: 433726558}
+  interactionPrompt: {fileID: 283443075}
+  option12Text: {fileID: 1720674292}
+  option21Text: {fileID: 63801855}
+  option22Text: {fileID: 622493067}
+  option23Text: {fileID: 243402770}
+  option32Text: {fileID: 1691701673}
+  player: {fileID: 1654488113}
 --- !u!1 &933340450
 GameObject:
   m_ObjectHideFlags: 0
@@ -35037,6 +35143,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: TV
+  panel: {fileID: 637273526}
+  option11: {fileID: 1028692318}
+  option12: {fileID: 1943839319}
+  option13: {fileID: 2139632454}
+  option21: {fileID: 1038196975}
+  option22: {fileID: 1538908139}
+  option23: {fileID: 1627892707}
+  option31: {fileID: 669918792}
+  option32: {fileID: 277849698}
+  option33: {fileID: 589928571}
+  image: {fileID: 433726558}
+  interactionPrompt: {fileID: 283443075}
+  option11Text: {fileID: 1641313836}
+  option13Text: {fileID: 696448058}
+  option31Text: {fileID: 960380536}
+  option33Text: {fileID: 2004600793}
+  player: {fileID: 1654488113}
 --- !u!65 &1414854309
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35124,6 +35247,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7794472966003706008, guid: cbec771c1795bd6458b2310c86d5d6b7, type: 3}
   m_PrefabInstance: {fileID: 1443595048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1475490675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6758570035299611668, guid: 7eb8f0ed299d70f429df582be35b81e5, type: 3}
+  m_PrefabInstance: {fileID: 630272265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1475490678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475490675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b9e65e5685c494e9791c2434e46164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Sofa
+  panel: {fileID: 637273526}
+  option11: {fileID: 1028692318}
+  option12: {fileID: 1943839319}
+  option13: {fileID: 2139632454}
+  option21: {fileID: 1038196975}
+  option22: {fileID: 1538908139}
+  option23: {fileID: 1627892707}
+  option31: {fileID: 669918792}
+  option32: {fileID: 277849698}
+  option33: {fileID: 589928571}
+  image: {fileID: 433726558}
+  interactionPrompt: {fileID: 283443075}
+  option12Text: {fileID: 1720674292}
+  option22Text: {fileID: 622493067}
+  option32Text: {fileID: 1691701673}
+  player: {fileID: 1654488113}
+--- !u!65 &1475490679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475490675}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4647632, y: 0.9477247, z: 1.2514448}
+  m_Center: {x: 0.00000047683716, y: -0.07808133, z: 0.0000009536743}
 --- !u!1001 &1506850927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35622,6 +35792,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627892704}
   m_CullTransparentMesh: 1
+--- !u!1 &1636642237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8702249410611217806, guid: a0b4083b5609b9746a81cb9b09eda7f9, type: 3}
+  m_PrefabInstance: {fileID: 1983813246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1641313834
 GameObject:
   m_ObjectHideFlags: 0
@@ -36419,6 +36594,7 @@ GameObject:
   - component: {fileID: 1704671534}
   - component: {fileID: 1704671533}
   - component: {fileID: 1704671532}
+  - component: {fileID: 1704671535}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Fridge
@@ -36486,6 +36662,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1704671535
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704671531}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1720674290
 GameObject:
   m_ObjectHideFlags: 0
@@ -37003,7 +37192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7154769223905743671, guid: a0b4083b5609b9746a81cb9b09eda7f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.12
+      value: 1.526
       objectReference: {fileID: 0}
     - target: {fileID: 7154769223905743671, guid: a0b4083b5609b9746a81cb9b09eda7f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37052,6 +37241,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7154769223905743671, guid: a0b4083b5609b9746a81cb9b09eda7f9, type: 3}
   m_PrefabInstance: {fileID: 1983813246}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1983813250
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636642237}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5277163, y: 0.021157421, z: 0.46614358}
+  m_Center: {x: 0, y: 0, z: -0.00000011920929}
+--- !u!114 &1983813251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636642237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a917f307863ef74990e9ca2827d8d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Laptop
+  panel: {fileID: 637273526}
+  option11: {fileID: 1028692318}
+  option12: {fileID: 1943839319}
+  option13: {fileID: 2139632454}
+  option21: {fileID: 1038196975}
+  option22: {fileID: 1538908139}
+  option23: {fileID: 1627892707}
+  option31: {fileID: 669918792}
+  option32: {fileID: 277849698}
+  option33: {fileID: 589928571}
+  image: {fileID: 433726558}
+  interactionPrompt: {fileID: 283443075}
+  option12Text: {fileID: 1720674292}
+  option21Text: {fileID: 63801855}
+  option22Text: {fileID: 622493067}
+  option23Text: {fileID: 243402770}
+  option32Text: {fileID: 1691701673}
+  player: {fileID: 1654488113}
 --- !u!1 &2004600791
 GameObject:
   m_ObjectHideFlags: 0

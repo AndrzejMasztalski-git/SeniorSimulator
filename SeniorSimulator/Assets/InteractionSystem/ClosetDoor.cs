@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyClosetDoorController : MonoBehaviour
+public class ClosetDoor : MonoBehaviour, IInteractable
 {
+    [SerializeField] private string _prompt;
+    public string InteractionPrompt => _prompt;
+
     private Animator closetDoorAnim;
 
     private bool closetDoorOpen = false;
+    public bool Interact(Interactor interactor)
+    {
+        PlayAnimation();
+        return true;
+    }
 
     private void Awake()
     {

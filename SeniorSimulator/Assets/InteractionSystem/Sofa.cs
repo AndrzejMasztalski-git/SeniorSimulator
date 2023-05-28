@@ -39,12 +39,13 @@ public class Sofa : MonoBehaviour, IInteractable
         option33.gameObject.SetActive(false);
         Debug.Log("Sofa");
         panel.SetActive(true);
+        Time.timeScale = 0;
         option12Text.text = "Read newspaper";
         option22Text.text = "Take a nap";
         option32Text.text = "Solve a crossword puzzle";
-        option12.onClick.AddListener(() => { Debug.Log("Selected Read newspaper"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); });
-        option21.onClick.AddListener(() => { Debug.Log("Selected Take a nap"); panel.SetActive(false); player.Heal(40); interactionPrompt.gameObject.SetActive(true); });
-        option22.onClick.AddListener(() => { Debug.Log("Selected Solve a crossword puzzle"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); });
+        option12.onClick.AddListener(() => { Debug.Log("Selected Read newspaper"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
+        option21.onClick.AddListener(() => { Debug.Log("Selected Take a nap"); panel.SetActive(false); player.Heal(40); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
+        option22.onClick.AddListener(() => { Debug.Log("Selected Solve a crossword puzzle"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
         return true;
     }
 }

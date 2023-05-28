@@ -38,12 +38,13 @@ public class Fridge : MonoBehaviour, IInteractable
         option32.gameObject.SetActive(true);
         Debug.Log("Opening fridge");
         panel.SetActive(true);
+        Time.timeScale = 0;
         option12Text.text = "Drink water";
         option22Text.text = "Eat something";
         option32Text.text = "Drink beer";
-        option12.onClick.AddListener(() => { Debug.Log("Drinking water!"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); });
-        option22.onClick.AddListener(() => { Debug.Log("Eating something"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); });
-        option32.onClick.AddListener(() => { Debug.Log("Drinking beer"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); });
+        option12.onClick.AddListener(() => { Debug.Log("Drinking water!"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
+        option22.onClick.AddListener(() => { Debug.Log("Eating something"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
+        option32.onClick.AddListener(() => { Debug.Log("Drinking beer"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
         return true;
     }
 }

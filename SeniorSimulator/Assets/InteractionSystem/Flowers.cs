@@ -38,12 +38,13 @@ public class Flowers : MonoBehaviour, IInteractable
         option32.gameObject.SetActive(true);
         Debug.Log("Flowers");
         panel.SetActive(true);
+        Time.timeScale = 0;
         option12Text.text = "Water flowers";
         option22Text.text = "Collect vegetables";
         option32Text.text = "Remove weeds";
-        option12.onClick.AddListener(() => { Debug.Log("Selected water flowers"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); });
-        option22.onClick.AddListener(() => { Debug.Log("Selected collect vegetables"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); });
-        option32.onClick.AddListener(() => { Debug.Log("Selected remove weeds"); panel.SetActive(false); player.TakeDamage(20); interactionPrompt.gameObject.SetActive(true); });
+        option12.onClick.AddListener(() => { Debug.Log("Selected water flowers"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
+        option22.onClick.AddListener(() => { Debug.Log("Selected collect vegetables"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
+        option32.onClick.AddListener(() => { Debug.Log("Selected remove weeds"); panel.SetActive(false); player.TakeDamage(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
         return true;
     }
 }

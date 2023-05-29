@@ -42,9 +42,17 @@ public class Fridge : MonoBehaviour, IInteractable
         option12Text.text = "Drink water";
         option22Text.text = "Eat something";
         option32Text.text = "Drink beer";
-        option12.onClick.AddListener(() => { Debug.Log("Drinking water!"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
-        option22.onClick.AddListener(() => { Debug.Log("Eating something"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
-        option32.onClick.AddListener(() => { Debug.Log("Drinking beer"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
+        option12.onClick.AddListener(() => 
+        { Debug.Log("Drinking water!"); 
+            panel.SetActive(false); 
+            player.Heal(10); 
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            option12.onClick.RemoveAllListeners();
+            });
+        option22.onClick.AddListener(() => { Debug.Log("Eating something"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option22.onClick.RemoveAllListeners(); });
+        option32.onClick.AddListener(() => { Debug.Log("Drinking beer"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option32.onClick.RemoveAllListeners(); });
         return true;
+        
     }
 }

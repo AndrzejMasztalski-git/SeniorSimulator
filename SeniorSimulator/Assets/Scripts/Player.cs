@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    
-
-    
+    public WellBeingBar wellBeingBar;
+    public int maxWellBeing = 100;
+    public int currentWellBeing;
 
 
     public int maxHealth = 100;
@@ -15,7 +15,8 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     void Start()
     {
-        
+        currentWellBeing = maxWellBeing;
+        wellBeingBar.SetMaxWellBeing(maxWellBeing);
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -24,21 +25,60 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
-        }
+        
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+        else
+        {
+            healthBar.SetHealth(currentHealth);
+        }
     }
 
     public void Heal(int health)
     {
         currentHealth += health;
-        healthBar.SetHealth(currentHealth);
+        if (currentHealth > 100)
+        {
+            currentHealth = 100;
+        }
+        else
+        {
+            healthBar.SetHealth(currentHealth);
+        }
+    }
+
+
+    public void DecreaseWellBeing(int amountToDecrease)
+    {
+        currentWellBeing -= amountToDecrease;
+        if (currentWellBeing < 0)
+        {
+            currentWellBeing = 0;
+        }
+        else
+        {
+            wellBeingBar.SetWellBeing(currentWellBeing);
+        }
+    }
+
+    public void IncreaseWellBeing(int amountToIncrease)
+    {
+        currentWellBeing += amountToIncrease;
+        if(currentWellBeing > 100)
+        {
+            currentWellBeing = 100;
+        }
+        else
+        {
+            wellBeingBar.SetWellBeing(currentWellBeing);
+        }
+        
     }
 }

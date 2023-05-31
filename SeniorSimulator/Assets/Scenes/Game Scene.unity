@@ -1339,7 +1339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 320306509}
   - component: {fileID: 320306511}
-  - component: {fileID: 320306510}
+  - component: {fileID: 320306512}
   m_Layer: 5
   m_Name: WellBeingBar
   m_TagString: Untagged
@@ -1370,19 +1370,6 @@ RectTransform:
   m_AnchoredPosition: {x: -904, y: -363}
   m_SizeDelta: {x: 72.9935, y: 14.3375}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &320306510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 320306508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed7319f50c05c244ae5d60153aed6e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 320306511}
 --- !u!114 &320306511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1434,6 +1421,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &320306512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320306508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c85d7621efb1fc4ab03c57f393d607f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 320306511}
 --- !u!1 &320604567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5326376579254671631, guid: c78b068d06d936540835ce2788ae7bcd, type: 3}
@@ -37137,6 +37137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06f858df993a474b8b16c138109d289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wellBeingBar: {fileID: 320306512}
+  maxWellBeing: 100
+  currentWellBeing: 0
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 909447938}

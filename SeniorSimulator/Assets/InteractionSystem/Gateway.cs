@@ -47,11 +47,11 @@ public class Gateway : MonoBehaviour, IInteractable
         option22Text.text = "Go to the drugstore";
         option23Text.text = "Meet with firends";
         option32Text.text = "Go to the doctor";
-        option12.onClick.AddListener(() => { Debug.Log("Go to the Church"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
-        option21.onClick.AddListener(() => { Debug.Log("Go to the grocery shop"); panel.SetActive(false); player.TakeDamage(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale =1; });
-        option22.onClick.AddListener(() => { Debug.Log("Go to the drugstore"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
-        option23.onClick.AddListener(() => { Debug.Log("Meet with firends"); panel.SetActive(false); player.TakeDamage(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
-        option32.onClick.AddListener(() => { Debug.Log("Go to the doctor"); panel.SetActive(false); player.Heal(50); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; });
+        option12.onClick.AddListener(() => { Debug.Log("Go to the Church"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option12.onClick.RemoveAllListeners(); });
+        option21.onClick.AddListener(() => { Debug.Log("Go to the grocery shop"); panel.SetActive(false); player.TakeDamage(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale =1; option21.onClick.RemoveAllListeners(); });
+        option22.onClick.AddListener(() => { Debug.Log("Go to the drugstore"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option22.onClick.RemoveAllListeners(); });
+        option23.onClick.AddListener(() => { Debug.Log("Meet with firends"); panel.SetActive(false); player.TakeDamage(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option23.onClick.RemoveAllListeners(); });
+        option32.onClick.AddListener(() => { Debug.Log("Go to the doctor"); panel.SetActive(false); player.Heal(50); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option32.onClick.RemoveAllListeners(); });
         return true;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -9,12 +10,15 @@ public class Player : MonoBehaviour
     public int maxWellBeing = 100;
     public int currentWellBeing;
 
-
+    
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
     void Start()
     {
+        
+
+
         currentWellBeing = maxWellBeing;
         wellBeingBar.SetMaxWellBeing(maxWellBeing);
 
@@ -25,7 +29,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
+
     }
 
     public void TakeDamage(int damage)

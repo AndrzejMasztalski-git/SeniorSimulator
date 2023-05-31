@@ -1,6 +1,9 @@
+using GLTF.Schema;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using Camera = UnityEngine.Camera;
 
 public class PlayerLocomotion : MonoBehaviour
 {
@@ -8,14 +11,25 @@ public class PlayerLocomotion : MonoBehaviour
     Vector3 moveDirection;
     Transform cameraObject;
     Rigidbody playerRigidbody;
+    Animator animator;
+    NavMeshAgent agent;
 
     public float movementSpeed = 7;
     public float rotationSpeed = 15;
     private void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+
         inputManager = GetComponent<InputManagerForControls>();
         playerRigidbody = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
+    }
+
+    private void Update()
+    {
+        float speedPercent = agent.velocity.magnitude / agent.speed;
+        animator.SetFloat("speed", speedPercent);
     }
 
     public void HandleAllMovement()

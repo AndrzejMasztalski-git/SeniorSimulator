@@ -12,14 +12,14 @@ public class PlayerLocomotion : MonoBehaviour
     Transform cameraObject;
     Rigidbody playerRigidbody;
     Animator animator;
-    NavMeshAgent agent;
+    
 
     public float movementSpeed = 7;
     public float rotationSpeed = 15;
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+        
 
         inputManager = GetComponent<InputManagerForControls>();
         playerRigidbody = GetComponent<Rigidbody>();
@@ -28,8 +28,8 @@ public class PlayerLocomotion : MonoBehaviour
 
     private void Update()
     {
-        float speedPercent = agent.velocity.magnitude / agent.speed;
-        animator.SetFloat("speed", speedPercent);
+        
+        animator.SetFloat("speed", movementSpeed);
     }
 
     public void HandleAllMovement()

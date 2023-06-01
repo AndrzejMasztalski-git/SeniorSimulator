@@ -6383,6 +6383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wardrobe
       objectReference: {fileID: 0}
+    - target: {fileID: 1992755686622482315, guid: 349bf11d0a3e402469f2825045862a54, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 349bf11d0a3e402469f2825045862a54, type: 3}
 --- !u!4 &1397257198 stripped
@@ -6403,6 +6407,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5196893, y: 2.7188754, z: 0.85777724}
   m_Center: {x: -0.00000023841858, y: 0, z: 0}
+--- !u!114 &1397257204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777912416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d2f5ef64b8fd940bc240e145718d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Wardrobe
+  panel: {fileID: 637273526}
+  option11: {fileID: 1028692318}
+  option12: {fileID: 1943839319}
+  option13: {fileID: 2139632454}
+  option21: {fileID: 1038196975}
+  option22: {fileID: 1538908139}
+  option23: {fileID: 1627892707}
+  option31: {fileID: 669918792}
+  option32: {fileID: 277849698}
+  option33: {fileID: 589928571}
+  image: {fileID: 433726558}
+  interactionPrompt: {fileID: 283443075}
+  option12Text: {fileID: 1720674292}
+  option21Text: {fileID: 63801855}
+  option22Text: {fileID: 622493067}
+  option23Text: {fileID: 243402770}
+  option32Text: {fileID: 1691701673}
+  player: {fileID: 1654488113}
 --- !u!1 &1404057483
 GameObject:
   m_ObjectHideFlags: 0

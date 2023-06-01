@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Sofa : MonoBehaviour, IInteractable
+public class Chair : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
@@ -37,33 +37,38 @@ public class Sofa : MonoBehaviour, IInteractable
         option31.gameObject.SetActive(false);
         option32.gameObject.SetActive(true);
         option33.gameObject.SetActive(false);
-        Debug.Log("Sofa");
+        Debug.Log("Chair");
         panel.SetActive(true);
         Time.timeScale = 0;
-        option12Text.text = "Read newspaper";
-        option22Text.text = "Take a nap";
-        option32Text.text = "Solve a crossword puzzle";
-        option12.onClick.AddListener(() => { 
-            Debug.Log("Selected Read newspaper"); 
+        option12Text.text = "Just sit";
+        option22Text.text = "Dance on a chair";
+        option32Text.text = "Sit and complain";
+        option12.onClick.AddListener(() => {
+            Debug.Log("Selected Just sit");
             panel.SetActive(false);
-            player.TakeDamage(10); 
-            interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option12.onClick.RemoveAllListeners(); });
-        option22.onClick.AddListener(() => { 
-            Debug.Log("Selected Take a nap");
-            panel.SetActive(false); 
-            player.Heal(40); 
-            interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option21.onClick.RemoveAllListeners(); });
-        option32.onClick.AddListener(() => { 
-            Debug.Log("Selected Solve a crossword puzzle"); 
-            panel.SetActive(false); 
-            player.Heal(20); 
-            interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option22.onClick.RemoveAllListeners(); });
+            player.Heal(5);
+            interactionPrompt.gameObject.SetActive(true);
+            Time.timeScale = 1;
+            option12.onClick.RemoveAllListeners();
+        });
+        option22.onClick.AddListener(() => {
+            Debug.Log("Selected Dance on a chair");
+            panel.SetActive(false);
+            player.TakeDamage(5);
+            player.IncreaseWellBeing(10);
+            interactionPrompt.gameObject.SetActive(true);
+            Time.timeScale = 1;
+            option21.onClick.RemoveAllListeners();
+        });
+        option32.onClick.AddListener(() => {
+            Debug.Log("Selected Sit and complain");
+            panel.SetActive(false);
+            player.Heal(10);
+            player.DecreaseWellBeing(10);
+            interactionPrompt.gameObject.SetActive(true);
+            Time.timeScale = 1;
+            option22.onClick.RemoveAllListeners();
+        });
         return true;
     }
 }

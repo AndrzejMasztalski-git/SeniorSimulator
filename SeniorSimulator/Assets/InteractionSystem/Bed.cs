@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Fridge : MonoBehaviour, IInteractable
+public class Bed : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
@@ -36,36 +36,39 @@ public class Fridge : MonoBehaviour, IInteractable
         option12.gameObject.SetActive(true);
         option22.gameObject.SetActive(true);
         option32.gameObject.SetActive(true);
-        Debug.Log("Opening fridge");
+        Debug.Log("Bed");
         panel.SetActive(true);
         Time.timeScale = 0;
-        option12Text.text = "Drink water";
-        option22Text.text = "Eat something";
-        option32Text.text = "Drink beer";
-        option12.onClick.AddListener(() => 
-        { Debug.Log("Drinking water!"); 
-            panel.SetActive(false); 
-            player.Heal(10); 
-            interactionPrompt.gameObject.SetActive(true); 
+        option12Text.text = "Sleep";
+        option22Text.text = "Take a nap";
+        option32Text.text = "Hanky-panky";
+        option12.onClick.AddListener(() =>
+        {
+            Debug.Log("Sleep!");
+            panel.SetActive(false);
+            player.Heal(100);
+            interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
-            });
-        option22.onClick.AddListener(() => { 
-            Debug.Log("Eating something"); 
-            panel.SetActive(false); 
-            player.Heal(20); 
-            interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option22.onClick.RemoveAllListeners(); });
-        option32.onClick.AddListener(() => { 
-            Debug.Log("Drinking beer"); 
-            panel.SetActive(false); 
-            player.TakeDamage(10); 
-            player.IncreaseWellBeing(10); 
-            interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option32.onClick.RemoveAllListeners(); });
+        });
+        option22.onClick.AddListener(() => {
+            Debug.Log("Take a nap");
+            panel.SetActive(false);
+            player.Heal(30);
+            interactionPrompt.gameObject.SetActive(true);
+            Time.timeScale = 1;
+            option22.onClick.RemoveAllListeners();
+        });
+        option32.onClick.AddListener(() => {
+            Debug.Log("Hanky-panky");
+            panel.SetActive(false);
+            player.TakeDamage(20);
+            player.IncreaseWellBeing(100);
+            interactionPrompt.gameObject.SetActive(true);
+            Time.timeScale = 1;
+            option32.onClick.RemoveAllListeners();
+        });
         return true;
-        
+
     }
 }

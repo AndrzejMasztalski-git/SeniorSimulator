@@ -8,6 +8,7 @@ public class Fireplace : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
     public GameObject panel;
+    public GameObject fire;
     public Button option12;
     public Button option22;
     public Button option32;
@@ -39,15 +40,29 @@ public class Fireplace : MonoBehaviour, IInteractable
         Debug.Log("Fireplace");
         panel.SetActive(true);
         Time.timeScale = 0;
-        option12Text.text = "Light the campfire";
+        if (player.campfire == false)
+            option12Text.text = "Light the campfire";
+        else option12Text.text = "Put out the fire";
         option22Text.text = "Get warm";
         option32Text.text = "Bake a sausage";
         option12.onClick.AddListener(() =>
         {
             Debug.Log("Light the campfire!");
             panel.SetActive(false);
-            player.TakeDamage(5);
-            player.IncreaseWellBeing(15);
+            if (player.campfire == false)
+            {
+                player.TakeDamage(5);
+                player.IncreaseWellBeing(15);
+                fire.gameObject.SetActive(true);
+                player.campfire = true;
+            }
+            else
+            {
+                player.TakeDamage(5);
+                player.DecreaseWellBeing(5);
+                fire.gameObject.SetActive(false);
+                player.campfire = false;
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
@@ -58,9 +73,9 @@ public class Fireplace : MonoBehaviour, IInteractable
             panel.SetActive(false);
             player.Heal(5);
             player.IncreaseWellBeing(5);
-            interactionPrompt.gameObject.SetActive(true);
+            interactionPrompt.gameObject.SetActive(false);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            option22.onClick.RemoveAllListeners();
         });
         option32.onClick.AddListener(() =>
         {
@@ -70,7 +85,7 @@ public class Fireplace : MonoBehaviour, IInteractable
             player.IncreaseWellBeing(5);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            option32.onClick.RemoveAllListeners();
         });
         return true;
 

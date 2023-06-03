@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     float xRotation;
     float yRotation;
 
-    [Range(0f, 10f)] public float mouseSensitivity = 3f;
+    [Range(0f, 10f)] public float mouseSensitivity = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -54,11 +54,11 @@ public class PlayerController : MonoBehaviour
 
     void CameraRotation()
     {
-        xRotation += input.look.y;
-        yRotation += input.look.x;
-        xRotation = Mathf.Clamp(xRotation, -30, 70);
+        xRotation += input.look.y/4;
+        yRotation += input.look.x/4;
+        xRotation = Mathf.Clamp(xRotation, -70, 30);
 
-        Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        Quaternion rotation = Quaternion.Euler(-xRotation, yRotation, 0);
         cameraFollowTarget.rotation = rotation;
     }
 }

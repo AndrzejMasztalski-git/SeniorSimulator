@@ -4217,7 +4217,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.15e-43, y: 3.111e-42, z: 8.4e-44, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -5433,7 +5433,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.0312, y: 7.47, z: -11.473599}
+  m_LocalPosition: {x: 26.0312, y: 7.36336, z: -11.473599}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5713,7 +5713,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh62690
+  m_Name: pb_Mesh36808
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6216,7 +6216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040224722}
   m_LocalRotation: {x: 0.23081611, y: 0.004003745, z: 0.000011824305, w: 0.9729892}
-  m_LocalPosition: {x: 26.0312, y: 7.47, z: -11.473599}
+  m_LocalPosition: {x: 26.0312, y: 7.36336, z: -11.473599}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38134,7 +38134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e2c6b64f2d9bc44caa34a7667cd27d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.098213986
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e2c6b64f2d9bc44caa34a7667cd27d6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38249,10 +38249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ff3a40a0a48e14397aa1adecd15f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 5
   mainCam: {fileID: 963194225}
   cameraFollowTarget: {fileID: 736252256}
-  mouseSensitivity: 2
+  mouseSensitivity: 0.1
 --- !u!114 &1456153963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38416,7 +38416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1471687727
 RectTransform:
   m_ObjectHideFlags: 0

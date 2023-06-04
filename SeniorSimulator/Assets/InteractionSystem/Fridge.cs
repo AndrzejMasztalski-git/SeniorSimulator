@@ -39,13 +39,13 @@ public class Fridge : MonoBehaviour, IInteractable
         Debug.Log("Opening fridge");
         panel.SetActive(true);
         Time.timeScale = 0;
-        option12Text.text = "Drink water";
+        option12Text.text = "Just open and look at food";
         option22Text.text = "Eat something";
         option32Text.text = "Drink beer";
         option12.onClick.AddListener(() => 
-        { Debug.Log("Drinking water!"); 
-            panel.SetActive(false); 
-            player.Heal(10); 
+        { Debug.Log("Just open and look at food!"); 
+            panel.SetActive(false);
+            player.DecreaseWellBeing(10);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
@@ -53,7 +53,7 @@ public class Fridge : MonoBehaviour, IInteractable
         option22.onClick.AddListener(() => { 
             Debug.Log("Eating something"); 
             panel.SetActive(false); 
-            player.Heal(20); 
+            player.Heal(5); 
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1; 
             option22.onClick.RemoveAllListeners(); });

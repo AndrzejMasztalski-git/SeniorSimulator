@@ -17,9 +17,9 @@ public class Player : MonoBehaviour
     public bool campfire = false;
 
     //FRIDGE
-    bool shoppingList = false;
-    int beer = 2;
-    int food = 10;
+    public bool shoppingList = false;
+    public int beer = 2;
+    public int food = 10;
     void Start()
     {
         

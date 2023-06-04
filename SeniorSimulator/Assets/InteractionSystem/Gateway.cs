@@ -7,6 +7,7 @@ public class Gateway : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
+    public Text errorPrompt;
     public GameObject panel;
     public Button option11;
     public Button option12;
@@ -55,9 +56,13 @@ public class Gateway : MonoBehaviour, IInteractable
             Time.timeScale = 1; 
             option12.onClick.RemoveAllListeners(); });
         option21.onClick.AddListener(() => { 
-            Debug.Log("Go to the grocery shop"); 
-            panel.SetActive(false); 
-            player.TakeDamage(20); 
+            Debug.Log("Go to the grocery shop");
+            panel.SetActive(false);
+            if (player.shoppingList == true)
+                player.TakeDamage(20);
+            else {
+                
+            }
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale =1; 
             option21.onClick.RemoveAllListeners(); });

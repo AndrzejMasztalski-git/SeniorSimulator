@@ -126,6 +126,7 @@ public class Gateway : MonoBehaviour, IInteractable
         else if (counter == 0)
         {
             errorPrompt.gameObject.SetActive(false);
+            counter = -1;
         }
     }
 

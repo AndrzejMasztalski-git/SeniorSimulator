@@ -166,6 +166,7 @@ MonoBehaviour:
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153964}
+  timeController: {fileID: 0}
 --- !u!1 &10030180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4309,7 +4310,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.7641748e+14, y: 4.5448167e+30, z: 7.1400895e+31, w: 2.691459e+20}
+  m_BoundingSphereOverride: {x: 0, y: 9.1835e-41, z: 1.8e-43, w: 1.7786928e-38}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -5805,7 +5806,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh55970
+  m_Name: pb_Mesh29050
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38345,7 +38346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ff3a40a0a48e14397aa1adecd15f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 20
   mainCam: {fileID: 963194225}
   cameraFollowTarget: {fileID: 736252256}
   mouseSensitivity: 0.1
@@ -39141,6 +39142,7 @@ MonoBehaviour:
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153964}
+  timeController: {fileID: 2033604297}
 --- !u!1001 &1587261989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39267,6 +39269,8 @@ MonoBehaviour:
   option32Text: {fileID: 1691701673}
   option33Text: {fileID: 2004600793}
   player: {fileID: 1456153964}
+  errorPrompt: {fileID: 374676540}
+  errorPromptText: {fileID: 2141491286}
 --- !u!1 &1590598392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2988847304651759410, guid: c2295b34083ed0c4b95a252933176bfd, type: 3}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Gateway : MonoBehaviour, IInteractable
 {
@@ -27,7 +28,8 @@ public class Gateway : MonoBehaviour, IInteractable
     public Text option23Text;
     public Text option32Text;
     public Player player;
-    private int counter = -1;
+    private int counter = -1; 
+    
 
     public bool Interact(Interactor interactor)
     {
@@ -80,8 +82,21 @@ public class Gateway : MonoBehaviour, IInteractable
                 option21.onClick.RemoveAllListeners();
             });
         option22.onClick.AddListener(() => {
-            Debug.Log("Go to the drugstore");
             panel.SetActive(false);
+            if (player.doctor == true)
+            {
+                Debug.Log("Go to the drugstore");
+                player.doctor = false;
+                player.TakeDamage(10);
+            }
+            else
+            {
+                Debug.Log("Error Go to the drugstore");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "go to the doctor first";
+                counter = 500;
+
+            }
             player.TakeDamage(10);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
@@ -95,6 +110,7 @@ public class Gateway : MonoBehaviour, IInteractable
             option23.onClick.RemoveAllListeners(); });
         option32.onClick.AddListener(() => {
             Debug.Log("Go to the doctor");
+            player.doctor = true;
             panel.SetActive(false);
             player.Heal(50);
             interactionPrompt.gameObject.SetActive(true);

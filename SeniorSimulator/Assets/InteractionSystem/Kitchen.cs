@@ -29,6 +29,10 @@ public class Kitchen : MonoBehaviour, IInteractable
     public Text option32Text;
     public Text option33Text;
     public Player player;
+
+    public Image errorPrompt;
+    public Text errorPromptText;
+    private int counter = -1;
     public bool Interact(Interactor interactor)
     {
         interactionPrompt.gameObject.SetActive(false);
@@ -66,10 +70,22 @@ public class Kitchen : MonoBehaviour, IInteractable
         });
         option12.onClick.AddListener(() =>
         {
-            Debug.Log("Bake cake!");
             panel.SetActive(false);
-            player.IncreaseWellBeing(10);
-            player.Heal(5);
+            if (player.food > 1)
+            {
+                Debug.Log("Bake cake!");
+                player.food -= 2;
+                player.IncreaseWellBeing(10);
+                player.Heal(5);
+            }
+            else
+            {
+                Debug.Log("Error Bake cake");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "no ingredients";
+                counter = 500;
+
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
@@ -86,9 +102,21 @@ public class Kitchen : MonoBehaviour, IInteractable
         });
         option21.onClick.AddListener(() =>
         {
-            Debug.Log("Make popcorn!");
             panel.SetActive(false);
-            player.IncreaseWellBeing(10);
+            if (player.food > 0)
+            {
+                Debug.Log("Make popcorn!");
+                player.food -= 1;
+                player.IncreaseWellBeing(10);
+            }
+            else
+            {
+                Debug.Log("Error Make popcorn!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "no ingredients";
+                counter = 500;
+
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
@@ -105,29 +133,64 @@ public class Kitchen : MonoBehaviour, IInteractable
         });
         option23.onClick.AddListener(() =>
         {
-            Debug.Log("Pretend you're in masterchef!");
             panel.SetActive(false);
-            player.IncreaseWellBeing(10);
+            if (player.food > 2)
+            {
+                Debug.Log("Pretend you're in masterchef!");
+                player.food -= 3;
+                player.IncreaseWellBeing(10);
+            }
+            else
+            {
+                Debug.Log("Error Pretend you're in masterchef!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "no ingredients";
+                counter = 500;
+
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
         });
         option31.onClick.AddListener(() =>
         {
-            Debug.Log("Make sandwiches and talk like Mak³owicz!");
             panel.SetActive(false);
-            player.Heal(5);
-            player.IncreaseWellBeing(5);
+            if (player.food > 0)
+            {
+                Debug.Log("Make sandwiches and talk like Mak³owicz!");
+                player.food -= 1;
+                player.Heal(5);
+                player.IncreaseWellBeing(5);
+            }
+            else
+            {
+                Debug.Log("Error Make sandwiches and talk like Mak³owicz!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "no ingredients";
+                counter = 500;
+
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
         });
         option32.onClick.AddListener(() =>
         {
-            Debug.Log("Just prepare a meal!");
             panel.SetActive(false);
-            player.Heal(10);
-            player.IncreaseWellBeing(5);
+            if (player.food > 1)
+            {
+                Debug.Log("Just prepare a meal!");
+                player.food -= 2;
+                player.Heal(5);
+                player.IncreaseWellBeing(5);
+            }
+            else
+            {
+                Debug.Log("Error Just prepare a meal!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "no ingredients";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
@@ -137,12 +200,22 @@ public class Kitchen : MonoBehaviour, IInteractable
             Debug.Log("Make a shopping list!");
             player.shoppingList = true;
             panel.SetActive(false);
-            player.IncreaseWellBeing(5);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
         });
         return true;
 
+    }
+    void Update()
+    {
+        if (counter > 0)
+        {
+            counter--;
+        }
+        else if (counter == 0)
+        {
+            errorPrompt.gameObject.SetActive(false);
+        }
     }
 }

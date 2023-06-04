@@ -35,6 +35,9 @@ public class Kitchen : MonoBehaviour, IInteractable
     private int counter = -1;
     public bool Interact(Interactor interactor)
     {
+        GameObject timeController = GameObject.Find("TimeController");
+        TimeController timeControllerScript = timeController.GetComponent<TimeController>();
+
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(true);
@@ -64,9 +67,10 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             player.IncreaseWellBeing(20);
             player.TakeDamage(10);
+            timeControllerScript.AddHoursToTime(0.5);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option12.onClick.AddListener(() =>
         {
@@ -77,6 +81,7 @@ public class Kitchen : MonoBehaviour, IInteractable
                 player.food -= 2;
                 player.IncreaseWellBeing(10);
                 player.Heal(5);
+                timeControllerScript.AddHoursToTime(1.5);
             }
             else
             {
@@ -88,7 +93,7 @@ public class Kitchen : MonoBehaviour, IInteractable
             }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option13.onClick.AddListener(() =>
         {
@@ -96,9 +101,10 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             player.TakeDamage(10);
             player.IncreaseWellBeing(10);
+            timeControllerScript.AddHoursToTime(0.5);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option21.onClick.AddListener(() =>
         {
@@ -108,6 +114,7 @@ public class Kitchen : MonoBehaviour, IInteractable
                 Debug.Log("Make popcorn!");
                 player.food -= 1;
                 player.IncreaseWellBeing(10);
+                timeControllerScript.AddHoursToTime(0.2);
             }
             else
             {
@@ -119,17 +126,18 @@ public class Kitchen : MonoBehaviour, IInteractable
             }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option22.onClick.AddListener(() =>
         {
             Debug.Log("Pretend you're cooking!");
             panel.SetActive(false);
-            player.Heal(5);
-            player.DecreaseWellBeing(10);
+            player.TakeDamage(5);
+            player.IncreaseWellBeing(10);
+            timeControllerScript.AddHoursToTime(0.5);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option23.onClick.AddListener(() =>
         {
@@ -139,6 +147,7 @@ public class Kitchen : MonoBehaviour, IInteractable
                 Debug.Log("Pretend you're in masterchef!");
                 player.food -= 3;
                 player.IncreaseWellBeing(10);
+                timeControllerScript.AddHoursToTime(1);
             }
             else
             {
@@ -150,7 +159,7 @@ public class Kitchen : MonoBehaviour, IInteractable
             }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option31.onClick.AddListener(() =>
         {
@@ -161,6 +170,7 @@ public class Kitchen : MonoBehaviour, IInteractable
                 player.food -= 1;
                 player.Heal(5);
                 player.IncreaseWellBeing(5);
+                timeControllerScript.AddHoursToTime(0.5);
             }
             else
             {
@@ -172,7 +182,7 @@ public class Kitchen : MonoBehaviour, IInteractable
             }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option32.onClick.AddListener(() =>
         {
@@ -183,6 +193,7 @@ public class Kitchen : MonoBehaviour, IInteractable
                 player.food -= 2;
                 player.Heal(5);
                 player.IncreaseWellBeing(5);
+                timeControllerScript.AddHoursToTime(1);
             }
             else
             {
@@ -193,16 +204,17 @@ public class Kitchen : MonoBehaviour, IInteractable
             }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option33.onClick.AddListener(() =>
         {
             Debug.Log("Make a shopping list!");
             player.shoppingList = true;
             panel.SetActive(false);
+            timeControllerScript.AddHoursToTime(0.5);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         return true;
 
@@ -217,5 +229,17 @@ public class Kitchen : MonoBehaviour, IInteractable
         {
             errorPrompt.gameObject.SetActive(false);
         }
+    }
+    void RemoveListeners()
+    {
+        option11.onClick.RemoveAllListeners();
+        option12.onClick.RemoveAllListeners();
+        option13.onClick.RemoveAllListeners();
+        option21.onClick.RemoveAllListeners();
+        option22.onClick.RemoveAllListeners();
+        option23.onClick.RemoveAllListeners();
+        option31.onClick.RemoveAllListeners();
+        option32.onClick.RemoveAllListeners();
+        option33.onClick.RemoveAllListeners();
     }
 }

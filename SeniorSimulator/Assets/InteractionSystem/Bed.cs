@@ -25,6 +25,9 @@ public class Bed : MonoBehaviour, IInteractable
     public Player player;
     public bool Interact(Interactor interactor)
     {
+        GameObject timeController = GameObject.Find("TimeController");
+        TimeController timeControllerScript = timeController.GetComponent<TimeController>();
+
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(false);
@@ -47,28 +50,43 @@ public class Bed : MonoBehaviour, IInteractable
             Debug.Log("Sleep!");
             panel.SetActive(false);
             player.Heal(100);
+            timeControllerScript.AddHoursToTime(8);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option22.onClick.AddListener(() => {
             Debug.Log("Take a nap");
             panel.SetActive(false);
             player.Heal(30);
+            timeControllerScript.AddHoursToTime(3);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option22.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option32.onClick.AddListener(() => {
             Debug.Log("Hanky-panky");
             panel.SetActive(false);
             player.TakeDamage(20);
             player.IncreaseWellBeing(100);
+            timeControllerScript.AddHoursToTime(0.3);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option32.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         return true;
 
+    }
+    void RemoveListeners()
+    {
+        option11.onClick.RemoveAllListeners();
+        option12.onClick.RemoveAllListeners();
+        option13.onClick.RemoveAllListeners();
+        option21.onClick.RemoveAllListeners();
+        option22.onClick.RemoveAllListeners();
+        option23.onClick.RemoveAllListeners();
+        option31.onClick.RemoveAllListeners();
+        option32.onClick.RemoveAllListeners();
+        option33.onClick.RemoveAllListeners();
     }
 }

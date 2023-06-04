@@ -166,7 +166,6 @@ MonoBehaviour:
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153964}
-  timeController: {fileID: 2033604297}
 --- !u!1 &10030180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,6 +2951,8 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153964}
+  errorPrompt: {fileID: 374676540}
+  errorPromptText: {fileID: 2141491286}
 --- !u!136 &521983232
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5806,7 +5807,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29050
+  m_Name: pb_Mesh29052
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39143,7 +39144,6 @@ MonoBehaviour:
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153964}
-  timeController: {fileID: 2033604297}
 --- !u!1001 &1587261989
 PrefabInstance:
   m_ObjectHideFlags: 0

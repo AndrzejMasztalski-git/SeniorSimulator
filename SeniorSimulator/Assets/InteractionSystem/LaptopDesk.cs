@@ -28,6 +28,9 @@ public class LaptopDesk : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
+        GameObject timeController = GameObject.Find("TimeController");
+        TimeController timeControllerScript = timeController.GetComponent<TimeController>();
+
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(false);
@@ -47,11 +50,60 @@ public class LaptopDesk : MonoBehaviour, IInteractable
         option22Text.text = "Release CS2";
         option23Text.text = "Write some code in ASM";
         option32Text.text = "Watch newest WK film";
-        option12.onClick.AddListener(() => { Debug.Log("Selected Read news"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option12.onClick.RemoveAllListeners(); });
-        option21.onClick.AddListener(() => { Debug.Log("Selected Play Senior Simulator"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option21.onClick.RemoveAllListeners(); });
-        option22.onClick.AddListener(() => { Debug.Log("Selected Release CS2"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option22.onClick.RemoveAllListeners(); });
-        option23.onClick.AddListener(() => { Debug.Log("Selected Write some code in ASM"); panel.SetActive(false); player.TakeDamage(100); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option23.onClick.RemoveAllListeners(); });
-        option32.onClick.AddListener(() => { Debug.Log("Selected Watch newest WK film"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option32.onClick.RemoveAllListeners(); });
+        option12.onClick.AddListener(() => { 
+            Debug.Log("Selected Read news"); 
+            panel.SetActive(false); 
+            player.TakeDamage(10);
+            timeControllerScript.AddHoursToTime(0.3);
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            RemoveListeners(); });
+        option21.onClick.AddListener(() => { 
+            Debug.Log("Selected Play Senior Simulator"); 
+            panel.SetActive(false);
+            player.Heal(20);
+            timeControllerScript.AddHoursToTime(1);
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            RemoveListeners(); });
+        option22.onClick.AddListener(() => { 
+            Debug.Log("Selected Release CS2"); 
+            panel.SetActive(false); 
+            player.Heal(10);
+            timeControllerScript.AddHoursToTime(0.2);
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            RemoveListeners(); });
+        option23.onClick.AddListener(() => { 
+            Debug.Log("Selected Write some code in ASM"); 
+            panel.SetActive(false); 
+            player.TakeDamage(100);
+            timeControllerScript.AddHoursToTime(24);
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            RemoveListeners(); });
+        option32.onClick.AddListener(() => { 
+            Debug.Log("Selected Watch newest WK film"); 
+            panel.SetActive(false); 
+            player.Heal(20);
+            timeControllerScript.AddHoursToTime(0.4);
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            RemoveListeners(); });
         return true;
     }
+
+    void RemoveListeners()
+    {
+        option11.onClick.RemoveAllListeners();
+        option12.onClick.RemoveAllListeners();
+        option13.onClick.RemoveAllListeners();
+        option21.onClick.RemoveAllListeners();
+        option22.onClick.RemoveAllListeners();
+        option23.onClick.RemoveAllListeners();
+        option31.onClick.RemoveAllListeners();
+        option32.onClick.RemoveAllListeners();
+        option33.onClick.RemoveAllListeners();
+    }
+
 }

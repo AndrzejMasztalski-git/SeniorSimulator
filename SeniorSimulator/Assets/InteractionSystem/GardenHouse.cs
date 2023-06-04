@@ -28,6 +28,9 @@ public class GardenHouse : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
+        GameObject timeController = GameObject.Find("TimeController");
+        TimeController timeControllerScript = timeController.GetComponent<TimeController>();
+
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(false);
@@ -52,39 +55,56 @@ public class GardenHouse : MonoBehaviour, IInteractable
             panel.SetActive(false);
             player.Heal(10);
             player.IncreaseWellBeing(5);
+            timeControllerScript.AddHoursToTime(1);
             interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option12.onClick.RemoveAllListeners(); });
+            Time.timeScale = 1;
+            RemoveListeners(); });
         option21.onClick.AddListener(() => { 
             Debug.Log("Tinker"); 
             panel.SetActive(false); 
             player.TakeDamage(10);
             player.IncreaseWellBeing(20);
+            timeControllerScript.AddHoursToTime(1.8);
             interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option21.onClick.RemoveAllListeners(); });
+            Time.timeScale = 1;
+            RemoveListeners(); });
         option22.onClick.AddListener(() => { 
             Debug.Log("Clean up in the gazebo"); panel.SetActive(false); 
             player.TakeDamage(5);
             player.IncreaseWellBeing(10);
+            timeControllerScript.AddHoursToTime(1.1);
             interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option22.onClick.RemoveAllListeners(); });
+            Time.timeScale = 1;
+            RemoveListeners(); });
         option23.onClick.AddListener(() => { 
             Debug.Log("Meditate");
             player.Heal(5);
             player.IncreaseWellBeing(10);
+            timeControllerScript.AddHoursToTime(0.6);
             panel.SetActive(false);
             interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option23.onClick.RemoveAllListeners(); });
+            Time.timeScale = 1;
+            RemoveListeners(); });
         option32.onClick.AddListener(() => { 
             Debug.Log("Listen to the music");
             player.IncreaseWellBeing(15);
+            timeControllerScript.AddHoursToTime(0.9);
             panel.SetActive(false); 
             interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option32.onClick.RemoveAllListeners(); });
+            Time.timeScale = 1;
+            RemoveListeners(); });
         return true;
+    }
+    void RemoveListeners()
+    {
+        option11.onClick.RemoveAllListeners();
+        option12.onClick.RemoveAllListeners();
+        option13.onClick.RemoveAllListeners();
+        option21.onClick.RemoveAllListeners();
+        option22.onClick.RemoveAllListeners();
+        option23.onClick.RemoveAllListeners();
+        option31.onClick.RemoveAllListeners();
+        option32.onClick.RemoveAllListeners();
+        option33.onClick.RemoveAllListeners();
     }
 }

@@ -29,6 +29,10 @@ public class Fridge : MonoBehaviour, IInteractable
     public int counter = -1;
     public bool Interact(Interactor interactor)
     {
+
+        GameObject timeController = GameObject.Find("TimeController");
+        TimeController timeControllerScript = timeController.GetComponent<TimeController>();
+
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(false);
@@ -52,7 +56,7 @@ public class Fridge : MonoBehaviour, IInteractable
             player.DecreaseWellBeing(10);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
             });
         option22.onClick.AddListener(() => {
             panel.SetActive(false);
@@ -61,6 +65,7 @@ public class Fridge : MonoBehaviour, IInteractable
                 Debug.Log("Eating something");
                 player.food--;
                 player.Heal(5);
+                timeControllerScript.AddHoursToTime(0.1);
             }
             else
             {
@@ -70,8 +75,8 @@ public class Fridge : MonoBehaviour, IInteractable
                 counter = 500;
             }
             interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option22.onClick.RemoveAllListeners(); });
+            Time.timeScale = 1;
+            RemoveListeners(); });
         option32.onClick.AddListener(() => { 
             panel.SetActive(false);
             if (player.beer > 0)
@@ -80,6 +85,7 @@ public class Fridge : MonoBehaviour, IInteractable
                 player.beer--;
                 player.TakeDamage(10);
                 player.IncreaseWellBeing(10);
+                timeControllerScript.AddHoursToTime(0.1);
             }
             else
             {
@@ -89,8 +95,8 @@ public class Fridge : MonoBehaviour, IInteractable
                 counter = 500;
             }
             interactionPrompt.gameObject.SetActive(true); 
-            Time.timeScale = 1; 
-            option32.onClick.RemoveAllListeners(); });
+            Time.timeScale = 1;
+            RemoveListeners(); });
         return true;
         
     }
@@ -105,5 +111,17 @@ public class Fridge : MonoBehaviour, IInteractable
             errorPrompt.gameObject.SetActive(false);
             counter = -1;
         }
+    }
+    void RemoveListeners()
+    {
+        option11.onClick.RemoveAllListeners();
+        option12.onClick.RemoveAllListeners();
+        option13.onClick.RemoveAllListeners();
+        option21.onClick.RemoveAllListeners();
+        option22.onClick.RemoveAllListeners();
+        option23.onClick.RemoveAllListeners();
+        option31.onClick.RemoveAllListeners();
+        option32.onClick.RemoveAllListeners();
+        option33.onClick.RemoveAllListeners();
     }
 }

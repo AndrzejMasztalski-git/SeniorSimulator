@@ -24,8 +24,14 @@ public class Fireplace : MonoBehaviour, IInteractable
     public Text option22Text;
     public Text option32Text;
     public Player player;
+    public Image errorPrompt;
+    public Text errorPromptText;
+    private int counter = -1;
     public bool Interact(Interactor interactor)
     {
+        GameObject timeController = GameObject.Find("TimeController");
+        TimeController timeControllerScript = timeController.GetComponent<TimeController>();
+
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(false);
@@ -63,31 +69,80 @@ public class Fireplace : MonoBehaviour, IInteractable
                 fire.gameObject.SetActive(false);
                 player.campfire = false;
             }
+            timeControllerScript.AddHoursToTime(0.3);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option22.onClick.AddListener(() =>
         {
-            Debug.Log("Get warm!");
             panel.SetActive(false);
-            player.Heal(5);
-            player.IncreaseWellBeing(5);
+            if (player.campfire == true)
+            {
+
+                Debug.Log("Get warm!");
+                player.Heal(5);
+                player.IncreaseWellBeing(5);
+            }
+            else
+            {
+                Debug.Log("Error Go to the drugstore");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "light the campfire first";
+                counter = 500;
+            }
+            timeControllerScript.AddHoursToTime(0.5);
             interactionPrompt.gameObject.SetActive(false);
             Time.timeScale = 1;
-            option22.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         option32.onClick.AddListener(() =>
         {
-            Debug.Log("Bake a sausage!");
             panel.SetActive(false);
-            player.Heal(10);
-            player.IncreaseWellBeing(5);
+            if (player.food > 0)
+            {
+                Debug.Log("Bake a sausage!");
+                player.food -= 1;
+                player.Heal(5);
+                player.IncreaseWellBeing(5);
+                timeControllerScript.AddHoursToTime(0.8);
+            }
+            else
+            {
+                Debug.Log("Error Bake a sausage!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "no ingredients";
+                counter = 500;
+
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option32.onClick.RemoveAllListeners();
+            RemoveListeners();
         });
         return true;
 
+    }
+    void Update()
+    {
+        if (counter > 0)
+        {
+            counter--;
+        }
+        else if (counter == 0)
+        {
+            errorPrompt.gameObject.SetActive(false);
+        }
+    }
+    void RemoveListeners()
+    {
+        option11.onClick.RemoveAllListeners();
+        option12.onClick.RemoveAllListeners();
+        option13.onClick.RemoveAllListeners();
+        option21.onClick.RemoveAllListeners();
+        option22.onClick.RemoveAllListeners();
+        option23.onClick.RemoveAllListeners();
+        option31.onClick.RemoveAllListeners();
+        option32.onClick.RemoveAllListeners();
+        option33.onClick.RemoveAllListeners();
     }
 }

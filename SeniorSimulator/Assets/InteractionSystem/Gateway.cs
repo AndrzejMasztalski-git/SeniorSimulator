@@ -51,6 +51,7 @@ public class Gateway : MonoBehaviour, IInteractable
         option23.gameObject.SetActive(true);
         option32.gameObject.SetActive(true);
         Debug.Log("Gateway Interaction");
+         
         panel.SetActive(true);
         Time.timeScale = 0;
         option12Text.text = "Go to the Church";
@@ -58,6 +59,7 @@ public class Gateway : MonoBehaviour, IInteractable
         option22Text.text = "Go to the drugstore";
         option23Text.text = "Meet with firends";
         option32Text.text = "Go to the doctor";
+
         option12.onClick.AddListener(() => {
             Debug.Log("Go to the Church");
             panel.SetActive(false);
@@ -65,7 +67,8 @@ public class Gateway : MonoBehaviour, IInteractable
             timeControllerScript.AddHoursToTime(2.0);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option12.onClick.RemoveAllListeners(); });
+            RemoveListeners(); });
+
         option21.onClick.AddListener(() => {
             Debug.Log("Go to the grocery shop");
             panel.SetActive(false);
@@ -75,7 +78,8 @@ public class Gateway : MonoBehaviour, IInteractable
                 player.shoppingList = false;
                 player.beer = 3;
                 player.food = 8;
-                
+                timeControllerScript.AddHoursToTime(1.5);
+
             }
             else
             {
@@ -86,11 +90,11 @@ public class Gateway : MonoBehaviour, IInteractable
                 
 
             }
-            
-            interactionPrompt.gameObject.SetActive(true);
+                interactionPrompt.gameObject.SetActive(true);
                 Time.timeScale = 1;
-                option21.onClick.RemoveAllListeners();
+            RemoveListeners();
             });
+
         option22.onClick.AddListener(() => {
             panel.SetActive(false);
             if (player.doctor == true)
@@ -98,6 +102,7 @@ public class Gateway : MonoBehaviour, IInteractable
                 Debug.Log("Go to the drugstore");
                 player.doctor = false;
                 player.TakeDamage(10);
+                timeControllerScript.AddHoursToTime(0.75);
             }
             else
             {
@@ -105,27 +110,31 @@ public class Gateway : MonoBehaviour, IInteractable
                 errorPrompt.gameObject.SetActive(true);
                 errorPromptText.text = "go to the doctor first";
                 counter = 500;
-
             }
             player.TakeDamage(10);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option22.onClick.RemoveAllListeners(); });
+            RemoveListeners(); });
+
         option23.onClick.AddListener(() => {
             Debug.Log("Meet with firends");
             panel.SetActive(false);
             player.TakeDamage(20);
+            timeControllerScript.AddHoursToTime(3);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option23.onClick.RemoveAllListeners(); });
+            RemoveListeners(); });
+
         option32.onClick.AddListener(() => {
             Debug.Log("Go to the doctor");
+            timeControllerScript.AddHoursToTime(3);
             player.doctor = true;
             panel.SetActive(false);
             player.Heal(50);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            option32.onClick.RemoveAllListeners(); });
+            RemoveListeners(); });
+
         return true;
     }
 
@@ -140,6 +149,17 @@ public class Gateway : MonoBehaviour, IInteractable
             errorPrompt.gameObject.SetActive(false);
             counter = -1;
         }
+    }
+    void RemoveListeners() {
+        option11.onClick.RemoveAllListeners();
+        option12.onClick.RemoveAllListeners();
+        option13.onClick.RemoveAllListeners();
+        option21.onClick.RemoveAllListeners();
+        option22.onClick.RemoveAllListeners();
+        option23.onClick.RemoveAllListeners();
+        option31.onClick.RemoveAllListeners();
+        option32.onClick.RemoveAllListeners();
+        option33.onClick.RemoveAllListeners();
     }
 
 }

@@ -27,6 +27,9 @@ public class TVUnit : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
+        GameObject timeController = GameObject.Find("TimeController");
+        TimeController timeControllerScript = timeController.GetComponent<TimeController>();
+
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option12.gameObject.SetActive(false);
@@ -45,10 +48,50 @@ public class TVUnit : MonoBehaviour, IInteractable
         option13Text.text = "Some Turkish series";
         option31Text.text = "The colors of happiness";
         option33Text.text = "Eurosport";
-        option11.onClick.AddListener(() => { Debug.Log("Watching News"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option11.onClick.RemoveAllListeners(); });
-        option13.onClick.AddListener(() => { Debug.Log("Watching Some Turkish series"); panel.SetActive(false); player.Heal(20); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option13.onClick.RemoveAllListeners(); });
-        option31.onClick.AddListener(() => { Debug.Log("Watching The colors of happiness"); panel.SetActive(false); player.Heal(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option31.onClick.RemoveAllListeners(); });
-        option33.onClick.AddListener(() => { Debug.Log("Watching Eurosport"); panel.SetActive(false); player.TakeDamage(10); interactionPrompt.gameObject.SetActive(true); Time.timeScale = 1; option33.onClick.RemoveAllListeners(); });
+        option11.onClick.AddListener(() => { 
+            Debug.Log("Watching News"); 
+            panel.SetActive(false);
+            player.TakeDamage(10);
+            timeControllerScript.AddHoursToTime(0.3);
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            RemoveListeners(); });
+        option13.onClick.AddListener(() => { 
+            Debug.Log("Watching Some Turkish series"); 
+            panel.SetActive(false); player.Heal(20);
+            timeControllerScript.AddHoursToTime(0.7);
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            RemoveListeners(); });
+        option31.onClick.AddListener(() => { 
+            Debug.Log("Watching The colors of happiness"); 
+            panel.SetActive(false); 
+            player.Heal(10);
+            timeControllerScript.AddHoursToTime(0.6);
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            RemoveListeners(); });
+        option33.onClick.AddListener(() => { 
+            Debug.Log("Watching Eurosport");
+            panel.SetActive(false);
+            timeControllerScript.AddHoursToTime(1.2);
+            player.TakeDamage(10); 
+            interactionPrompt.gameObject.SetActive(true); 
+            Time.timeScale = 1;
+            RemoveListeners(); });
         return true;
+    }
+
+    void RemoveListeners()
+    {
+        option11.onClick.RemoveAllListeners();
+        option12.onClick.RemoveAllListeners();
+        option13.onClick.RemoveAllListeners();
+        option21.onClick.RemoveAllListeners();
+        option22.onClick.RemoveAllListeners();
+        option23.onClick.RemoveAllListeners();
+        option31.onClick.RemoveAllListeners();
+        option32.onClick.RemoveAllListeners();
+        option33.onClick.RemoveAllListeners();
     }
 }

@@ -92,7 +92,7 @@ public class Fireplace : MonoBehaviour, IInteractable
                 counter = 500;
             }
             timeControllerScript.AddHoursToTime(0.5);
-            interactionPrompt.gameObject.SetActive(false);
+            interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
         });

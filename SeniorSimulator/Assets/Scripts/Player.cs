@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     //FRIDGE
     public bool shoppingList = false;
     public int beer = 2;
-    public int food = 10;
+    public int food = 6;
     void Start()
     {
         

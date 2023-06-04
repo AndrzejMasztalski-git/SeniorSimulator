@@ -135,6 +135,7 @@ public class Kitchen : MonoBehaviour, IInteractable
         option33.onClick.AddListener(() =>
         {
             Debug.Log("Make a shopping list!");
+            player.shoppingList = true;
             panel.SetActive(false);
             player.IncreaseWellBeing(5);
             interactionPrompt.gameObject.SetActive(true);

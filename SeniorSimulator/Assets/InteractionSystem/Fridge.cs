@@ -23,6 +23,10 @@ public class Fridge : MonoBehaviour, IInteractable
     public Text option22Text;
     public Text option32Text;
     public Player player;
+
+    public Image errorPrompt;
+    public Text errorPromptText;
+    public int counter = -1;
     public bool Interact(Interactor interactor)
     {
         interactionPrompt.gameObject.SetActive(false);
@@ -50,22 +54,55 @@ public class Fridge : MonoBehaviour, IInteractable
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners();
             });
-        option22.onClick.AddListener(() => { 
-            Debug.Log("Eating something"); 
-            panel.SetActive(false); 
-            player.Heal(5); 
+        option22.onClick.AddListener(() => {
+            panel.SetActive(false);
+            if (player.food > 0)
+            {
+                Debug.Log("Eating something");
+                player.food--;
+                player.Heal(5);
+            }
+            else
+            {
+                Debug.Log("Error Eating something");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "No food in the fridge!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1; 
             option22.onClick.RemoveAllListeners(); });
         option32.onClick.AddListener(() => { 
-            Debug.Log("Drinking beer"); 
-            panel.SetActive(false); 
-            player.TakeDamage(10); 
-            player.IncreaseWellBeing(10); 
+            panel.SetActive(false);
+            if (player.beer > 0)
+            {
+                Debug.Log("Drinking beer");
+                player.beer--;
+                player.TakeDamage(10);
+                player.IncreaseWellBeing(10);
+            }
+            else
+            {
+                Debug.Log("Error Drinking beer");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "No beer in the fridge!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1; 
             option32.onClick.RemoveAllListeners(); });
         return true;
         
+    }
+    void Update()
+    {
+        if (counter > 0)
+        {
+            counter--;
+        }
+        else if (counter == 0)
+        {
+            errorPrompt.gameObject.SetActive(false);
+        }
     }
 }

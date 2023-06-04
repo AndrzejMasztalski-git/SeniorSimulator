@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class Gateway : MonoBehaviour, IInteractable
 {
@@ -28,11 +29,16 @@ public class Gateway : MonoBehaviour, IInteractable
     public Text option23Text;
     public Text option32Text;
     public Player player;
-    private int counter = -1; 
+    private int counter = -1;
+
     
 
+    
     public bool Interact(Interactor interactor)
     {
+        GameObject timeController = GameObject.Find("TimeController");
+        TimeController timeControllerScript = timeController.GetComponent<TimeController>();
+
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(false);
@@ -56,6 +62,7 @@ public class Gateway : MonoBehaviour, IInteractable
             Debug.Log("Go to the Church");
             panel.SetActive(false);
             player.Heal(20);
+            timeControllerScript.AddHoursToTime(2.0);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             option12.onClick.RemoveAllListeners(); });
@@ -68,6 +75,7 @@ public class Gateway : MonoBehaviour, IInteractable
                 player.shoppingList = false;
                 player.beer = 3;
                 player.food = 8;
+                
             }
             else
             {
@@ -75,9 +83,11 @@ public class Gateway : MonoBehaviour, IInteractable
                 errorPrompt.gameObject.SetActive(true);
                 errorPromptText.text = "do shopping list first";
                 counter = 500;
+                
 
             }
-                interactionPrompt.gameObject.SetActive(true);
+            
+            interactionPrompt.gameObject.SetActive(true);
                 Time.timeScale = 1;
                 option21.onClick.RemoveAllListeners();
             });
@@ -118,6 +128,8 @@ public class Gateway : MonoBehaviour, IInteractable
             option32.onClick.RemoveAllListeners(); });
         return true;
     }
+
+    
     void Update() {
         if (counter > 0)
         {

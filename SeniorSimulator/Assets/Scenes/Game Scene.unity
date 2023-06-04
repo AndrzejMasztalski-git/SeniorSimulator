@@ -166,7 +166,7 @@ MonoBehaviour:
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153964}
-  timeController: {fileID: 0}
+  timeController: {fileID: 2033604297}
 --- !u!1 &10030180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4310,7 +4310,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 9.1835e-41, z: 1.8e-43, w: 1.7786928e-38}
+  m_BoundingSphereOverride: {x: 2.4810396e+27, y: 7.1518455e+22, z: 1.6634185e+22, w: 1.6632139e+22}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -38404,6 +38404,7 @@ MonoBehaviour:
   healthBar: {fileID: 909447938}
   campfire: 0
   shoppingList: 0
+  doctor: 0
   beer: 2
   food: 10
 --- !u!114 &1456153965

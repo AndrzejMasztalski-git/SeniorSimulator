@@ -43,7 +43,7 @@ public class TimeController : MonoBehaviour
     private float maxMoonLightIntensity;
 
     [SerializeField]
-    public DateTime currentTime;
+    private DateTime currentTime;
 
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
@@ -69,6 +69,15 @@ public class TimeController : MonoBehaviour
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
 
         if(timeText != null)
+        {
+            timeText.text = currentTime.ToString("HH:mm");
+        }
+    }
+
+    public void AddHoursToTime(double time)
+    {
+        currentTime = currentTime.AddHours(time);
+        if (timeText != null)
         {
             timeText.text = currentTime.ToString("HH:mm");
         }

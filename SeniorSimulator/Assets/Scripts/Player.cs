@@ -14,10 +14,10 @@ public class Player : MonoBehaviour
     public int maxHunger = 100;
     public int currentHunger;
 
-    
+    public HealthBar healthBar;
     public int maxHealth = 100;
     public int currentHealth;
-    public HealthBar healthBar;
+    
     public bool campfire = false;
 
     //FRIDGE

@@ -38,6 +38,8 @@ public class Kitchen : MonoBehaviour, IInteractable
         GameObject timeController = GameObject.Find("TimeController");
         TimeController timeControllerScript = timeController.GetComponent<TimeController>();
 
+        int acceptable_dirt = 8;
+
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(true);
@@ -65,9 +67,10 @@ public class Kitchen : MonoBehaviour, IInteractable
         {
             Debug.Log("Clean kitchen!");
             panel.SetActive(false);
-            player.IncreaseWellBeing(20);
+            player.IncreaseWellBeing(10);
             player.TakeDamage(10);
             timeControllerScript.AddHoursToTime(0.5);
+            player.dirt = 0;
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
@@ -77,11 +80,21 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.food > 1)
             {
-                Debug.Log("Bake cake!");
-                player.food -= 2;
-                player.IncreaseWellBeing(10);
-                player.Heal(5);
-                timeControllerScript.AddHoursToTime(1.5);
+                if (player.dirt < acceptable_dirt)
+                {
+                    Debug.Log("Bake cake!");
+                    player.food -= 2;
+                    player.IncreaseWellBeing(10);
+                    player.Heal(5);
+                    player.dirt += 2;
+                    timeControllerScript.AddHoursToTime(1.5);
+                }
+                else {
+                    Debug.Log("Error Bake cake");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "Kitchen is dirty!";
+                    counter = 500;
+                }
             }
             else
             {
@@ -97,11 +110,21 @@ public class Kitchen : MonoBehaviour, IInteractable
         });
         option13.onClick.AddListener(() =>
         {
-            Debug.Log("Make drums out of pots!");
             panel.SetActive(false);
-            player.TakeDamage(10);
-            player.IncreaseWellBeing(10);
-            timeControllerScript.AddHoursToTime(0.5);
+            if (player.dirt < acceptable_dirt)
+            {
+                Debug.Log("Make drums out of pots!");
+                player.TakeDamage(10);
+                player.IncreaseWellBeing(10);
+                timeControllerScript.AddHoursToTime(0.5);
+            }
+            else
+            {
+                Debug.Log("Error Make drums out of pots");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "Kitchen is dirty!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
@@ -111,10 +134,21 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.food > 0)
             {
-                Debug.Log("Make popcorn!");
-                player.food -= 1;
-                player.IncreaseWellBeing(10);
-                timeControllerScript.AddHoursToTime(0.2);
+                if (player.dirt < acceptable_dirt)
+                {
+                    Debug.Log("Make popcorn!");
+                    player.food -= 1;
+                    player.IncreaseWellBeing(10);
+                    player.dirt += 1;
+                    timeControllerScript.AddHoursToTime(0.2);
+                }
+                else
+                {
+                    Debug.Log("Error Make popcorn!");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "Kitchen is dirty!";
+                    counter = 500;
+                }
             }
             else
             {
@@ -130,11 +164,22 @@ public class Kitchen : MonoBehaviour, IInteractable
         });
         option22.onClick.AddListener(() =>
         {
-            Debug.Log("Pretend you're cooking!");
             panel.SetActive(false);
-            player.TakeDamage(5);
-            player.IncreaseWellBeing(10);
-            timeControllerScript.AddHoursToTime(0.5);
+            if (player.dirt < acceptable_dirt)
+            {
+                Debug.Log("Pretend you're cooking!");
+                player.TakeDamage(5);
+                player.IncreaseWellBeing(10);
+                timeControllerScript.AddHoursToTime(0.5);
+                player.dirt += 1;
+            }
+            else
+            {
+                Debug.Log("Error Pretend you're cooking!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "Kitchen is dirty!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
@@ -144,10 +189,21 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.food > 2)
             {
-                Debug.Log("Pretend you're in masterchef!");
-                player.food -= 3;
-                player.IncreaseWellBeing(10);
-                timeControllerScript.AddHoursToTime(1);
+                if (player.dirt < acceptable_dirt)
+                {
+                    Debug.Log("Pretend you're in masterchef!");
+                    player.food -= 3;
+                    player.dirt += 3;
+                    player.IncreaseWellBeing(10);
+                    timeControllerScript.AddHoursToTime(1);
+                }
+                else
+                {
+                    Debug.Log("Error Pretend you're in masterchef!");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "Kitchen is dirty!";
+                    counter = 500;
+                }
             }
             else
             {
@@ -166,11 +222,22 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.food > 0)
             {
-                Debug.Log("Make sandwiches and talk like Mak³owicz!");
-                player.food -= 1;
-                player.Heal(5);
-                player.IncreaseWellBeing(5);
-                timeControllerScript.AddHoursToTime(0.5);
+                if (player.dirt < acceptable_dirt)
+                {
+                    Debug.Log("Make sandwiches and talk like Mak³owicz!");
+                    player.food -= 1;
+                    player.Heal(5);
+                    player.IncreaseWellBeing(5);
+                    player.dirt += 1;
+                    timeControllerScript.AddHoursToTime(0.5);
+                }
+                else
+                {
+                    Debug.Log("Error Make sandwiches and talk like Mak³owicz!");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "Kitchen is dirty!";
+                    counter = 500;
+                }
             }
             else
             {
@@ -189,11 +256,22 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.food > 1)
             {
-                Debug.Log("Just prepare a meal!");
-                player.food -= 2;
-                player.Heal(5);
-                player.IncreaseWellBeing(5);
-                timeControllerScript.AddHoursToTime(1);
+                if (player.dirt < acceptable_dirt)
+                {
+                    Debug.Log("Just prepare a meal!");
+                    player.food -= 2;
+                    player.dirt += 2;
+                    player.Heal(5);
+                    player.IncreaseWellBeing(5);
+                    timeControllerScript.AddHoursToTime(1);
+                }
+                else
+                {
+                    Debug.Log("Error Just prepare a meal!");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "Kitchen is dirty!";
+                    counter = 500;
+                }
             }
             else
             {
@@ -208,10 +286,20 @@ public class Kitchen : MonoBehaviour, IInteractable
         });
         option33.onClick.AddListener(() =>
         {
-            Debug.Log("Make a shopping list!");
-            player.shoppingList = true;
             panel.SetActive(false);
-            timeControllerScript.AddHoursToTime(0.5);
+            if (player.dirt < acceptable_dirt)
+            {
+                Debug.Log("Make a shopping list!");
+                player.shoppingList = true;
+                timeControllerScript.AddHoursToTime(0.5);
+            }
+            else
+            {
+                Debug.Log("Error Make a shopping list!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "Kitchen is dirty!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();

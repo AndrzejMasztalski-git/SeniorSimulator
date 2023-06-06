@@ -51,15 +51,23 @@ public class Bed : MonoBehaviour, IInteractable
             panel.SetActive(false);
             player.Heal(100);
             timeControllerScript.AddHoursToTime(8);
+            player.church = false;
+            player.doctor_visit = false;
+            player.nap = false;
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
+
         });
         option22.onClick.AddListener(() => {
-            Debug.Log("Take a nap");
-            panel.SetActive(false);
-            player.Heal(30);
-            timeControllerScript.AddHoursToTime(3);
+            if (player.nap == false)
+            {
+                Debug.Log("Take a nap");
+                panel.SetActive(false);
+                player.Heal(30);
+                timeControllerScript.AddHoursToTime(1);
+                player.nap = true;
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();

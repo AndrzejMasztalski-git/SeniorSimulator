@@ -63,9 +63,19 @@ public class Gateway : MonoBehaviour, IInteractable
         option12.onClick.AddListener(() => {
             if ((h >= 6 && h <= 10) || (h >= 16 && h <= 19))
             {
-                Debug.Log("Go to the Church");
-                player.Heal(20);
-                timeControllerScript.AddHoursToTime(2.0);
+                if (player.church == false)
+                {
+                    Debug.Log("Go to the Church");
+                    player.Heal(20);
+                    timeControllerScript.AddHoursToTime(2.0);
+                }
+                else
+                {
+                    Debug.Log("Error Go to the Church");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "You were in the church today!";
+                    counter = 500;
+                }
             }
             else {
                 Debug.Log("Error Go to the Church");
@@ -112,12 +122,12 @@ public class Gateway : MonoBehaviour, IInteractable
             });
 
         option22.onClick.AddListener(() => {
-            if (player.doctor == true)
+            if (player.doctor_drugstore == true)
             {
                 if (h >= 6 && h <= 22)
                 {
                     Debug.Log("Go to the drugstore");
-                    player.doctor = false;
+                    player.doctor_drugstore = false;
                     player.TakeDamage(10);
                     timeControllerScript.AddHoursToTime(0.75);
                 }
@@ -165,10 +175,21 @@ public class Gateway : MonoBehaviour, IInteractable
         option32.onClick.AddListener(() => {
         if (h >= 10 && h <= 18)
         {
-            Debug.Log("Go to the doctor");
-            timeControllerScript.AddHoursToTime(3);
-            player.doctor = true;
-            player.Heal(50);
+                if (player.doctor_visit == false)
+                {
+                    Debug.Log("Go to the doctor");
+                    timeControllerScript.AddHoursToTime(3);
+                    player.doctor_drugstore = true;
+                    player.doctor_visit = true;
+                    player.Heal(50);
+                }
+                else
+                {
+                    Debug.Log("Error Go to the doctor");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "You already went to the doctor today!";
+                    counter = 500;
+                }
             }
             else
             {

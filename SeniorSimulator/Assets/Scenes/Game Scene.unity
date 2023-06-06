@@ -5807,7 +5807,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29050
+  m_Name: pb_Mesh29102
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38401,14 +38401,21 @@ MonoBehaviour:
   wellBeingBar: {fileID: 320306512}
   maxWellBeing: 100
   currentWellBeing: 0
+  hungerBar: {fileID: 0}
+  maxHunger: 100
+  currentHunger: 0
+  healthBar: {fileID: 909447938}
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 909447938}
   campfire: 0
   shoppingList: 0
-  doctor: 0
+  doctor_drugstore: 0
   beer: 2
   food: 10
+  church: 0
+  doctor_visit: 0
+  nap: 0
+  dirt: 0
 --- !u!114 &1456153965
 MonoBehaviour:
   m_ObjectHideFlags: 0

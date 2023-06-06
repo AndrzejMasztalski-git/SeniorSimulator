@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -22,14 +24,25 @@ public class Player : MonoBehaviour
 
     //FRIDGE
     public bool shoppingList = false;
-    public bool doctor = false;
+    public bool doctor_drugstore = false;
     public int beer = 2;
     public int food = 6;
+    //GATEWAY
+    public bool church = false;
+    public bool doctor_visit = false;
+    //BED
+    public DateTime lastTimeWokeUp;
+    public bool nap = false;
+    //KITCHEN
+    public int dirt = 0;
+    
+
     void Start()
     {
+        lastTimeWokeUp = DateTime.Now.Date + TimeSpan.FromHours(5);
+        Debug.Log(lastTimeWokeUp.ToString("MM/dd/yyyy HH:mm:ss"));
         currentHunger = maxHunger;
         hungerBar.SetMaxHunger(maxHunger);
-
 
         currentWellBeing = maxWellBeing;
         wellBeingBar.SetMaxWellBeing(maxWellBeing);

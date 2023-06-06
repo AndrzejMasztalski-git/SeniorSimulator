@@ -42,40 +42,40 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float speed = 0;
-        Vector3 inputDir = new Vector3(input.move.x, 0, input.move.y);
-        float targetRotation = 0;
-        if (input.move != Vector2.zero)
-        {
-            speed = moveSpeed;
-            targetRotation = Quaternion.LookRotation(inputDir).eulerAngles.y + mainCam.transform.rotation.eulerAngles.y;
-            Quaternion rotation = Quaternion.Euler(0, targetRotation, 0);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 20 * Time.deltaTime);
-        }
-        animator.SetFloat("speedPercent", input.move.magnitude);
-        Vector3 targetDirection = Quaternion.Euler(0, targetRotation, 0) * Vector3.forward;
-        controller.Move(targetDirection * speed * Time.deltaTime);
+        //float speed = 0;
+        //Vector3 inputDir = new Vector3(input.move.x, 0, input.move.y);
+        //float targetRotation = 0;
+        //if (input.move != Vector2.zero)
+        //{
+        //    speed = moveSpeed;
+        //    targetRotation = Quaternion.LookRotation(inputDir).eulerAngles.y + mainCam.transform.rotation.eulerAngles.y;
+        //    Quaternion rotation = Quaternion.Euler(0, targetRotation, 0);
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 20 * Time.deltaTime);
+        //}
+        //animator.SetFloat("speedPercent", input.move.magnitude);
+        //Vector3 targetDirection = Quaternion.Euler(0, targetRotation, 0) * Vector3.forward;
+        //controller.Move(targetDirection * speed * Time.deltaTime);
 
 
         // Poruszanie siê, walk i run, smooth animacje i obrót, ale nie dziala z reszt¹, Andrzej bedziesz podtrzebny:
 
-        //Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        //Vector2 inputDir = input.normalized;
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 inputDir = input.normalized;
 
-        //if (inputDir != Vector2.zero)
-        //{
-        //    float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
-        //    transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmootTime);
-        //}
+        if (inputDir != Vector2.zero)
+        {
+            float targetRotation = Quaternion.LookRotation(inputDir).eulerAngles.y + mainCam.transform.rotation.eulerAngles.y; //Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
+            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmootTime);
+        }
 
-        //bool running = Input.GetKey(KeyCode.LeftShift);
-        //float targetSpeed = ((running) ? runSpeed : walkSpeed) * inputDir.magnitude;
-        //currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
-        //transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);
+        bool running = Input.GetKey(KeyCode.LeftShift);
+        float targetSpeed = ((running) ? runSpeed : walkSpeed) * inputDir.magnitude;
+        currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
+        transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);
 
-        //float animationSpeedPercent = ((running) ? 1 : .5f) * inputDir.magnitude;
+        float animationSpeedPercent = ((running) ? 1 : .5f) * inputDir.magnitude;
 
-        //animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+        animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
 
     }
 

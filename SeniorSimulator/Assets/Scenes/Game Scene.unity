@@ -4311,7 +4311,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.4810396e+27, y: 7.1518455e+22, z: 1.6634185e+22, w: 1.6632139e+22}
+  m_BoundingSphereOverride: {x: 0, y: 9.1835e-41, z: 1.8e-43, w: -2.8221157e-29}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -38351,7 +38351,7 @@ MonoBehaviour:
   mainCam: {fileID: 963194225}
   cameraFollowTarget: {fileID: 736252256}
   mouseSensitivity: 0.1
-  walkSpeed: 2
+  walkSpeed: 4
   runSpeed: 6
   turnSmootTime: 0.2
   speedSmoothTime: 0.1

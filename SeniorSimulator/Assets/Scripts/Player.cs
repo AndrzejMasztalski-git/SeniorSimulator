@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     public WellBeingBar wellBeingBar;
     public int maxWellBeing = 100;
     public int currentWellBeing;
+    
+    public HungerBar hungerBar;
+    public int maxHunger = 100;
+    public int currentHunger;
 
     
     public int maxHealth = 100;
@@ -23,7 +27,8 @@ public class Player : MonoBehaviour
     public int food = 6;
     void Start()
     {
-        
+        currentHunger = maxHunger;
+        hungerBar.SetMaxHunger(maxHunger);
 
 
         currentWellBeing = maxWellBeing;
@@ -92,5 +97,32 @@ public class Player : MonoBehaviour
             wellBeingBar.SetWellBeing(currentWellBeing);
         }
         
+    }
+
+    public void DecreaseHunger(int amountToDecrease)
+    {
+        currentHunger -= amountToDecrease;
+        if (currentHunger < 0)
+        {
+            currentHunger = 0;
+        }
+        else
+        {
+            hungerBar.SetHunger(currentHunger);
+        }
+    }
+
+    public void IncreaseHunger(int amountToIncrease)
+    {
+        currentHunger += amountToIncrease;
+        if (currentHunger > 100)
+        {
+            currentHunger = 100;
+        }
+        else
+        {
+            hungerBar.SetHunger(currentHunger);
+        }
+
     }
 }

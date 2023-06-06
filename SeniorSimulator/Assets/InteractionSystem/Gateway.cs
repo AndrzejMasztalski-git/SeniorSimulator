@@ -38,7 +38,7 @@ public class Gateway : MonoBehaviour, IInteractable
     {
         GameObject timeController = GameObject.Find("TimeController");
         TimeController timeControllerScript = timeController.GetComponent<TimeController>();
-
+        int h = timeControllerScript.GetHour();
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(false);
@@ -61,10 +61,19 @@ public class Gateway : MonoBehaviour, IInteractable
         option32Text.text = "Go to the doctor";
 
         option12.onClick.AddListener(() => {
-            Debug.Log("Go to the Church");
+            if ((h >= 6 && h <= 10) || (h >= 16 && h <= 19))
+            {
+                Debug.Log("Go to the Church");
+                player.Heal(20);
+                timeControllerScript.AddHoursToTime(2.0);
+            }
+            else {
+                Debug.Log("Error Go to the Church");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "There is no Holy Mass now!";
+                counter = 500;
+            }
             panel.SetActive(false);
-            player.Heal(20);
-            timeControllerScript.AddHoursToTime(2.0);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners(); });
@@ -73,13 +82,22 @@ public class Gateway : MonoBehaviour, IInteractable
             Debug.Log("Go to the grocery shop");
             panel.SetActive(false);
             if (player.shoppingList == true) {
-                Debug.Log("Go to the grocery shop");
-                player.TakeDamage(20);
-                player.shoppingList = false;
-                player.beer = 3;
-                player.food = 8;
-                timeControllerScript.AddHoursToTime(1.5);
-
+                if (h >= 6 && h <= 22)
+                {
+                    Debug.Log("Go to the grocery shop");
+                    player.TakeDamage(20);
+                    player.shoppingList = false;
+                    player.beer = 3;
+                    player.food = 8;
+                    timeControllerScript.AddHoursToTime(1.5);
+                }
+                else
+                {
+                    Debug.Log("Error Go to the grocery shop");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "Shop is closed now!";
+                    counter = 500;
+                }
             }
             else
             {
@@ -87,8 +105,6 @@ public class Gateway : MonoBehaviour, IInteractable
                 errorPrompt.gameObject.SetActive(true);
                 errorPromptText.text = "do shopping list first";
                 counter = 500;
-                
-
             }
                 interactionPrompt.gameObject.SetActive(true);
                 Time.timeScale = 1;
@@ -96,13 +112,22 @@ public class Gateway : MonoBehaviour, IInteractable
             });
 
         option22.onClick.AddListener(() => {
-            panel.SetActive(false);
             if (player.doctor == true)
             {
-                Debug.Log("Go to the drugstore");
-                player.doctor = false;
-                player.TakeDamage(10);
-                timeControllerScript.AddHoursToTime(0.75);
+                if (h >= 6 && h <= 22)
+                {
+                    Debug.Log("Go to the drugstore");
+                    player.doctor = false;
+                    player.TakeDamage(10);
+                    timeControllerScript.AddHoursToTime(0.75);
+                }
+                else
+                {
+                    Debug.Log("Error Go to the drugstore");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "Drug store is closed now!";
+                    counter = 500;
+                }
             }
             else
             {
@@ -111,26 +136,48 @@ public class Gateway : MonoBehaviour, IInteractable
                 errorPromptText.text = "go to the doctor first";
                 counter = 500;
             }
+            panel.SetActive(false);
             player.TakeDamage(10);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners(); });
 
         option23.onClick.AddListener(() => {
+        if (h >= 10 && h <= 18)
+        {
             Debug.Log("Meet with firends");
-            panel.SetActive(false);
             player.TakeDamage(20);
             timeControllerScript.AddHoursToTime(3);
+        }
+        else
+        {
+                Debug.Log("Error Meet with firends");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "No friends avalilable right now!";
+                counter = 500;
+            }
+            panel.SetActive(false);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
-            RemoveListeners(); });
+            RemoveListeners(); 
+        });
 
         option32.onClick.AddListener(() => {
+        if (h >= 10 && h <= 18)
+        {
             Debug.Log("Go to the doctor");
             timeControllerScript.AddHoursToTime(3);
             player.doctor = true;
-            panel.SetActive(false);
             player.Heal(50);
+            }
+            else
+            {
+                Debug.Log("Error Go to the doctor");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "Doctor is not available at this time!";
+                counter = 500;
+            }
+            panel.SetActive(false);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners(); });

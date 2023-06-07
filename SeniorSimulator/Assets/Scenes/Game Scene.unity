@@ -158,14 +158,14 @@ MonoBehaviour:
   option33: {fileID: 589928571}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
-  errorPrompt: {fileID: 0}
-  errorPromptText: {fileID: 0}
+  errorPrompt: {fileID: 374676540}
+  errorPromptText: {fileID: 2141491286}
   option12Text: {fileID: 1720674292}
   option21Text: {fileID: 63801855}
   option22Text: {fileID: 622493067}
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
-  player: {fileID: 0}
+  player: {fileID: 1456153967}
 --- !u!1 &10030180
 GameObject:
   m_ObjectHideFlags: 0

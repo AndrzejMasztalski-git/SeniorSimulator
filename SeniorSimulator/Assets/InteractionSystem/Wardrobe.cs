@@ -25,6 +25,9 @@ public class Wardrobe : MonoBehaviour, IInteractable
     public Text option23Text;
     public Text option32Text;
     public Player player;
+    public Image errorPrompt;
+    public Text errorPromptText;
+    public int counter = -1;
 
     public bool Interact(Interactor interactor)
     {
@@ -50,19 +53,41 @@ public class Wardrobe : MonoBehaviour, IInteractable
         option22Text.text = "Hide in the closet from your partner";
         option23Text.text = "Clean up in the closet";
         option32Text.text = "Try on clothes";
-        option12.onClick.AddListener(() => { 
-            Debug.Log("Put on pajamas"); 
-            panel.SetActive(false); 
-            player.IncreaseWellBeing(10);
-            timeControllerScript.AddHoursToTime(0.15);
+        option12.onClick.AddListener(() => {
+            panel.SetActive(false);
+            if (player.pajamas == false)
+            {
+                Debug.Log("Put on pajamas");
+                player.IncreaseWellBeing(10);
+                timeControllerScript.AddHoursToTime(0.15);
+                player.pajamas = true;
+            }
+            else
+            {
+                Debug.Log("Error Put on pajamas!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "You already have pajamas on!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option21.onClick.AddListener(() => { 
-            Debug.Log("Wear clean clothes"); 
-            panel.SetActive(false); 
-            player.IncreaseWellBeing(10);
-            timeControllerScript.AddHoursToTime(0.15);
+        option21.onClick.AddListener(() => {
+            panel.SetActive(false);
+            if (player.clean_cloaths > 0)
+            {
+                Debug.Log("Wear clean clothes");
+                player.IncreaseWellBeing(10);
+                timeControllerScript.AddHoursToTime(0.15);
+                player.clean_cloaths--;
+            }
+            else
+            {
+                Debug.Log("Error Wear clean clothes!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "You dont have clean cloaths!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });

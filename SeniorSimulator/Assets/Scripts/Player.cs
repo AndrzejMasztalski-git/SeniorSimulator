@@ -35,7 +35,11 @@ public class Player : MonoBehaviour
     public bool nap = false;
     //KITCHEN
     public int dirt = 0;
-    
+    //WARDROBE
+    public bool pajamas = false;
+    public int clean_cloaths = 3;
+
+
 
     void Start()
     {

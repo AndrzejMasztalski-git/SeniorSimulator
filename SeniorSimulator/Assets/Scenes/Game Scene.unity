@@ -4311,7 +4311,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -5.0663895e-33, y: -4.319212e-17, z: 0.00000018893384, w: 4.284328e-37}
+  m_BoundingSphereOverride: {x: 0, y: 3.4e-44, z: 0, w: 1.6803104e+29}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -5807,7 +5807,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29102
+  m_Name: pb_Mesh29246
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7076,6 +7076,9 @@ MonoBehaviour:
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153964}
+  errorPrompt: {fileID: 374676540}
+  errorPromptText: {fileID: 2141491286}
+  counter: -1
 --- !u!1 &1404057483
 GameObject:
   m_ObjectHideFlags: 0
@@ -38416,6 +38419,8 @@ MonoBehaviour:
   doctor_visit: 0
   nap: 0
   dirt: 0
+  pajamas: 0
+  clean_cloaths: 3
 --- !u!114 &1456153965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38639,6 +38644,8 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153964}
+  errorPrompt: {fileID: 374676540}
+  errorPromptText: {fileID: 2141491286}
 --- !u!65 &1475490679
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38810,6 +38817,8 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153964}
+  errorPrompt: {fileID: 374676540}
+  errorPromptText: {fileID: 2141491286}
 --- !u!1001 &1516270216
 PrefabInstance:
   m_ObjectHideFlags: 0

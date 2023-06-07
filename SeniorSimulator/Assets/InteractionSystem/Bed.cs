@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
+
 
 public class Bed : MonoBehaviour, IInteractable
 {
@@ -23,6 +26,9 @@ public class Bed : MonoBehaviour, IInteractable
     public Text option22Text;
     public Text option32Text;
     public Player player;
+    private int counter = -1;
+    public Image errorPrompt;
+    public Text errorPromptText;
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -47,13 +53,38 @@ public class Bed : MonoBehaviour, IInteractable
         option32Text.text = "Hanky-panky";
         option12.onClick.AddListener(() =>
         {
-            Debug.Log("Sleep!");
             panel.SetActive(false);
-            player.Heal(100);
-            timeControllerScript.AddHoursToTime(8);
-            player.church = false;
-            player.doctor_visit = false;
-            player.nap = false;
+            var diffOfDates = (DateTime.Now.Date + TimeSpan.FromHours(timeControllerScript.GetHour())) - player.lastTimeWokeUp;
+            Debug.Log(diffOfDates.Days + "  " + diffOfDates.Hours);
+            if (diffOfDates.Days > 0 || diffOfDates.Hours > 12)
+            {
+                if (player.pajamas == true)
+                {
+                    Debug.Log("Sleep!");
+                    player.Heal(100);
+                    timeControllerScript.AddHoursToTime(8);
+                    player.lastTimeWokeUp = DateTime.Now.Date + TimeSpan.FromHours(timeControllerScript.GetHour());
+                    player.church = false;
+                    player.doctor_visit = false;
+                    player.nap = false;
+                    player.pajamas = false;
+                    player.clean_cloaths++;
+                }
+                else
+                {
+                    Debug.Log("Error Sleep!");
+                    errorPrompt.gameObject.SetActive(true);
+                    errorPromptText.text = "Put on pajamas first";
+                    counter = 500;
+                }
+            }
+            else
+            {
+                Debug.Log("Error Sleep!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "You are not tired enough!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
@@ -64,20 +95,38 @@ public class Bed : MonoBehaviour, IInteractable
             {
                 Debug.Log("Take a nap");
                 panel.SetActive(false);
-                player.Heal(30);
-                timeControllerScript.AddHoursToTime(1);
+                player.Heal(40);
+                timeControllerScript.AddHoursToTime(1.5);
                 player.nap = true;
+            }
+            else
+            {
+                Debug.Log("Error Take a nap!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "You already took a nap!";
+                counter = 500;
             }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
         });
         option32.onClick.AddListener(() => {
-            Debug.Log("Hanky-panky");
             panel.SetActive(false);
-            player.TakeDamage(20);
-            player.IncreaseWellBeing(100);
-            timeControllerScript.AddHoursToTime(0.3);
+            System.Random r = new System.Random();
+            int rInt = r.Next(0, 10);
+            if (rInt > 6)
+            {
+                Debug.Log("Hanky-panky");
+                player.TakeDamage(20);
+                player.IncreaseWellBeing(100);
+                timeControllerScript.AddHoursToTime(0.3);
+            }
+            else {
+                Debug.Log("Error Hanky-panky!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "Your partner has an headache, but nice try!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
@@ -85,6 +134,20 @@ public class Bed : MonoBehaviour, IInteractable
         return true;
 
     }
+    
+    void Update()
+    {
+        if (counter > 0)
+        {
+            counter--;
+        }
+        else if (counter == 0)
+        {
+            errorPrompt.gameObject.SetActive(false);
+            counter = -1;
+        }
+    }
+
     void RemoveListeners()
     {
         option11.onClick.RemoveAllListeners();

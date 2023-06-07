@@ -51,7 +51,7 @@ public class Fridge : MonoBehaviour, IInteractable
         option22Text.text = "Eat something";
         option32Text.text = "Drink beer";
         option12.onClick.AddListener(() => 
-        { Debug.Log("Just open and look at food!"); 
+        {   Debug.Log("Just open and look at food!"); 
             panel.SetActive(false);
             player.DecreaseWellBeing(10);
             interactionPrompt.gameObject.SetActive(true); 

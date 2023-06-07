@@ -23,6 +23,9 @@ public class Sofa : MonoBehaviour, IInteractable
     public Text option22Text;
     public Text option32Text;
     public Player player;
+    private int counter = -1;
+    public Image errorPrompt;
+    public Text errorPromptText;
 
     public bool Interact(Interactor interactor)
     {
@@ -54,11 +57,21 @@ public class Sofa : MonoBehaviour, IInteractable
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option22.onClick.AddListener(() => { 
-            Debug.Log("Selected Take a nap");
+        option22.onClick.AddListener(() => {
             panel.SetActive(false);
-            timeControllerScript.AddHoursToTime(0.15);
-            player.Heal(40); 
+            if (player.nap == false) {
+                Debug.Log("Selected Take a nap");
+                timeControllerScript.AddHoursToTime(1);
+                player.Heal(30);
+                player.nap = true;
+            }
+            else
+            {
+                Debug.Log("Error Take a nap!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "You already took a nap!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
@@ -72,6 +85,20 @@ public class Sofa : MonoBehaviour, IInteractable
             RemoveListeners(); });
         return true;
     }
+
+    void Update()
+    {
+        if (counter > 0)
+        {
+            counter--;
+        }
+        else if (counter == 0)
+        {
+            errorPrompt.gameObject.SetActive(false);
+            counter = -1;
+        }
+    }
+
     void RemoveListeners()
     {
         option11.onClick.RemoveAllListeners();

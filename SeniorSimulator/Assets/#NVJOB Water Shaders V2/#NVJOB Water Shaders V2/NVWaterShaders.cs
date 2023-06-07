@@ -170,7 +170,11 @@ public class NVWaterShaders : MonoBehaviour
         reflectionCamera.transform.position = newpos;
         Vector3 euler = ccTransform.eulerAngles;
         reflectionCamera.transform.eulerAngles = new Vector3(0, euler.y, euler.z);
-        reflectionCamera.Render();
+        if (reflectionCamera.transform.eulerAngles != Vector3.zero)
+        {
+            reflectionCamera.Render();
+        }
+        //reflectionCamera.Render();
         reflectionCamera.transform.position = ccLastpos;
         GL.invertCulling = false;
         Material[] materials = thisRenderer.sharedMaterials;

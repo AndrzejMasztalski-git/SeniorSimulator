@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Rendering;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 4;
     private PlayerInputsManager input;
-    private CharacterController controller;
+    CharacterController controller;
     Animator animator;
 
     [SerializeField] GameObject mainCam;
@@ -24,12 +25,19 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 2;
     public float runSpeed = 6;
     public float turnSmootTime = 0.2f;
+    public float jumpHeight = 1;
+
+    [Range(0,1)]
+    public float airControlPercent;
+
     float turnSmoothVelocity;
     public float speedSmoothTime = 0.1f;
     float speedSmoothVelocity;
     float currentSpeed;
 
-
+    float gravity = -12f;
+    float velocityY;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +53,12 @@ public class PlayerController : MonoBehaviour
         float speed = 0;
         Vector3 inputDir = new Vector3(input.move.x, 0, input.move.y);
         float targetRotation = 0;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+
         if (input.move != Vector2.zero)
         {
             speed = moveSpeed;
@@ -52,34 +66,28 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, targetRotation, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 20 * Time.deltaTime);
         }
-        animator.SetFloat("speedPercent", input.move.magnitude);
-        Vector3 targetDirection = Quaternion.Euler(0, targetRotation, 0) * Vector3.forward;
-        controller.Move(targetDirection * speed * Time.deltaTime);
-        controller.Move(Physics.gravity * Time.deltaTime);
 
-
-        // Poruszanie siê, walk i run, smooth animacje i obrót, ale nie dziala z reszt¹, Andrzej bedziesz podtrzebny:
-
-        //Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        //Vector2 inputDir = input.normalized;
-
-        //if (inputDir != Vector2.zero)
-        //{
-        //    float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
-        //    transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmootTime);
-        //}
-
-        //bool running = Input.GetKey(KeyCode.LeftShift);
-        //float targetSpeed = ((running) ? runSpeed : walkSpeed) * inputDir.magnitude;
-        //currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
+        bool running = Input.GetKey(KeyCode.LeftShift);
+        float targetSpeed = ((running) ? runSpeed : walkSpeed) * inputDir.magnitude;
+        currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
         //transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);
 
-        //float animationSpeedPercent = ((running) ? 1 : .5f) * inputDir.magnitude;
+        velocityY += Time.deltaTime * gravity;
+        Vector3 velocity = transform.forward * currentSpeed + Vector3.up * velocityY;
 
-        //animator.SetFloat("speedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime);
+        currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
+        if (controller.isGrounded)
+        {
+            velocityY = 0;
+        }
+
+
+        float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
+        animator.SetFloat("speedPercent",animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+        
 
     }
-
     private void LateUpdate()
     {
         CameraRotation();
@@ -94,4 +102,14 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(-xRotation, yRotation, 0);
         cameraFollowTarget.rotation = rotation;
     }
+
+    void Jump()
+    {
+        if (controller.isGrounded)
+        {
+            float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
+            velocityY = jumpVelocity;
+        }
+    }
+
 }

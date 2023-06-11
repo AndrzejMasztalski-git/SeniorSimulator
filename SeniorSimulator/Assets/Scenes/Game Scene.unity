@@ -1015,7 +1015,7 @@ Transform:
   - {fileID: 3264414}
   - {fileID: 1329095831}
   - {fileID: 565425270}
-  - {fileID: 1059077149}
+  - {fileID: 8365268517376698289}
   - {fileID: 586732577}
   - {fileID: 454001061}
   - {fileID: 600527932}
@@ -12254,11 +12254,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 26.69, y: 0.5, z: 0.12}
---- !u!4 &1059077149 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8365268518075061561, guid: 9aeadb44cad0aa546954bbfe5b07fdd2, type: 3}
-  m_PrefabInstance: {fileID: 1516270216}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1097615555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 572f90075d22989458042ce5de1e79fa, type: 3}
@@ -45173,8 +45168,8 @@ MonoBehaviour:
   player: {fileID: 1456153967}
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
---- !u!65 &1475490679
-BoxCollider:
+--- !u!64 &1475490682
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -45183,9 +45178,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.4647632, y: 0.9477247, z: 1.2514448}
-  m_Center: {x: 0.00000047683716, y: -0.07808133, z: 0.0000009536743}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4364764324764595311, guid: 02ad78cca7f19f843b49a2e580791919, type: 3}
 --- !u!1 &1502465817 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2982926897403094195, guid: 3ef71c61a4b7a584ab19647cf6f6946e, type: 3}
@@ -47346,6 +47342,7 @@ GameObject:
   - component: {fileID: 1704671534}
   - component: {fileID: 1704671533}
   - component: {fileID: 1704671535}
+  - component: {fileID: 1704671536}
   m_Layer: 8
   m_Name: Terrain
   m_TagString: Fridge
@@ -47411,10 +47408,21 @@ BoxCollider:
   m_GameObject: {fileID: 1704671531}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 130, y: 1, z: 200}
   m_Center: {x: 550, y: 1.7, z: 380}
+--- !u!154 &1704671536
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704671531}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 163e0efe29a6a0647a3b9214c9c008cb, type: 2}
+  m_EnableTreeColliders: 1
 --- !u!1 &1720674290
 GameObject:
   m_ObjectHideFlags: 0
@@ -50009,6 +50017,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!4 &8365268517376698289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8365268518075061561, guid: 9aeadb44cad0aa546954bbfe5b07fdd2, type: 3}
+  m_PrefabInstance: {fileID: 1516270216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8627769648725067380
 GameObject:
   m_ObjectHideFlags: 0

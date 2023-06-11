@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
@@ -37,7 +38,8 @@ public class PlayerController : MonoBehaviour
 
     float gravity = -12f;
     float velocityY;
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         float speed = 0;
         Vector3 inputDir = new Vector3(input.move.x, 0, input.move.y);
         float targetRotation = 0;
@@ -111,5 +114,6 @@ public class PlayerController : MonoBehaviour
             velocityY = jumpVelocity;
         }
     }
+
 
 }

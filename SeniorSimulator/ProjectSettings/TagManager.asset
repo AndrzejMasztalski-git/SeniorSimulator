@@ -7,6 +7,8 @@ TagManager:
   - InteractiveObject
   - ClosetDoor
   - Fridge
+  - Interactable
+  - PickableObject
   layers:
   - Default
   - TransparentFX

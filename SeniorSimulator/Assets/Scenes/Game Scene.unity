@@ -45853,8 +45853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a238db6af6dab84d969a0c84debfbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatCanIPickUp: {fileID: 919132147549414170}
-  playerRightHand: {fileID: 0}
 --- !u!1001 &1564863300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46588,13 +46586,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1640725389}
   - component: {fileID: 1640725390}
+  - component: {fileID: 1640725391}
   m_Layer: 0
   m_Name: LampLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1640725389
 Transform:
   m_ObjectHideFlags: 0
@@ -46672,6 +46671,20 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1640725391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640725388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b7dbe4f4998b74388d8dc28b86620f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Lamp
+  lamp: {fileID: 1640725388}
 --- !u!1 &1641313834
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,6 +29,7 @@ public class Bed : MonoBehaviour, IInteractable
     private int counter = -1;
     public Image errorPrompt;
     public Text errorPromptText;
+    
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");

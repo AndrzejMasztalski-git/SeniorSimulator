@@ -83,6 +83,7 @@ public class LaptopDesk : MonoBehaviour, IInteractable
                 Debug.Log("Selected Release CS2");
                 panel.SetActive(false);
                 player.IncreaseWellBeing(100);
+                player.cs = true;
                 timeControllerScript.AddHoursToTime(0.2);
             }
             else

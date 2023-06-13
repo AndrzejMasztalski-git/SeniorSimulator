@@ -80,7 +80,7 @@ public class Wardrobe : MonoBehaviour, IInteractable
             {
                 Debug.Log("Wear clean clothes");
                 player.Heal(0);
-                player.IncreaseHunger(0);
+                player.DecreaseHunger(0);
                 player.IncreaseWellBeing(5);
                 timeControllerScript.AddHoursToTime(0.15);
                 player.clean_cloaths--;
@@ -99,7 +99,7 @@ public class Wardrobe : MonoBehaviour, IInteractable
             Debug.Log("Hide in the closet from your partner"); 
             panel.SetActive(false);
             player.Heal(10);
-            player.IncreaseHunger(15);
+            player.DecreaseHunger(15);
             player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(1);
             interactionPrompt.gameObject.SetActive(true); 
@@ -109,7 +109,7 @@ public class Wardrobe : MonoBehaviour, IInteractable
             Debug.Log("Clean up in the closet");
             panel.SetActive(false);
             player.TakeDamage(5);
-            player.IncreaseHunger(5);
+            player.DecreaseHunger(5);
             player.IncreaseWellBeing(10);
             timeControllerScript.AddHoursToTime(0.4);
             interactionPrompt.gameObject.SetActive(true); 

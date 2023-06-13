@@ -161,7 +161,7 @@ public class Gateway : MonoBehaviour, IInteractable
         option23.onClick.AddListener(() => {
         if (h >= 10 && h <= 18)
         {
-            Debug.Log("Meet with firends");
+                Debug.Log("Meet with firends");
                 player.TakeDamage(15);
                 player.DecreaseHunger(10);
                 player.IncreaseWellBeing(30);

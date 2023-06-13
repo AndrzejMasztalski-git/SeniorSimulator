@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class LaptopDesk : MonoBehaviour, IInteractable
 {
@@ -25,6 +26,9 @@ public class LaptopDesk : MonoBehaviour, IInteractable
     public Text option23Text;
     public Text option32Text;
     public Player player;
+    public Image errorPrompt;
+    public Text errorPromptText;
+    public int counter = -1;
 
     public bool Interact(Interactor interactor)
     {
@@ -50,10 +54,16 @@ public class LaptopDesk : MonoBehaviour, IInteractable
         option22Text.text = "Release CS2";
         option23Text.text = "Write some code in ASM";
         option32Text.text = "Watch newest WK film";
+
+        System.Random r = new System.Random();
+        int rInt = r.Next(-5, 5);
+
         option12.onClick.AddListener(() => { 
             Debug.Log("Selected Read news"); 
-            panel.SetActive(false); 
-            player.TakeDamage(10);
+            panel.SetActive(false);
+            player.Heal(2);
+            player.DecreaseHunger(3);
+            player.DecreaseWellBeing(rInt);
             timeControllerScript.AddHoursToTime(0.3);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
@@ -61,31 +71,46 @@ public class LaptopDesk : MonoBehaviour, IInteractable
         option21.onClick.AddListener(() => { 
             Debug.Log("Selected Play Senior Simulator"); 
             panel.SetActive(false);
-            player.Heal(20);
+            player.TakeDamage(2);
+            player.DecreaseHunger(7);
+            player.IncreaseWellBeing(10);
             timeControllerScript.AddHoursToTime(1);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option22.onClick.AddListener(() => { 
-            Debug.Log("Selected Release CS2"); 
-            panel.SetActive(false); 
-            player.Heal(10);
-            timeControllerScript.AddHoursToTime(0.2);
+        option22.onClick.AddListener(() => {
+            if (player.cs == false) {
+                Debug.Log("Selected Release CS2");
+                panel.SetActive(false);
+                player.IncreaseWellBeing(100);
+                timeControllerScript.AddHoursToTime(0.2);
+            }
+            else
+            {
+                Debug.Log("Error Selected Release CS2!");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "CS2 is already released!";
+                counter = 500;
+            }
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
         option23.onClick.AddListener(() => { 
             Debug.Log("Selected Write some code in ASM"); 
-            panel.SetActive(false); 
-            player.TakeDamage(100);
-            timeControllerScript.AddHoursToTime(24);
+            panel.SetActive(false);
+            player.Heal(5);
+            player.DecreaseHunger(5);
+            player.DecreaseWellBeing(20);
+            timeControllerScript.AddHoursToTime(1);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
         option32.onClick.AddListener(() => { 
             Debug.Log("Selected Watch newest WK film"); 
-            panel.SetActive(false); 
-            player.Heal(20);
+            panel.SetActive(false);
+            player.Heal(3);
+            player.DecreaseHunger(5);
+            player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(0.4);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
@@ -104,6 +129,17 @@ public class LaptopDesk : MonoBehaviour, IInteractable
         option31.onClick.RemoveAllListeners();
         option32.onClick.RemoveAllListeners();
         option33.onClick.RemoveAllListeners();
+    }
+    void Update()
+    {
+        if (counter > 0)
+        {
+            counter--;
+        }
+        else if (counter == 0)
+        {
+            errorPrompt.gameObject.SetActive(false);
+        }
     }
 
 }

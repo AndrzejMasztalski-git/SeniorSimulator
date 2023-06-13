@@ -48,8 +48,10 @@ public class Flowers : MonoBehaviour, IInteractable
         option32Text.text = "Remove weeds";
         option12.onClick.AddListener(() => { 
             Debug.Log("Selected water flowers"); 
-            panel.SetActive(false); 
+            panel.SetActive(false);
             player.TakeDamage(10);
+            player.DecreaseHunger(3);
+            player.IncreaseWellBeing(10);
             timeControllerScript.AddHoursToTime(0.4);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
@@ -57,8 +59,10 @@ public class Flowers : MonoBehaviour, IInteractable
         });
         option22.onClick.AddListener(() => { 
             Debug.Log("Selected collect vegetables"); 
-            panel.SetActive(false); 
-            player.TakeDamage(10);
+            panel.SetActive(false);
+            player.TakeDamage(7);
+            player.DecreaseHunger(4);
+            player.IncreaseWellBeing(10);
             player.food += 3;
             timeControllerScript.AddHoursToTime(0.6);
             interactionPrompt.gameObject.SetActive(true); 
@@ -67,8 +71,10 @@ public class Flowers : MonoBehaviour, IInteractable
         });
         option32.onClick.AddListener(() => { 
             Debug.Log("Selected remove weeds"); 
-            panel.SetActive(false); 
+            panel.SetActive(false);
             player.TakeDamage(10);
+            player.DecreaseHunger(5);
+            player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(0.7);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;

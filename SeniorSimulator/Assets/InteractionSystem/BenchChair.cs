@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Fireplace : MonoBehaviour, IInteractable
+public class BenchChair : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
     public GameObject panel;
-    public GameObject fire;
     public Button option12;
     public Button option22;
     public Button option32;
@@ -24,14 +23,16 @@ public class Fireplace : MonoBehaviour, IInteractable
     public Text option22Text;
     public Text option32Text;
     public Player player;
+
     public Image errorPrompt;
     public Text errorPromptText;
-    private int counter = -1;
+    public int counter = -1;
     public bool Interact(Interactor interactor)
     {
+
         GameObject timeController = GameObject.Find("TimeController");
         TimeController timeControllerScript = timeController.GetComponent<TimeController>();
-
+        int h = timeControllerScript.GetHour();
         interactionPrompt.gameObject.SetActive(false);
         image.gameObject.SetActive(false);
         option11.gameObject.SetActive(false);
@@ -43,82 +44,64 @@ public class Fireplace : MonoBehaviour, IInteractable
         option12.gameObject.SetActive(true);
         option22.gameObject.SetActive(true);
         option32.gameObject.SetActive(true);
-        Debug.Log("Fireplace");
+        Debug.Log("Sitting bench chair");
         panel.SetActive(true);
         Time.timeScale = 0;
-        if (player.campfire == false)
-            option12Text.text = "Light the campfire";
-        else option12Text.text = "Put out the fire";
-        option22Text.text = "Get warm";
-        option32Text.text = "Bake a sausage";
+        option12Text.text = "Drink beer";
+        option22Text.text = "Just lie and chill";
+        option32Text.text = "Spy on your neighbors";
         option12.onClick.AddListener(() =>
         {
-            Debug.Log("Light the campfire!");
             panel.SetActive(false);
-            if (player.campfire == false)
+            if (player.beer > 0)
             {
+                Debug.Log("Drinking beer");
+                player.beer--;
                 player.TakeDamage(5);
-                player.DecreaseHunger(5);
+                player.IncreaseHunger(5);
                 player.IncreaseWellBeing(15);
-                fire.gameObject.SetActive(true);
-                player.campfire = true;
+                timeControllerScript.AddHoursToTime(0.4);
             }
             else
             {
-                player.TakeDamage(5);
-                player.DecreaseHunger(5);
-                player.DecreaseWellBeing(5);
-                fire.gameObject.SetActive(false);
-                player.campfire = false;
+                Debug.Log("Error Drinking beer");
+                errorPrompt.gameObject.SetActive(true);
+                errorPromptText.text = "No beer in the fridge!";
+                counter = 500;
             }
-            timeControllerScript.AddHoursToTime(0.3);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
         });
-        option22.onClick.AddListener(() =>
-        {
+        option22.onClick.AddListener(() => {
             panel.SetActive(false);
-            if (player.campfire == true)
+            if (h >= 8 && h <= 20)
             {
-                Debug.Log("Get warm!");
+                Debug.Log("Just lie and chill");
                 player.Heal(5);
                 player.DecreaseHunger(5);
-                player.IncreaseWellBeing(5);
+                player.IncreaseWellBeing(10);
+                timeControllerScript.AddHoursToTime(0.7);
             }
             else
             {
-                Debug.Log("Error Go to the drugstore");
+                Debug.Log("Error Just lie and chill");
                 errorPrompt.gameObject.SetActive(true);
-                errorPromptText.text = "light the campfire first";
+                errorPromptText.text = "Come back when the sun is shining!";
                 counter = 500;
             }
-            timeControllerScript.AddHoursToTime(0.5);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
         });
-        option32.onClick.AddListener(() =>
-        {
+        option32.onClick.AddListener(() => {
             panel.SetActive(false);
-            if (player.food > 0)
-            {
-                Debug.Log("Bake a sausage!");
-                player.food -= 1;
-                player.TakeDamage(5);
-                player.IncreaseHunger(15);
-                player.IncreaseWellBeing(5);
-                timeControllerScript.AddHoursToTime(0.8);
-            }
-            else
-            {
-                Debug.Log("Error Bake a sausage!");
-                errorPrompt.gameObject.SetActive(true);
-                errorPromptText.text = "no ingredients";
-                counter = 500;
-
-            }
+            Debug.Log("Spy on your neighbors!");
+            player.Heal(5);
+            player.DecreaseHunger(5);
+            player.IncreaseWellBeing(3);
             interactionPrompt.gameObject.SetActive(true);
+            timeControllerScript.AddHoursToTime(0.3);
             Time.timeScale = 1;
             RemoveListeners();
         });
@@ -134,6 +117,7 @@ public class Fireplace : MonoBehaviour, IInteractable
         else if (counter == 0)
         {
             errorPrompt.gameObject.SetActive(false);
+            counter = -1;
         }
     }
     void RemoveListeners()

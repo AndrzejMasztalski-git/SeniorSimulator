@@ -61,7 +61,9 @@ public class Bed : MonoBehaviour, IInteractable
                 if (player.pajamas == true)
                 {
                     Debug.Log("Sleep!");
-                    player.Heal(100);
+                    player.Heal(50);
+                    player.DecreaseHunger(20);
+                    player.IncreaseWellBeing(20);
                     timeControllerScript.AddHoursToTime(8);
                     player.lastTimeWokeUp = DateTime.Now.Date + TimeSpan.FromHours(timeControllerScript.GetHour());
                     player.church = false;
@@ -72,7 +74,7 @@ public class Bed : MonoBehaviour, IInteractable
                 }
                 else
                 {
-                    Debug.Log("Error Sleep!");
+                    Debug.Log("Error Sleep1!");
                     errorPrompt.gameObject.SetActive(true);
                     errorPromptText.text = "Put on pajamas first";
                     counter = 500;
@@ -80,7 +82,7 @@ public class Bed : MonoBehaviour, IInteractable
             }
             else
             {
-                Debug.Log("Error Sleep!");
+                Debug.Log("Error Sleep2!");
                 errorPrompt.gameObject.SetActive(true);
                 errorPromptText.text = "You are not tired enough!";
                 counter = 500;
@@ -94,8 +96,9 @@ public class Bed : MonoBehaviour, IInteractable
             if (player.nap == false)
             {
                 Debug.Log("Take a nap");
-                panel.SetActive(false);
-                player.Heal(40);
+                player.Heal(20);
+                player.DecreaseHunger(10);
+                player.IncreaseWellBeing(15);
                 timeControllerScript.AddHoursToTime(1.5);
                 player.nap = true;
             }
@@ -106,6 +109,7 @@ public class Bed : MonoBehaviour, IInteractable
                 errorPromptText.text = "You already took a nap!";
                 counter = 500;
             }
+            panel.SetActive(false);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
@@ -117,13 +121,15 @@ public class Bed : MonoBehaviour, IInteractable
             if (rInt > 6)
             {
                 Debug.Log("Hanky-panky");
-                player.TakeDamage(20);
-                player.IncreaseWellBeing(100);
+                player.TakeDamage(10);
+                player.DecreaseHunger(10);
+                player.IncreaseWellBeing(50);
                 timeControllerScript.AddHoursToTime(0.3);
             }
             else {
                 Debug.Log("Error Hanky-panky!");
                 errorPrompt.gameObject.SetActive(true);
+                player.DecreaseWellBeing(10);
                 errorPromptText.text = "Your partner has an headache, but nice try!";
                 counter = 500;
             }

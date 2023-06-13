@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Sofa : MonoBehaviour, IInteractable
 {
@@ -49,10 +50,17 @@ public class Sofa : MonoBehaviour, IInteractable
         option12Text.text = "Read newspaper";
         option22Text.text = "Take a nap";
         option32Text.text = "Solve a crossword puzzle";
+
+        System.Random r = new System.Random();
+        int rInt = r.Next(-5, 5);
+        int rInt2 = r.Next(0, 10);
+
         option12.onClick.AddListener(() => { 
             Debug.Log("Selected Read newspaper"); 
             panel.SetActive(false);
-            player.TakeDamage(10);
+            player.Heal(3);
+            player.DecreaseHunger(5);
+            player.DecreaseWellBeing(rInt);
             timeControllerScript.AddHoursToTime(0.4);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
@@ -62,7 +70,9 @@ public class Sofa : MonoBehaviour, IInteractable
             if (player.nap == false) {
                 Debug.Log("Selected Take a nap");
                 timeControllerScript.AddHoursToTime(1);
-                player.Heal(30);
+                player.Heal(10);
+                player.DecreaseHunger(5);
+                player.IncreaseWellBeing(5);
                 player.nap = true;
             }
             else
@@ -77,8 +87,10 @@ public class Sofa : MonoBehaviour, IInteractable
             RemoveListeners(); });
         option32.onClick.AddListener(() => { 
             Debug.Log("Selected Solve a crossword puzzle"); 
-            panel.SetActive(false); 
-            player.Heal(20);
+            panel.SetActive(false);
+            player.Heal(3);
+            player.DecreaseHunger(5);
+            player.IncreaseWellBeing(rInt2);
             timeControllerScript.AddHoursToTime(0.75);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;

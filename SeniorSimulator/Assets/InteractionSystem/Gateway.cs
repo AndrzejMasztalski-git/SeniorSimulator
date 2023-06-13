@@ -66,7 +66,9 @@ public class Gateway : MonoBehaviour, IInteractable
                 if (player.church == false)
                 {
                     Debug.Log("Go to the Church");
-                    player.Heal(20);
+                    player.TakeDamage(5);
+                    player.DecreaseHunger(10);
+                    player.IncreaseWellBeing(20);
                     timeControllerScript.AddHoursToTime(2.0);
                 }
                 else
@@ -95,7 +97,9 @@ public class Gateway : MonoBehaviour, IInteractable
                 if (h >= 6 && h <= 22)
                 {
                     Debug.Log("Go to the grocery shop");
-                    player.TakeDamage(20);
+                    player.TakeDamage(10);
+                    player.DecreaseHunger(5);
+                    player.IncreaseWellBeing(15);
                     player.shoppingList = false;
                     player.beer = 3;
                     player.food = 8;
@@ -128,7 +132,9 @@ public class Gateway : MonoBehaviour, IInteractable
                 {
                     Debug.Log("Go to the drugstore");
                     player.doctor_drugstore = false;
-                    player.TakeDamage(10);
+                    player.TakeDamage(5);
+                    player.DecreaseHunger(3);
+                    player.IncreaseWellBeing(5);
                     timeControllerScript.AddHoursToTime(0.75);
                 }
                 else
@@ -156,8 +162,10 @@ public class Gateway : MonoBehaviour, IInteractable
         if (h >= 10 && h <= 18)
         {
             Debug.Log("Meet with firends");
-            player.TakeDamage(20);
-            timeControllerScript.AddHoursToTime(3);
+                player.TakeDamage(15);
+                player.DecreaseHunger(10);
+                player.IncreaseWellBeing(30);
+                timeControllerScript.AddHoursToTime(3);
         }
         else
         {
@@ -182,6 +190,8 @@ public class Gateway : MonoBehaviour, IInteractable
                     player.doctor_drugstore = true;
                     player.doctor_visit = true;
                     player.Heal(50);
+                    player.DecreaseHunger(15);
+                    player.IncreaseWellBeing(10);
                 }
                 else
                 {

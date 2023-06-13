@@ -54,6 +54,7 @@ public class GardenHouse : MonoBehaviour, IInteractable
             Debug.Log("Hide from your partner"); 
             panel.SetActive(false);
             player.Heal(10);
+            player.DecreaseHunger(10);
             player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(1);
             interactionPrompt.gameObject.SetActive(true); 
@@ -61,16 +62,19 @@ public class GardenHouse : MonoBehaviour, IInteractable
             RemoveListeners(); });
         option21.onClick.AddListener(() => { 
             Debug.Log("Tinker"); 
-            panel.SetActive(false); 
+            panel.SetActive(false);
             player.TakeDamage(10);
-            player.IncreaseWellBeing(20);
+            player.DecreaseHunger(5);
+            player.IncreaseWellBeing(15);
             timeControllerScript.AddHoursToTime(1.8);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
         option22.onClick.AddListener(() => { 
-            Debug.Log("Clean up in the gazebo"); panel.SetActive(false); 
-            player.TakeDamage(5);
+            Debug.Log("Clean up in the gazebo"); 
+            panel.SetActive(false);
+            player.TakeDamage(6);
+            player.DecreaseHunger(10);
             player.IncreaseWellBeing(10);
             timeControllerScript.AddHoursToTime(1.1);
             interactionPrompt.gameObject.SetActive(true); 
@@ -78,7 +82,8 @@ public class GardenHouse : MonoBehaviour, IInteractable
             RemoveListeners(); });
         option23.onClick.AddListener(() => { 
             Debug.Log("Meditate");
-            player.Heal(5);
+            player.Heal(3);
+            player.DecreaseHunger(2);
             player.IncreaseWellBeing(10);
             timeControllerScript.AddHoursToTime(0.6);
             panel.SetActive(false);
@@ -87,7 +92,9 @@ public class GardenHouse : MonoBehaviour, IInteractable
             RemoveListeners(); });
         option32.onClick.AddListener(() => { 
             Debug.Log("Listen to the music");
-            player.IncreaseWellBeing(15);
+            player.TakeDamage(10);
+            player.IncreaseHunger(15);
+            player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(0.9);
             panel.SetActive(false); 
             interactionPrompt.gameObject.SetActive(true); 

@@ -65,6 +65,8 @@ public class Fridge : MonoBehaviour, IInteractable
                 Debug.Log("Eating something");
                 player.food--;
                 player.Heal(5);
+                player.IncreaseHunger(10);
+                player.IncreaseWellBeing(5);
                 timeControllerScript.AddHoursToTime(0.1);
             }
             else
@@ -83,7 +85,8 @@ public class Fridge : MonoBehaviour, IInteractable
             {
                 Debug.Log("Drinking beer");
                 player.beer--;
-                player.TakeDamage(10);
+                player.TakeDamage(1);
+                player.DecreaseHunger(5);
                 player.IncreaseWellBeing(10);
                 timeControllerScript.AddHoursToTime(0.1);
             }

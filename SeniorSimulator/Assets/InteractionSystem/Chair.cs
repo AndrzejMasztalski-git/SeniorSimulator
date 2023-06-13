@@ -50,7 +50,9 @@ public class Chair : MonoBehaviour, IInteractable
         option12.onClick.AddListener(() => {
             Debug.Log("Selected Just sit");
             panel.SetActive(false);
-            player.Heal(5);
+            player.Heal(2);
+            player.DecreaseHunger(1);
+            player.DecreaseWellBeing(1);
             timeControllerScript.AddHoursToTime(0.15);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
@@ -59,8 +61,9 @@ public class Chair : MonoBehaviour, IInteractable
         option22.onClick.AddListener(() => {
             Debug.Log("Selected Dance on a chair");
             panel.SetActive(false);
-            player.TakeDamage(5);
-            player.IncreaseWellBeing(10);
+            player.TakeDamage(3);
+            player.DecreaseHunger(3);
+            player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(0.1);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
@@ -69,8 +72,9 @@ public class Chair : MonoBehaviour, IInteractable
         option32.onClick.AddListener(() => {
             Debug.Log("Selected Sit and complain");
             panel.SetActive(false);
-            player.Heal(10);
-            player.DecreaseWellBeing(10);
+            player.Heal(3);
+            player.DecreaseHunger(1);
+            player.DecreaseWellBeing(4);
             timeControllerScript.AddHoursToTime(0.2);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;

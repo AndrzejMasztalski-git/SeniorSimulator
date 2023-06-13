@@ -58,7 +58,9 @@ public class Wardrobe : MonoBehaviour, IInteractable
             if (player.pajamas == false)
             {
                 Debug.Log("Put on pajamas");
-                player.IncreaseWellBeing(10);
+                player.Heal(0);
+                player.IncreaseHunger(0);
+                player.IncreaseWellBeing(5);
                 timeControllerScript.AddHoursToTime(0.15);
                 player.pajamas = true;
             }
@@ -77,7 +79,9 @@ public class Wardrobe : MonoBehaviour, IInteractable
             if (player.clean_cloaths > 0)
             {
                 Debug.Log("Wear clean clothes");
-                player.IncreaseWellBeing(10);
+                player.Heal(0);
+                player.IncreaseHunger(0);
+                player.IncreaseWellBeing(5);
                 timeControllerScript.AddHoursToTime(0.15);
                 player.clean_cloaths--;
             }
@@ -93,9 +97,10 @@ public class Wardrobe : MonoBehaviour, IInteractable
             RemoveListeners(); });
         option22.onClick.AddListener(() => { 
             Debug.Log("Hide in the closet from your partner"); 
-            panel.SetActive(false); 
-            player.TakeDamage(5);
-            player.IncreaseWellBeing(15);
+            panel.SetActive(false);
+            player.Heal(10);
+            player.IncreaseHunger(15);
+            player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(1);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
@@ -103,7 +108,9 @@ public class Wardrobe : MonoBehaviour, IInteractable
         option23.onClick.AddListener(() => { 
             Debug.Log("Clean up in the closet");
             panel.SetActive(false);
-            player.IncreaseWellBeing(15);
+            player.TakeDamage(5);
+            player.IncreaseHunger(5);
+            player.IncreaseWellBeing(10);
             timeControllerScript.AddHoursToTime(0.4);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
@@ -111,7 +118,8 @@ public class Wardrobe : MonoBehaviour, IInteractable
         option32.onClick.AddListener(() => { 
             Debug.Log("Try on clothes"); 
             panel.SetActive(false);
-            player.Heal(5);
+            player.TakeDamage(3);
+            player.IncreaseHunger(3);
             player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(0.3);
             interactionPrompt.gameObject.SetActive(true); 
@@ -130,5 +138,16 @@ public class Wardrobe : MonoBehaviour, IInteractable
         option31.onClick.RemoveAllListeners();
         option32.onClick.RemoveAllListeners();
         option33.onClick.RemoveAllListeners();
+    }
+    void Update()
+    {
+        if (counter > 0)
+        {
+            counter--;
+        }
+        else if (counter == 0)
+        {
+            errorPrompt.gameObject.SetActive(false);
+        }
     }
 }

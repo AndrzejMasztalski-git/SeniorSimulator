@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     //WARDROBE
     public bool pajamas = false;
     public int clean_cloaths = 3;
+    //LAPTOP
+    public bool cs = false;
 
     
     public void SavePlayer()

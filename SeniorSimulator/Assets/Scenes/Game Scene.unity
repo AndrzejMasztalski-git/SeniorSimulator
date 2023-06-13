@@ -7705,6 +7705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp
       objectReference: {fileID: 0}
+    - target: {fileID: 8934777400652154204, guid: 86f89f9c2c1237c4c8daaddf88ad499d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86f89f9c2c1237c4c8daaddf88ad499d, type: 3}
 --- !u!4 &420591246 stripped
@@ -7835,6 +7839,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433726556}
   m_CullTransparentMesh: 1
+--- !u!1 &445279103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2183233950433326151, guid: 9aeadb44cad0aa546954bbfe5b07fdd2, type: 3}
+  m_PrefabInstance: {fileID: 1516270216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &445279105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445279103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b79940eecdd5e647b8ea707a232e0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Bench chair
+  panel: {fileID: 637273526}
+  option12: {fileID: 1943839319}
+  option22: {fileID: 1538908139}
+  option32: {fileID: 277849698}
+  option11: {fileID: 1028692318}
+  option13: {fileID: 2139632454}
+  option21: {fileID: 1038196975}
+  option23: {fileID: 1627892707}
+  option31: {fileID: 669918792}
+  option33: {fileID: 589928571}
+  image: {fileID: 2038144043}
+  interactionPrompt: {fileID: 283443075}
+  option12Text: {fileID: 1720674292}
+  option22Text: {fileID: 622493067}
+  option32Text: {fileID: 1691701673}
+  player: {fileID: 1456153967}
+  errorPrompt: {fileID: 374676540}
+  errorPromptText: {fileID: 2141491286}
+  counter: -1
+--- !u!65 &445279108
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445279103}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9783295, y: 1.1885604, z: 2.680155}
+  m_Center: {x: 0.008527397, y: 0.5916961, z: 0.6192095}
 --- !u!1001 &450401270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10276,7 +10330,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6e-44, y: 773.13007, z: 1.5228728e+19, w: 773.13007}
+  m_BoundingSphereOverride: {x: 1, y: 1, z: 1, w: 8.75214e-39}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -45418,6 +45472,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 129139965}
     m_Modifications:
+    - target: {fileID: 2183233950433326151, guid: 9aeadb44cad0aa546954bbfe5b07fdd2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8365268518075061561, guid: 9aeadb44cad0aa546954bbfe5b07fdd2, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -46586,8 +46644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640725389}
   - component: {fileID: 1640725390}
-  - component: {fileID: 1640725391}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LampLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46671,20 +46728,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1640725391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640725388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54b7dbe4f4998b74388d8dc28b86620f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prompt: Lamp
-  lamp: {fileID: 1640725388}
 --- !u!1 &1641313834
 GameObject:
   m_ObjectHideFlags: 0
@@ -47970,6 +48013,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 129139965}
     m_Modifications:
+    - target: {fileID: 2183233950433326151, guid: 9aeadb44cad0aa546954bbfe5b07fdd2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8365268518075061561, guid: 9aeadb44cad0aa546954bbfe5b07fdd2, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -48576,6 +48623,56 @@ Transform:
   m_Father: {fileID: 543450652252455560}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1974244940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2183233950433326151, guid: 9aeadb44cad0aa546954bbfe5b07fdd2, type: 3}
+  m_PrefabInstance: {fileID: 1836684570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1974244942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974244940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b79940eecdd5e647b8ea707a232e0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Bench chair
+  panel: {fileID: 637273526}
+  option12: {fileID: 1943839319}
+  option22: {fileID: 1538908139}
+  option32: {fileID: 277849698}
+  option11: {fileID: 1028692318}
+  option13: {fileID: 2139632454}
+  option21: {fileID: 1038196975}
+  option23: {fileID: 1627892707}
+  option31: {fileID: 669918792}
+  option33: {fileID: 589928571}
+  image: {fileID: 2038144043}
+  interactionPrompt: {fileID: 283443075}
+  option12Text: {fileID: 1720674292}
+  option22Text: {fileID: 622493067}
+  option32Text: {fileID: 1691701673}
+  player: {fileID: 1456153967}
+  errorPrompt: {fileID: 374676540}
+  errorPromptText: {fileID: 2141491286}
+  counter: -1
+--- !u!65 &1974244945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974244940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9783291, y: 1.1885604, z: 2.680154}
+  m_Center: {x: 0.008527404, y: 0.591696, z: 0.6192093}
 --- !u!1001 &1983813246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49252,6 +49349,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7497155, y: 1.8321999, z: 0.7497153}
   m_Center: {x: 0, y: -0.000000059604645, z: 0.0000019073486}
+--- !u!114 &2084192632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084192626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b7dbe4f4998b74388d8dc28b86620f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: Lamp
+  lamp: {fileID: 1640725388}
 --- !u!1001 &2098329556
 PrefabInstance:
   m_ObjectHideFlags: 0

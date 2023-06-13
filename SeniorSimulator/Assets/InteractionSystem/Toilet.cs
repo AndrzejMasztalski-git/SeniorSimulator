@@ -51,7 +51,9 @@ public class Toilet : MonoBehaviour, IInteractable
         option11.onClick.AddListener(() => {
             Debug.Log("Poo");
             panel.SetActive(false);
-            player.Heal(5);
+            player.Heal(1);
+            player.DecreaseHunger(10);
+            player.IncreaseWellBeing(7);
             timeControllerScript.AddHoursToTime(0.25);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
@@ -59,8 +61,10 @@ public class Toilet : MonoBehaviour, IInteractable
         });
         option13.onClick.AddListener(() => {
             Debug.Log("Poo with mobile phone");
-            panel.SetActive(false); 
-            player.Heal(10);
+            panel.SetActive(false);
+            player.Heal(3);
+            player.DecreaseHunger(15);
+            player.IncreaseWellBeing(10);
             timeControllerScript.AddHoursToTime(0.5);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
@@ -69,7 +73,9 @@ public class Toilet : MonoBehaviour, IInteractable
         option31.onClick.AddListener(() => {
             Debug.Log("Pee");
             panel.SetActive(false);
-            player.Heal(5);
+            player.Heal(1);
+            player.DecreaseHunger(1);
+            player.IncreaseWellBeing(1);
             timeControllerScript.AddHoursToTime(0.1);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
@@ -80,6 +86,8 @@ public class Toilet : MonoBehaviour, IInteractable
             panel.SetActive(false);
             timeControllerScript.AddHoursToTime(0.3);
             player.Heal(5);
+            player.DecreaseHunger(2);
+            player.DecreaseWellBeing(2);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();

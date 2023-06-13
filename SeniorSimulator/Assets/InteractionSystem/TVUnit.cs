@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class TVUnit : MonoBehaviour, IInteractable
 {
@@ -48,25 +49,36 @@ public class TVUnit : MonoBehaviour, IInteractable
         option13Text.text = "Some Turkish series";
         option31Text.text = "The colors of happiness";
         option33Text.text = "Eurosport";
+
+        System.Random r = new System.Random();
+        int rInt = r.Next(-5, 5);
+
         option11.onClick.AddListener(() => { 
             Debug.Log("Watching News"); 
             panel.SetActive(false);
-            player.TakeDamage(10);
+            player.Heal(5);
+            player.DecreaseHunger(5);
+            player.DecreaseWellBeing(rInt);
             timeControllerScript.AddHoursToTime(0.3);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
         option13.onClick.AddListener(() => { 
             Debug.Log("Watching Some Turkish series"); 
-            panel.SetActive(false); player.Heal(20);
+            panel.SetActive(false);
+            player.Heal(5);
+            player.DecreaseHunger(10);
+            player.IncreaseWellBeing(10);
             timeControllerScript.AddHoursToTime(0.7);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
         option31.onClick.AddListener(() => { 
             Debug.Log("Watching The colors of happiness"); 
-            panel.SetActive(false); 
-            player.Heal(10);
+            panel.SetActive(false);
+            player.Heal(5);
+            player.DecreaseHunger(7);
+            player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(0.6);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
@@ -75,7 +87,9 @@ public class TVUnit : MonoBehaviour, IInteractable
             Debug.Log("Watching Eurosport");
             panel.SetActive(false);
             timeControllerScript.AddHoursToTime(1.2);
-            player.TakeDamage(10); 
+            player.Heal(5);
+            player.DecreaseHunger(10);
+            player.IncreaseWellBeing(5);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });

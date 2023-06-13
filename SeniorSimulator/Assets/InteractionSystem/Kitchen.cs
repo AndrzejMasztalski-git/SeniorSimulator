@@ -84,8 +84,9 @@ public class Kitchen : MonoBehaviour, IInteractable
                 {
                     Debug.Log("Bake cake!");
                     player.food -= 2;
-                    player.IncreaseWellBeing(10);
-                    player.Heal(5);
+                    player.TakeDamage(10);
+                    player.IncreaseHunger(15);
+                    player.IncreaseWellBeing(5);
                     player.dirt += 2;
                     timeControllerScript.AddHoursToTime(1.5);
                 }
@@ -114,8 +115,9 @@ public class Kitchen : MonoBehaviour, IInteractable
             if (player.dirt < acceptable_dirt)
             {
                 Debug.Log("Make drums out of pots!");
-                player.TakeDamage(10);
-                player.IncreaseWellBeing(10);
+                player.TakeDamage(5);
+                player.DecreaseHunger(3);
+                player.IncreaseWellBeing(8);
                 timeControllerScript.AddHoursToTime(0.5);
             }
             else
@@ -138,7 +140,9 @@ public class Kitchen : MonoBehaviour, IInteractable
                 {
                     Debug.Log("Make popcorn!");
                     player.food -= 1;
-                    player.IncreaseWellBeing(10);
+                    player.TakeDamage(3);
+                    player.IncreaseHunger(5);
+                    player.IncreaseWellBeing(5);
                     player.dirt += 1;
                     timeControllerScript.AddHoursToTime(0.2);
                 }
@@ -169,7 +173,8 @@ public class Kitchen : MonoBehaviour, IInteractable
             {
                 Debug.Log("Pretend you're cooking!");
                 player.TakeDamage(5);
-                player.IncreaseWellBeing(10);
+                player.DecreaseHunger(5);
+                player.DecreaseWellBeing(5);
                 timeControllerScript.AddHoursToTime(0.5);
                 player.dirt += 1;
             }
@@ -194,7 +199,9 @@ public class Kitchen : MonoBehaviour, IInteractable
                     Debug.Log("Pretend you're in masterchef!");
                     player.food -= 3;
                     player.dirt += 3;
-                    player.IncreaseWellBeing(10);
+                    player.TakeDamage(5);
+                    player.IncreaseHunger(15);
+                    player.IncreaseWellBeing(15);
                     timeControllerScript.AddHoursToTime(1);
                 }
                 else
@@ -226,8 +233,9 @@ public class Kitchen : MonoBehaviour, IInteractable
                 {
                     Debug.Log("Make sandwiches and talk like Mak³owicz!");
                     player.food -= 1;
-                    player.Heal(5);
-                    player.IncreaseWellBeing(5);
+                    player.TakeDamage(5);
+                    player.IncreaseHunger(10);
+                    player.IncreaseWellBeing(10);
                     player.dirt += 1;
                     timeControllerScript.AddHoursToTime(0.5);
                 }
@@ -261,7 +269,8 @@ public class Kitchen : MonoBehaviour, IInteractable
                     Debug.Log("Just prepare a meal!");
                     player.food -= 2;
                     player.dirt += 2;
-                    player.Heal(5);
+                    player.TakeDamage(5);
+                    player.IncreaseHunger(15);
                     player.IncreaseWellBeing(5);
                     timeControllerScript.AddHoursToTime(1);
                 }

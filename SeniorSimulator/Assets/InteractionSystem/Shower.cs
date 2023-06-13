@@ -50,8 +50,9 @@ public class Shower : MonoBehaviour, IInteractable
         {
             Debug.Log("Quick shower!");
             panel.SetActive(false);
-            player.IncreaseWellBeing(10);
-            player.TakeDamage(5);
+            player.TakeDamage(3);
+            player.DecreaseHunger(2);
+            player.IncreaseWellBeing(5);
             timeControllerScript.AddHoursToTime(0.2);
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
@@ -61,10 +62,10 @@ public class Shower : MonoBehaviour, IInteractable
             panel.SetActive(false);
             
             Debug.Log("Shower and sing");
-            player.IncreaseWellBeing(20);
-            player.TakeDamage(10);
+            player.TakeDamage(3);
+            player.DecreaseHunger(5);
+            player.IncreaseWellBeing(10);
             timeControllerScript.AddHoursToTime(0.5);
-            
             interactionPrompt.gameObject.SetActive(true);
             Time.timeScale = 1;
             RemoveListeners();
@@ -73,8 +74,9 @@ public class Shower : MonoBehaviour, IInteractable
             panel.SetActive(false);
             
             Debug.Log("Take a bath");
-            player.TakeDamage(10);
-            player.IncreaseWellBeing(20);
+            player.TakeDamage(3);
+            player.DecreaseHunger(8);
+            player.IncreaseWellBeing(13);
             timeControllerScript.AddHoursToTime(0.9);
 
             interactionPrompt.gameObject.SetActive(true);

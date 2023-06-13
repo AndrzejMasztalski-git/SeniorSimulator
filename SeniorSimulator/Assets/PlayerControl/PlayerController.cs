@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     float gravity = -12f;
     float velocityY;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +69,7 @@ public class PlayerController : MonoBehaviour
             targetRotation = Quaternion.LookRotation(inputDir).eulerAngles.y + mainCam.transform.rotation.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0, targetRotation, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 20 * Time.deltaTime);
+            
         }
 
         bool running = Input.GetKey(KeyCode.LeftShift);

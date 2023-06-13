@@ -27,6 +27,9 @@ public class Fridge : MonoBehaviour, IInteractable
     public Image errorPrompt;
     public Text errorPromptText;
     public int counter = -1;
+
+    public AudioSource audioSource;
+    public AudioClip drinkingBeerSound;
     public bool Interact(Interactor interactor)
     {
 
@@ -83,6 +86,7 @@ public class Fridge : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.beer > 0)
             {
+                audioSource.PlayOneShot(drinkingBeerSound);
                 Debug.Log("Drinking beer");
                 player.beer--;
                 player.TakeDamage(1);

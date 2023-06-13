@@ -30,6 +30,8 @@ public class LaptopDesk : MonoBehaviour, IInteractable
     public Text errorPromptText;
     public int counter = -1;
 
+    public AudioSource audioSource;
+    public AudioClip clickingSound;
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -96,7 +98,8 @@ public class LaptopDesk : MonoBehaviour, IInteractable
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option23.onClick.AddListener(() => { 
+        option23.onClick.AddListener(() => {
+            audioSource.PlayOneShot(clickingSound);
             Debug.Log("Selected Write some code in ASM"); 
             panel.SetActive(false);
             player.Heal(5);

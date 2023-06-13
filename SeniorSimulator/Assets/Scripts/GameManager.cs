@@ -24,4 +24,8 @@ public class GameManager : MonoBehaviour
             escapePanel.SetActive(true);
         }
     }
+
+    
+        
+    
 }

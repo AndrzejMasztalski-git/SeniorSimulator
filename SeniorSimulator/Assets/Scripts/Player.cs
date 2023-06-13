@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     public int currentHealth;
 
     public GameObject gameOverPanel;
+    public AudioSource audioSource;
+    public AudioClip deathSound;
     
     public bool campfire = false;
 
@@ -81,8 +83,9 @@ public class Player : MonoBehaviour
     {
        if(currentHealth == 0)
        {
-            Time.timeScale = 0;
+            
             gameOverPanel.SetActive(true);
+            audioSource.PlayOneShot(deathSound,0.1f);
        }
 
     }

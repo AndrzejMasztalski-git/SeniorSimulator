@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public int maxHealth = 100;
     public int currentHealth;
+
+    public GameObject gameOverPanel;
     
     public bool campfire = false;
 
@@ -75,7 +77,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       if(currentHealth == 0)
+       {
+            Time.timeScale = 0;
+            gameOverPanel.SetActive(true);
+       }
 
     }
 

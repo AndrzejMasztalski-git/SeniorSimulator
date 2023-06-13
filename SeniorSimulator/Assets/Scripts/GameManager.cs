@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public GameObject optionDialoguePanel;
     public GameObject escapePanel;
+    public GameObject gameOverPanel;
     void Start()
     {
         optionDialoguePanel.SetActive(false);
         escapePanel.SetActive(false);
-
+        gameOverPanel.SetActive(false);
 
     }
 

@@ -29,6 +29,7 @@ public class Bed : MonoBehaviour, IInteractable
     private int counter = -1;
     public Image errorPrompt;
     public Text errorPromptText;
+    
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -61,6 +62,7 @@ public class Bed : MonoBehaviour, IInteractable
                 if (player.pajamas == true)
                 {
                     Debug.Log("Sleep!");
+                    
                     player.Heal(100);
                     timeControllerScript.AddHoursToTime(8);
                     player.lastTimeWokeUp = DateTime.Now.Date + TimeSpan.FromHours(timeControllerScript.GetHour());

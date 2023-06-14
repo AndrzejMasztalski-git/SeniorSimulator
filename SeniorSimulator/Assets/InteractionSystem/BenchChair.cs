@@ -27,6 +27,8 @@ public class BenchChair : MonoBehaviour, IInteractable
     public Image errorPrompt;
     public Text errorPromptText;
     public int counter = -1;
+    public AudioSource audioSource;
+    public AudioClip drinkingBeerSound;
     public bool Interact(Interactor interactor)
     {
 
@@ -56,6 +58,7 @@ public class BenchChair : MonoBehaviour, IInteractable
             if (player.beer > 0)
             {
                 Debug.Log("Drinking beer");
+                audioSource.PlayOneShot(drinkingBeerSound, 0.2f);
                 player.beer--;
                 player.TakeDamage(5);
                 player.IncreaseHunger(5);

@@ -24,6 +24,8 @@ public class Beer : MonoBehaviour, IInteractable
     public Text option32Text;
     public Player player;
 
+    public AudioSource audioSource;
+    public AudioClip drinkingBeerSound;
     public Image errorPrompt;
     public Text errorPromptText;
     public int counter = -1;
@@ -86,6 +88,7 @@ public class Beer : MonoBehaviour, IInteractable
             if (player.beer > 0)
             {
                 Debug.Log("Drinking beer");
+                audioSource.PlayOneShot(drinkingBeerSound, 0.2f);
                 player.beer--;
                 player.TakeDamage(1);
                 player.DecreaseHunger(5);

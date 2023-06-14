@@ -78,7 +78,7 @@ public class BathroomSink : MonoBehaviour, IInteractable
         });
         option32.onClick.AddListener(() => {
             Debug.Log("Admire your face in the mirror!");
-            player.TakeDamage(0);
+            player.TakeDamage(0 );
             player.DecreaseHunger(1);
             player.IncreaseWellBeing(1);
             panel.SetActive(false);

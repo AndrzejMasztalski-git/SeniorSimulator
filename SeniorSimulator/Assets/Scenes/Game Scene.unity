@@ -7816,6 +7816,8 @@ MonoBehaviour:
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
   counter: -1
+  audioSource: {fileID: 919132148328699956}
+  drinkingBeerSound: {fileID: 8300000, guid: 2eb0b5cc8b7940445a82b71d7ab69677, type: 3}
 --- !u!65 &445279108
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10033,7 +10035,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.030571e-39, y: 9.1835e-41, z: 1.8e-43, w: 2.5316913e+30}
+  m_BoundingSphereOverride: {x: 0, y: 1e-45, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -10769,6 +10771,8 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  drinkingBeerSound: {fileID: 8300000, guid: 2eb0b5cc8b7940445a82b71d7ab69677, type: 3}
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
   counter: -1
@@ -11818,7 +11822,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29574
+  m_Name: pb_Mesh29586
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46418,7 +46422,7 @@ MonoBehaviour:
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
   counter: -1
-  audioSource: {fileID: 1614045857}
+  audioSource: {fileID: 919132148328699956}
   drinkingBeerSound: {fileID: 8300000, guid: 2eb0b5cc8b7940445a82b71d7ab69677, type: 3}
 --- !u!82 &1614045857
 AudioSource:
@@ -48923,6 +48927,8 @@ MonoBehaviour:
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
   counter: -1
+  audioSource: {fileID: 919132148328699956}
+  drinkingBeerSound: {fileID: 8300000, guid: 2eb0b5cc8b7940445a82b71d7ab69677, type: 3}
 --- !u!65 &1974244945
 BoxCollider:
   m_ObjectHideFlags: 0

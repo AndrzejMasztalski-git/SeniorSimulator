@@ -86,7 +86,7 @@ public class Fridge : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.beer > 0)
             {
-                audioSource.PlayOneShot(drinkingBeerSound);
+                audioSource.PlayOneShot(drinkingBeerSound, 0.2f);
                 Debug.Log("Drinking beer");
                 player.beer--;
                 player.TakeDamage(1);

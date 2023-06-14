@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     //FRIDGE
     public bool shoppingList = false;
     public bool doctor_drugstore = false;
-    public int beer = 2;
+    public int beer = 5;
     public int food = 6;
     //GATEWAY
     public bool church = false;
@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     public int clean_cloaths = 3;
     //LAPTOP
     public bool cs = false;
+    //FLOWERS
 
     
     public void SavePlayer()

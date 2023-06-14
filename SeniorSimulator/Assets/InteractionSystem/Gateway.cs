@@ -101,8 +101,8 @@ public class Gateway : MonoBehaviour, IInteractable
                     player.DecreaseHunger(5);
                     player.IncreaseWellBeing(15);
                     player.shoppingList = false;
-                    player.beer = 3;
-                    player.food = 8;
+                    player.beer = 5;
+                    player.food = 10;
                     timeControllerScript.AddHoursToTime(1.5);
                 }
                 else

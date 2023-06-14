@@ -83,7 +83,6 @@ public class LaptopDesk : MonoBehaviour, IInteractable
         option22.onClick.AddListener(() => {
             if (player.cs == false) {
                 Debug.Log("Selected Release CS2");
-                panel.SetActive(false);
                 player.IncreaseWellBeing(100);
                 player.cs = true;
                 timeControllerScript.AddHoursToTime(0.2);
@@ -95,6 +94,7 @@ public class LaptopDesk : MonoBehaviour, IInteractable
                 errorPromptText.text = "CS2 is already released!";
                 counter = 500;
             }
+            panel.SetActive(false);
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });

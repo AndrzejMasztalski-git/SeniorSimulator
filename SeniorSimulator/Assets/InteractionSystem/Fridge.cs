@@ -30,6 +30,7 @@ public class Fridge : MonoBehaviour, IInteractable
 
     public AudioSource audioSource;
     public AudioClip drinkingBeerSound;
+    public AudioClip eatSound;
     public bool Interact(Interactor interactor)
     {
 
@@ -65,6 +66,7 @@ public class Fridge : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.food > 0)
             {
+                audioSource.PlayOneShot(eatSound, 0.2f);
                 Debug.Log("Eating something");
                 player.food--;
                 player.Heal(5);

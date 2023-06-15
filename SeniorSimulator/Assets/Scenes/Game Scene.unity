@@ -8396,6 +8396,8 @@ MonoBehaviour:
   player: {fileID: 1456153967}
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
+  audioSource: {fileID: 919132148328699956}
+  getWarmSound: {fileID: 8300000, guid: 27b5f7208abd5ab40808864e127fe47c, type: 3}
 --- !u!136 &521983232
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11744,7 +11746,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29640
+  m_Name: pb_Mesh34196
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45428,6 +45430,10 @@ MonoBehaviour:
   player: {fileID: 1456153967}
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
+  audioSource: {fileID: 919132148328699956}
+  readingSound: {fileID: 8300000, guid: 393a84ff6c544394e97a49b9c7256df4, type: 3}
+  writtnigSound: {fileID: 8300000, guid: cedb152efd345914ea3d348e97e368d3, type: 3}
+  sleepingSound: {fileID: 8300000, guid: 051eab895f952a947b48ad2d87b406de, type: 3}
 --- !u!64 &1475490682
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46211,6 +46217,12 @@ MonoBehaviour:
   player: {fileID: 1456153967}
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
+  audioSource: {fileID: 919132148328699956}
+  drumsSound: {fileID: 8300000, guid: fce215a3b565de440b825448640a290a, type: 3}
+  cleaningSound: {fileID: 8300000, guid: 32a2f35fcbb51d847a0cb3cf8d3c6a7f, type: 3}
+  popcornSound: {fileID: 8300000, guid: 66475d8344a5ec04c871d61f818bdddd, type: 3}
+  cuttingSound: {fileID: 8300000, guid: bd1c05c5acb33ba47ac78a72330ccccb, type: 3}
+  writtingSound: {fileID: 8300000, guid: cedb152efd345914ea3d348e97e368d3, type: 3}
 --- !u!1 &1590598392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2988847304651759410, guid: c2295b34083ed0c4b95a252933176bfd, type: 3}
@@ -46346,6 +46358,7 @@ MonoBehaviour:
   counter: -1
   audioSource: {fileID: 919132148328699956}
   drinkingBeerSound: {fileID: 8300000, guid: 2eb0b5cc8b7940445a82b71d7ab69677, type: 3}
+  eatSound: {fileID: 8300000, guid: dd162d69a8749ba4093cbefaf49be385, type: 3}
 --- !u!82 &1614045857
 AudioSource:
   m_ObjectHideFlags: 0

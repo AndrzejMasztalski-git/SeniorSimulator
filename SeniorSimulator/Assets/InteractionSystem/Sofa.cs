@@ -28,6 +28,11 @@ public class Sofa : MonoBehaviour, IInteractable
     public Image errorPrompt;
     public Text errorPromptText;
 
+    public AudioSource audioSource;
+    public AudioClip readingSound;
+    public AudioClip writtnigSound;
+    public AudioClip sleepingSound;
+
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -55,7 +60,8 @@ public class Sofa : MonoBehaviour, IInteractable
         int rInt = r.Next(-5, 5);
         int rInt2 = r.Next(0, 10);
 
-        option12.onClick.AddListener(() => { 
+        option12.onClick.AddListener(() => {
+            audioSource.PlayOneShot(readingSound, 0.4f);
             Debug.Log("Selected Read newspaper"); 
             panel.SetActive(false);
             player.Heal(3);
@@ -67,7 +73,9 @@ public class Sofa : MonoBehaviour, IInteractable
             RemoveListeners(); });
         option22.onClick.AddListener(() => {
             panel.SetActive(false);
-            if (player.nap == false) {
+            if (player.nap == false)
+            {
+                audioSource.PlayOneShot(sleepingSound, 0.2f);
                 Debug.Log("Selected Take a nap");
                 timeControllerScript.AddHoursToTime(1);
                 player.Heal(10);
@@ -85,7 +93,8 @@ public class Sofa : MonoBehaviour, IInteractable
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option32.onClick.AddListener(() => { 
+        option32.onClick.AddListener(() => {
+            audioSource.PlayOneShot(writtnigSound, 0.4f);
             Debug.Log("Selected Solve a crossword puzzle"); 
             panel.SetActive(false);
             player.Heal(3);

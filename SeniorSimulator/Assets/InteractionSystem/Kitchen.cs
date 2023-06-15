@@ -33,6 +33,13 @@ public class Kitchen : MonoBehaviour, IInteractable
     public Image errorPrompt;
     public Text errorPromptText;
     private int counter = -1;
+
+    public AudioSource audioSource;
+    public AudioClip drumsSound;
+    public AudioClip cleaningSound;
+    public AudioClip popcornSound;
+    public AudioClip cuttingSound;
+    public AudioClip writtingSound;
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -65,6 +72,7 @@ public class Kitchen : MonoBehaviour, IInteractable
         option33Text.text = "Make a shopping list";
         option11.onClick.AddListener(() =>
         {
+            audioSource.PlayOneShot(cleaningSound, 0.5f);
             Debug.Log("Clean kitchen!");
             panel.SetActive(false);
             player.IncreaseWellBeing(10);
@@ -114,6 +122,7 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.dirt < acceptable_dirt)
             {
+                audioSource.PlayOneShot(drumsSound, 0.3f);
                 Debug.Log("Make drums out of pots!");
                 player.TakeDamage(5);
                 player.DecreaseHunger(3);
@@ -138,6 +147,7 @@ public class Kitchen : MonoBehaviour, IInteractable
             {
                 if (player.dirt < acceptable_dirt)
                 {
+                    audioSource.PlayOneShot(popcornSound, 0.3f);
                     Debug.Log("Make popcorn!");
                     player.food -= 1;
                     player.TakeDamage(3);
@@ -171,6 +181,7 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.dirt < acceptable_dirt)
             {
+                audioSource.PlayOneShot(cuttingSound, 0.2f);
                 Debug.Log("Pretend you're cooking!");
                 player.TakeDamage(5);
                 player.DecreaseHunger(5);
@@ -266,6 +277,8 @@ public class Kitchen : MonoBehaviour, IInteractable
             {
                 if (player.dirt < acceptable_dirt)
                 {
+                    audioSource.PlayOneShot(drumsSound, 0.1f);
+                    audioSource.PlayOneShot(cuttingSound, 0.2f);
                     Debug.Log("Just prepare a meal!");
                     player.food -= 2;
                     player.dirt += 2;
@@ -298,6 +311,7 @@ public class Kitchen : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.dirt < acceptable_dirt)
             {
+                audioSource.PlayOneShot(writtingSound, 0.3f);
                 Debug.Log("Make a shopping list!");
                 player.shoppingList = true;
                 timeControllerScript.AddHoursToTime(0.5);

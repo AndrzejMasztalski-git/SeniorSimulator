@@ -1,12 +1,4 @@
-using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.Rendering;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -48,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private float jumpButtonGracePeriod;
     [SerializeField]
     private float jumpSpeed;
+    private bool isMouseDown;
 
 
     // Start is called before the first frame update
@@ -62,6 +55,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            animator.SetBool("AttackTrigger", true);
+        }
+        else
+        {
+            animator.SetBool("AttackTrigger", false);
+        }
+
+
 
         float speed = 0;
         Vector3 inputDir = new Vector3(input.move.x, 0, input.move.y);
@@ -161,12 +166,5 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(-xRotation, yRotation, 0);
         cameraFollowTarget.rotation = rotation;
     }
-
-    void Jump()
-    {
-        
-    }
-
-
 
 }

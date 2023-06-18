@@ -39,6 +39,16 @@ public class PlayerController : MonoBehaviour
     float gravity = -12f;
     float velocityY;
 
+    private bool isJumping;
+    private bool isGrounded;
+    private float originalStepOffset;
+    private float? lastGroundedTime;
+    private float? jumpButtonPressedTime;
+    [SerializeField]
+    private float jumpButtonGracePeriod;
+    [SerializeField]
+    private float jumpSpeed;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,17 +67,63 @@ public class PlayerController : MonoBehaviour
         Vector3 inputDir = new Vector3(input.move.x, 0, input.move.y);
         float targetRotation = 0;
 
+        moveSpeed += Physics.gravity.y * Time.deltaTime;
+        if (controller.isGrounded)
+        {
+            lastGroundedTime= Time.time;
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
+            jumpButtonPressedTime= Time.time;
+            if (controller.isGrounded)
+        {
+            float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
+            velocityY = jumpVelocity;
+        }
+        }
+        if(Time.time - lastGroundedTime <= jumpButtonGracePeriod)
+        {
+            controller.stepOffset = originalStepOffset;
+            moveSpeed = -0.5f;
+            animator.SetBool("IsGrounded", true);
+            isGrounded= true;
+            animator.SetBool("IsJumping", false);
+            isJumping = false;
+            animator.SetBool("IsLanding", false);
+
+            if(Time.time - jumpButtonPressedTime <=jumpButtonGracePeriod)
+            {
+                moveSpeed = jumpSpeed;
+                animator.SetBool("IsJumping", true);
+                isJumping= true;
+                jumpButtonPressedTime = null;
+                lastGroundedTime = null;
+            }
+        }
+        else
+        {
+            controller.stepOffset = 0;
+            animator.SetBool("IsGrounded", false);
+            isGrounded= false;
+
+            if((isJumping && currentSpeed < 0) || currentSpeed < -2)
+            {
+                animator.SetBool("IsLanding", true);
+                
+            }
         }
 
         if (input.move != Vector2.zero)
         {
+            animator.SetBool("IsMoving", true);
             speed = moveSpeed;
             targetRotation = Quaternion.LookRotation(inputDir).eulerAngles.y + mainCam.transform.rotation.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0, targetRotation, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 20 * Time.deltaTime);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
 
         bool running = Input.GetKey(KeyCode.LeftShift);
@@ -108,12 +164,9 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (controller.isGrounded)
-        {
-            float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
-            velocityY = jumpVelocity;
-        }
+        
     }
+
 
 
 }

@@ -23,6 +23,10 @@ public class Flowers : MonoBehaviour, IInteractable
     public Text option22Text;
     public Text option32Text;
     public Player player;
+
+    public AudioSource audioSource;
+    public AudioClip waterSound;
+
     public bool Interact(Interactor interactor)
     {
 
@@ -47,7 +51,8 @@ public class Flowers : MonoBehaviour, IInteractable
         option22Text.text = "Collect vegetables";
         option32Text.text = "Remove weeds";
         option12.onClick.AddListener(() => { 
-            Debug.Log("Selected water flowers"); 
+            Debug.Log("Selected water flowers");
+            audioSource.PlayOneShot(waterSound, 0.2f);
             panel.SetActive(false);
             player.TakeDamage(10);
             player.DecreaseHunger(3);

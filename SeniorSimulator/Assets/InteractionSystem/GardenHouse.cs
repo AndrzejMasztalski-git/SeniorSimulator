@@ -30,6 +30,7 @@ public class GardenHouse : MonoBehaviour, IInteractable
     public AudioClip tinkerSound;
     public AudioClip cleaningSound;
     public AudioClip meditationSound;
+    public AudioClip musicSound;
 
     public bool Interact(Interactor interactor)
     {
@@ -101,6 +102,7 @@ public class GardenHouse : MonoBehaviour, IInteractable
             RemoveListeners(); });
         option32.onClick.AddListener(() => { 
             Debug.Log("Listen to the music");
+            audioSource.PlayOneShot(musicSound, 0.2f);
             player.TakeDamage(10);
             player.IncreaseHunger(15);
             player.IncreaseWellBeing(5);

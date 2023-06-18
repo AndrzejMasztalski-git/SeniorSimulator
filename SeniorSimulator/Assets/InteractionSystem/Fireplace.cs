@@ -30,6 +30,7 @@ public class Fireplace : MonoBehaviour, IInteractable
     
     public AudioSource audioSource;
     public AudioClip getWarmSound;
+    public AudioClip lightSound;
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -60,6 +61,7 @@ public class Fireplace : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.campfire == false)
             {
+                audioSource.PlayOneShot(lightSound, 0.3f);
                 player.TakeDamage(5);
                 player.DecreaseHunger(5);
                 player.IncreaseWellBeing(15);

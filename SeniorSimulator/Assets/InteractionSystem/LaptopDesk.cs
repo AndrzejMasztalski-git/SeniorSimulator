@@ -31,7 +31,8 @@ public class LaptopDesk : MonoBehaviour, IInteractable
     public int counter = -1;
 
     public AudioSource audioSource;
-    public AudioClip clickingSound;
+    public AudioClip asemblerSound;
+    public AudioClip keyboardSound;
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -60,7 +61,8 @@ public class LaptopDesk : MonoBehaviour, IInteractable
         System.Random r = new System.Random();
         int rInt = r.Next(-5, 5);
 
-        option12.onClick.AddListener(() => { 
+        option12.onClick.AddListener(() => {
+            audioSource.PlayOneShot(keyboardSound, 0.2f);
             Debug.Log("Selected Read news"); 
             panel.SetActive(false);
             player.Heal(2);
@@ -99,7 +101,7 @@ public class LaptopDesk : MonoBehaviour, IInteractable
             Time.timeScale = 1;
             RemoveListeners(); });
         option23.onClick.AddListener(() => {
-            audioSource.PlayOneShot(clickingSound);
+            audioSource.PlayOneShot(asemblerSound, 0.3f);
             Debug.Log("Selected Write some code in ASM"); 
             panel.SetActive(false);
             player.Heal(5);

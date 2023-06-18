@@ -25,6 +25,11 @@ public class Chair : MonoBehaviour, IInteractable
     public Text option32Text;
     public Player player;
 
+    public AudioSource audioSource;
+    public AudioClip sitSound;
+    public AudioClip chairSound;
+    public AudioClip complainSound;
+
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -48,6 +53,7 @@ public class Chair : MonoBehaviour, IInteractable
         option22Text.text = "Dance on a chair";
         option32Text.text = "Sit and complain";
         option12.onClick.AddListener(() => {
+            audioSource.PlayOneShot(sitSound, 0.2f);
             Debug.Log("Selected Just sit");
             panel.SetActive(false);
             player.Heal(2);
@@ -59,6 +65,7 @@ public class Chair : MonoBehaviour, IInteractable
             RemoveListeners();
         });
         option22.onClick.AddListener(() => {
+            audioSource.PlayOneShot(chairSound, 0.1f);
             Debug.Log("Selected Dance on a chair");
             panel.SetActive(false);
             player.TakeDamage(3);
@@ -70,6 +77,7 @@ public class Chair : MonoBehaviour, IInteractable
             RemoveListeners();
         });
         option32.onClick.AddListener(() => {
+            audioSource.PlayOneShot(complainSound, 0.2f);
             Debug.Log("Selected Sit and complain");
             panel.SetActive(false);
             player.Heal(3);

@@ -61,7 +61,7 @@ public class Gateway : MonoBehaviour, IInteractable
         option12Text.text = "Go to the Church";
         option21Text.text = "Go to the grocery shop";
         option22Text.text = "Go to the drugstore";
-        option23Text.text = "Meet with firends";
+        option23Text.text = "Go fishing with friends";
         option32Text.text = "Go to the doctor";
 
         option12.onClick.AddListener(() => {

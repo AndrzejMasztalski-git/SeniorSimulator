@@ -1249,6 +1249,10 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  sitSound: {fileID: 8300000, guid: fd94eeb04264c6340a18405ef3771b45, type: 3}
+  chairSound: {fileID: 8300000, guid: bb604ce23c945694eb0cd8ecbb0b2696, type: 3}
+  complainSound: {fileID: 8300000, guid: 016f5fd50aeef964c90f5f69a606df72, type: 3}
 --- !u!1001 &218715163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7229,6 +7233,7 @@ MonoBehaviour:
   tinkerSound: {fileID: 8300000, guid: ca3d15e0225ec1346a6d4520d2a0c2af, type: 3}
   cleaningSound: {fileID: 8300000, guid: 0e17321b9d738a74a95a10bdd62704d1, type: 3}
   meditationSound: {fileID: 8300000, guid: 7ae16969a5b5dee49a9687c59e64c3fc, type: 3}
+  musicSound: {fileID: 8300000, guid: c85fe082a04b64f4fa912102d56b2e92, type: 3}
 --- !u!1001 &346512481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7969,6 +7974,8 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  waterSound: {fileID: 8300000, guid: 64ac3f93120d7664395046321d1f8652, type: 3}
 --- !u!1001 &463363767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8410,6 +8417,7 @@ MonoBehaviour:
   errorPromptText: {fileID: 2141491286}
   audioSource: {fileID: 919132148328699956}
   getWarmSound: {fileID: 8300000, guid: 27b5f7208abd5ab40808864e127fe47c, type: 3}
+  lightSound: {fileID: 8300000, guid: 90b78aeaf9d38f647b8c1e56b1c736fa, type: 3}
 --- !u!136 &521983232
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10114,8 +10122,9 @@ MonoBehaviour:
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
   counter: -1
-  audioSource: {fileID: 0}
-  clickingSound: {fileID: 0}
+  audioSource: {fileID: 919132148328699956}
+  asemblerSound: {fileID: 8300000, guid: 79f9eeb747cc27c4d832c14f03d4874c, type: 3}
+  keyboardSound: {fileID: 8300000, guid: 15a40490bab39104d9337662fdda6259, type: 3}
 --- !u!1001 &725223531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11031,8 +11040,9 @@ MonoBehaviour:
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
   counter: -1
-  audioSource: {fileID: 0}
-  clickingSound: {fileID: 0}
+  audioSource: {fileID: 919132148328699956}
+  asemblerSound: {fileID: 8300000, guid: 79f9eeb747cc27c4d832c14f03d4874c, type: 3}
+  keyboardSound: {fileID: 8300000, guid: 15a40490bab39104d9337662fdda6259, type: 3}
 --- !u!1 &926941853
 GameObject:
   m_ObjectHideFlags: 0
@@ -13086,6 +13096,10 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  sitSound: {fileID: 8300000, guid: fd94eeb04264c6340a18405ef3771b45, type: 3}
+  chairSound: {fileID: 8300000, guid: bb604ce23c945694eb0cd8ecbb0b2696, type: 3}
+  complainSound: {fileID: 8300000, guid: 016f5fd50aeef964c90f5f69a606df72, type: 3}
 --- !u!1 &1307455729
 GameObject:
   m_ObjectHideFlags: 0
@@ -46294,6 +46308,10 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  sitSound: {fileID: 8300000, guid: fd94eeb04264c6340a18405ef3771b45, type: 3}
+  chairSound: {fileID: 8300000, guid: bb604ce23c945694eb0cd8ecbb0b2696, type: 3}
+  complainSound: {fileID: 8300000, guid: 016f5fd50aeef964c90f5f69a606df72, type: 3}
 --- !u!1 &1604205772
 GameObject:
   m_ObjectHideFlags: 0
@@ -47237,6 +47255,7 @@ MonoBehaviour:
   tinkerSound: {fileID: 0}
   cleaningSound: {fileID: 0}
   meditationSound: {fileID: 0}
+  musicSound: {fileID: 0}
 --- !u!1 &1654488109
 GameObject:
   m_ObjectHideFlags: 0
@@ -47409,6 +47428,10 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  sitSound: {fileID: 8300000, guid: fd94eeb04264c6340a18405ef3771b45, type: 3}
+  chairSound: {fileID: 8300000, guid: bb604ce23c945694eb0cd8ecbb0b2696, type: 3}
+  complainSound: {fileID: 8300000, guid: 016f5fd50aeef964c90f5f69a606df72, type: 3}
 --- !u!1 &1691701671
 GameObject:
   m_ObjectHideFlags: 0
@@ -49037,7 +49060,8 @@ MonoBehaviour:
   errorPromptText: {fileID: 0}
   counter: -1
   audioSource: {fileID: 1983813252}
-  clickingSound: {fileID: 8300000, guid: 79f9eeb747cc27c4d832c14f03d4874c, type: 3}
+  asemblerSound: {fileID: 0}
+  keyboardSound: {fileID: 0}
 --- !u!82 &1983813252
 AudioSource:
   m_ObjectHideFlags: 0

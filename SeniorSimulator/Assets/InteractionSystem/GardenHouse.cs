@@ -25,6 +25,11 @@ public class GardenHouse : MonoBehaviour, IInteractable
     public Text option23Text;
     public Text option32Text;
     public Player player;
+    public AudioSource audioSource;
+    public AudioClip hiddingSound;
+    public AudioClip tinkerSound;
+    public AudioClip cleaningSound;
+    public AudioClip meditationSound;
 
     public bool Interact(Interactor interactor)
     {
@@ -50,7 +55,8 @@ public class GardenHouse : MonoBehaviour, IInteractable
         option22Text.text = "Clean up in the gazebo";
         option23Text.text = "Meditate";
         option32Text.text = "Listen to the music";
-        option12.onClick.AddListener(() => { 
+        option12.onClick.AddListener(() => {
+            audioSource.PlayOneShot(hiddingSound, 0.3f);
             Debug.Log("Hide from your partner"); 
             panel.SetActive(false);
             player.Heal(10);
@@ -60,7 +66,8 @@ public class GardenHouse : MonoBehaviour, IInteractable
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option21.onClick.AddListener(() => { 
+        option21.onClick.AddListener(() => {
+            audioSource.PlayOneShot(tinkerSound, 0.3f);
             Debug.Log("Tinker"); 
             panel.SetActive(false);
             player.TakeDamage(10);
@@ -70,7 +77,8 @@ public class GardenHouse : MonoBehaviour, IInteractable
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option22.onClick.AddListener(() => { 
+        option22.onClick.AddListener(() => {
+            audioSource.PlayOneShot(cleaningSound, 0.3f);
             Debug.Log("Clean up in the gazebo"); 
             panel.SetActive(false);
             player.TakeDamage(6);
@@ -80,7 +88,8 @@ public class GardenHouse : MonoBehaviour, IInteractable
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option23.onClick.AddListener(() => { 
+        option23.onClick.AddListener(() => {
+            audioSource.PlayOneShot(meditationSound, 0.3f);
             Debug.Log("Meditate");
             player.Heal(3);
             player.DecreaseHunger(2);

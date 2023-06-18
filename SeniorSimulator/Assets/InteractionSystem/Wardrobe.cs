@@ -29,6 +29,11 @@ public class Wardrobe : MonoBehaviour, IInteractable
     public Text errorPromptText;
     public int counter = -1;
 
+    public AudioSource audioSource;
+    public AudioClip hiddingSound;
+    public AudioClip cloathsSound;
+    public AudioClip cleaningSound;
+
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -57,6 +62,7 @@ public class Wardrobe : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.pajamas == false)
             {
+                audioSource.PlayOneShot(cloathsSound, 0.4f);
                 Debug.Log("Put on pajamas");
                 player.Heal(0);
                 player.IncreaseHunger(0);
@@ -78,6 +84,7 @@ public class Wardrobe : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (player.clean_cloaths > 0)
             {
+                audioSource.PlayOneShot(cloathsSound, 0.4f);
                 Debug.Log("Wear clean clothes");
                 player.Heal(0);
                 player.DecreaseHunger(0);
@@ -95,7 +102,8 @@ public class Wardrobe : MonoBehaviour, IInteractable
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option22.onClick.AddListener(() => { 
+        option22.onClick.AddListener(() => {
+            audioSource.PlayOneShot(hiddingSound, 0.2f);
             Debug.Log("Hide in the closet from your partner"); 
             panel.SetActive(false);
             player.Heal(10);
@@ -105,7 +113,8 @@ public class Wardrobe : MonoBehaviour, IInteractable
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option23.onClick.AddListener(() => { 
+        option23.onClick.AddListener(() => {
+            audioSource.PlayOneShot(cleaningSound, 0.5f);
             Debug.Log("Clean up in the closet");
             panel.SetActive(false);
             player.TakeDamage(5);
@@ -115,7 +124,8 @@ public class Wardrobe : MonoBehaviour, IInteractable
             interactionPrompt.gameObject.SetActive(true); 
             Time.timeScale = 1;
             RemoveListeners(); });
-        option32.onClick.AddListener(() => { 
+        option32.onClick.AddListener(() => {
+            audioSource.PlayOneShot(cloathsSound, 0.4f);
             Debug.Log("Try on clothes"); 
             panel.SetActive(false);
             player.TakeDamage(3);

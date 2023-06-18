@@ -30,10 +30,14 @@ public class Gateway : MonoBehaviour, IInteractable
     public Text option32Text;
     public Player player;
     private int counter = -1;
+    public AudioSource audioSource;
+    public AudioClip churchSound;
+    public AudioClip doctorSound;
+    public AudioClip shopSound;
+    public AudioClip friendSound;
 
-    
 
-    
+
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -65,6 +69,7 @@ public class Gateway : MonoBehaviour, IInteractable
             {
                 if (player.church == false)
                 {
+                    audioSource.PlayOneShot(churchSound, 0.2f);
                     Debug.Log("Go to the Church");
                     player.TakeDamage(5);
                     player.DecreaseHunger(10);
@@ -96,6 +101,7 @@ public class Gateway : MonoBehaviour, IInteractable
             if (player.shoppingList == true) {
                 if (h >= 6 && h <= 22)
                 {
+                    audioSource.PlayOneShot(shopSound, 0.2f);
                     Debug.Log("Go to the grocery shop");
                     player.TakeDamage(10);
                     player.DecreaseHunger(5);
@@ -130,6 +136,7 @@ public class Gateway : MonoBehaviour, IInteractable
             {
                 if (h >= 6 && h <= 22)
                 {
+                    audioSource.PlayOneShot(shopSound, 0.2f);
                     Debug.Log("Go to the drugstore");
                     player.doctor_drugstore = false;
                     player.TakeDamage(5);
@@ -161,6 +168,7 @@ public class Gateway : MonoBehaviour, IInteractable
         option23.onClick.AddListener(() => {
         if (h >= 10 && h <= 18)
         {
+                audioSource.PlayOneShot(friendSound, 0.2f);
                 Debug.Log("Meet with firends");
                 player.TakeDamage(15);
                 player.DecreaseHunger(10);
@@ -185,6 +193,7 @@ public class Gateway : MonoBehaviour, IInteractable
         {
                 if (player.doctor_visit == false)
                 {
+                    audioSource.PlayOneShot(doctorSound, 0.2f);
                     Debug.Log("Go to the doctor");
                     timeControllerScript.AddHoursToTime(3);
                     player.doctor_drugstore = true;

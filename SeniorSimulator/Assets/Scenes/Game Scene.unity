@@ -166,6 +166,11 @@ MonoBehaviour:
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  churchSound: {fileID: 8300000, guid: 58c2a13b2024e1f47a760391273a318a, type: 3}
+  doctorSound: {fileID: 8300000, guid: 8fa2c976197e49148892dea3f0344308, type: 3}
+  shopSound: {fileID: 8300000, guid: 10f420ac5f721a74fabe2728e6cbbf81, type: 3}
+  friendSound: {fileID: 8300000, guid: ef1b48d879d37e14a8f0e0325e7f81c8, type: 3}
 --- !u!1 &10030180
 GameObject:
   m_ObjectHideFlags: 0
@@ -7219,6 +7224,11 @@ MonoBehaviour:
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  hiddingSound: {fileID: 8300000, guid: 03570030a61910a419371bb7253f08bc, type: 3}
+  tinkerSound: {fileID: 8300000, guid: ca3d15e0225ec1346a6d4520d2a0c2af, type: 3}
+  cleaningSound: {fileID: 8300000, guid: 0e17321b9d738a74a95a10bdd62704d1, type: 3}
+  meditationSound: {fileID: 8300000, guid: 7ae16969a5b5dee49a9687c59e64c3fc, type: 3}
 --- !u!1001 &346512481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7818,6 +7828,8 @@ MonoBehaviour:
   counter: -1
   audioSource: {fileID: 919132148328699956}
   drinkingBeerSound: {fileID: 8300000, guid: 2eb0b5cc8b7940445a82b71d7ab69677, type: 3}
+  spySound: {fileID: 8300000, guid: 867e68478f2377d49bceaa3354a8760b, type: 3}
+  restSound: {fileID: 8300000, guid: fd94eeb04264c6340a18405ef3771b45, type: 3}
 --- !u!65 &445279108
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9655,8 +9667,10 @@ MonoBehaviour:
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
   counter: -1
-  audioSource: {fileID: 0}
-  drinkingBeerSound: {fileID: 0}
+  audioSource: {fileID: 919132148328699956}
+  washingHandsSound: {fileID: 8300000, guid: 43385ec65f91b9944b157143eb5cb76a, type: 3}
+  brushingSound: {fileID: 8300000, guid: dfe733969fc55e445b884265ed2ee807, type: 3}
+  admiringSound: {fileID: 8300000, guid: fe75d4e76d4b63a48b037855e61b1231, type: 3}
 --- !u!65 &678348191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9959,7 +9973,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.83693e-40, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 9.1835e-41, y: 3.673421e-39, z: 2.6448623e-36, w: 1.147944e-39}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -11746,7 +11760,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34196
+  m_Name: pb_Mesh29590
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13667,6 +13681,10 @@ MonoBehaviour:
   errorPrompt: {fileID: 374676540}
   errorPromptText: {fileID: 2141491286}
   counter: -1
+  audioSource: {fileID: 919132148328699956}
+  hiddingSound: {fileID: 8300000, guid: 03570030a61910a419371bb7253f08bc, type: 3}
+  cloathsSound: {fileID: 8300000, guid: bd12b805cf6a5ef4cae72cbd8c8838ac, type: 3}
+  cleaningSound: {fileID: 8300000, guid: 0e17321b9d738a74a95a10bdd62704d1, type: 3}
 --- !u!1 &1404057483
 GameObject:
   m_ObjectHideFlags: 0
@@ -46089,6 +46107,11 @@ MonoBehaviour:
   option23Text: {fileID: 243402770}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  churchSound: {fileID: 8300000, guid: 58c2a13b2024e1f47a760391273a318a, type: 3}
+  doctorSound: {fileID: 8300000, guid: 8fa2c976197e49148892dea3f0344308, type: 3}
+  shopSound: {fileID: 8300000, guid: 10f420ac5f721a74fabe2728e6cbbf81, type: 3}
+  friendSound: {fileID: 8300000, guid: ef1b48d879d37e14a8f0e0325e7f81c8, type: 3}
 --- !u!1001 &1587261989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46223,6 +46246,7 @@ MonoBehaviour:
   popcornSound: {fileID: 8300000, guid: 66475d8344a5ec04c871d61f818bdddd, type: 3}
   cuttingSound: {fileID: 8300000, guid: bd1c05c5acb33ba47ac78a72330ccccb, type: 3}
   writtingSound: {fileID: 8300000, guid: cedb152efd345914ea3d348e97e368d3, type: 3}
+  backerSound: {fileID: 8300000, guid: af6e0b3c94d1bbd47b4656659a952e93, type: 3}
 --- !u!1 &1590598392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2988847304651759410, guid: c2295b34083ed0c4b95a252933176bfd, type: 3}
@@ -47208,6 +47232,11 @@ MonoBehaviour:
   option23Text: {fileID: 0}
   option32Text: {fileID: 0}
   player: {fileID: 0}
+  audioSource: {fileID: 0}
+  hiddingSound: {fileID: 0}
+  tinkerSound: {fileID: 0}
+  cleaningSound: {fileID: 0}
+  meditationSound: {fileID: 0}
 --- !u!1 &1654488109
 GameObject:
   m_ObjectHideFlags: 0
@@ -47646,6 +47675,10 @@ MonoBehaviour:
   option31Text: {fileID: 960380536}
   option33Text: {fileID: 2004600793}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  pooSound: {fileID: 8300000, guid: 4f6db4660b0eaa44f896bdb4f25e1495, type: 3}
+  peeSound: {fileID: 8300000, guid: f78054ad78ac26940bd5c34985dc4a09, type: 3}
+  sitSound: {fileID: 8300000, guid: 374ab7dbb2fd2564dbbceabb9b49f8ac, type: 3}
 --- !u!65 &1700540150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48338,6 +48371,9 @@ MonoBehaviour:
   option22Text: {fileID: 622493067}
   option32Text: {fileID: 1691701673}
   player: {fileID: 1456153967}
+  audioSource: {fileID: 919132148328699956}
+  showerSound: {fileID: 8300000, guid: 64c6c0e8d7e66c24d819f8f53f494e8e, type: 3}
+  singingSound: {fileID: 8300000, guid: 3cfe3372f54f73b4e8cdd8f294f6338a, type: 3}
 --- !u!65 &1800627538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -48864,6 +48900,8 @@ MonoBehaviour:
   counter: -1
   audioSource: {fileID: 919132148328699956}
   drinkingBeerSound: {fileID: 8300000, guid: 2eb0b5cc8b7940445a82b71d7ab69677, type: 3}
+  spySound: {fileID: 8300000, guid: 867e68478f2377d49bceaa3354a8760b, type: 3}
+  restSound: {fileID: 8300000, guid: fd94eeb04264c6340a18405ef3771b45, type: 3}
 --- !u!65 &1974244945
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49630,6 +49668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prompt: Lamp
   lamp: {fileID: 1640725388}
+  audioSource: {fileID: 919132148328699956}
+  lampSound: {fileID: 8300000, guid: fce5c32e466f6f94b82ef70bec14d2ec, type: 3}
 --- !u!1001 &2098329556
 PrefabInstance:
   m_ObjectHideFlags: 0

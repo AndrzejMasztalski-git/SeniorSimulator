@@ -29,7 +29,10 @@ public class BathroomSink : MonoBehaviour, IInteractable
     public int counter = -1;
 
     public AudioSource audioSource;
-    public AudioClip drinkingBeerSound;
+    public AudioClip washingHandsSound;
+    public AudioClip brushingSound;
+    public AudioClip admiringSound;
+
     public bool Interact(Interactor interactor)
     {
 
@@ -55,6 +58,7 @@ public class BathroomSink : MonoBehaviour, IInteractable
         option32Text.text = "Admire your face in the mirror";
         option12.onClick.AddListener(() =>
         {
+            audioSource.PlayOneShot(washingHandsSound, 0.2f);
             Debug.Log("Wash your hands!");
             panel.SetActive(false);
             player.TakeDamage(2);
@@ -66,6 +70,7 @@ public class BathroomSink : MonoBehaviour, IInteractable
             RemoveListeners();
         });
         option22.onClick.AddListener(() => {
+            audioSource.PlayOneShot(brushingSound, 0.2f);
             Debug.Log("Clean the false teeth!");
             panel.SetActive(false);
             player.TakeDamage(1);
@@ -77,6 +82,7 @@ public class BathroomSink : MonoBehaviour, IInteractable
             RemoveListeners();
         });
         option32.onClick.AddListener(() => {
+            audioSource.PlayOneShot(admiringSound, 0.2f);
             Debug.Log("Admire your face in the mirror!");
             player.TakeDamage(0 );
             player.DecreaseHunger(1);

@@ -23,6 +23,10 @@ public class Shower : MonoBehaviour, IInteractable
     public Text option22Text;
     public Text option32Text;
     public Player player;
+
+    public AudioSource audioSource;
+    public AudioClip showerSound;
+    public AudioClip singingSound;
     public bool Interact(Interactor interactor)
     {
 
@@ -48,6 +52,7 @@ public class Shower : MonoBehaviour, IInteractable
         option32Text.text = "Take a bath";
         option12.onClick.AddListener(() =>
         {
+            audioSource.PlayOneShot(showerSound, 0.2f);
             Debug.Log("Quick shower!");
             panel.SetActive(false);
             player.TakeDamage(3);
@@ -60,7 +65,8 @@ public class Shower : MonoBehaviour, IInteractable
         });
         option22.onClick.AddListener(() => {
             panel.SetActive(false);
-            
+            audioSource.PlayOneShot(showerSound, 0.2f);
+            audioSource.PlayOneShot(singingSound, 0.2f);
             Debug.Log("Shower and sing");
             player.TakeDamage(3);
             player.DecreaseHunger(5);

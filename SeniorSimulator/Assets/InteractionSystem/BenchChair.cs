@@ -29,6 +29,8 @@ public class BenchChair : MonoBehaviour, IInteractable
     public int counter = -1;
     public AudioSource audioSource;
     public AudioClip drinkingBeerSound;
+    public AudioClip spySound;
+    public AudioClip restSound;
     public bool Interact(Interactor interactor)
     {
 
@@ -80,6 +82,7 @@ public class BenchChair : MonoBehaviour, IInteractable
             panel.SetActive(false);
             if (h >= 8 && h <= 20)
             {
+                audioSource.PlayOneShot(restSound, 0.2f);
                 Debug.Log("Just lie and chill");
                 player.Heal(5);
                 player.DecreaseHunger(5);
@@ -99,6 +102,7 @@ public class BenchChair : MonoBehaviour, IInteractable
         });
         option32.onClick.AddListener(() => {
             panel.SetActive(false);
+            audioSource.PlayOneShot(spySound, 0.2f);
             Debug.Log("Spy on your neighbors!");
             player.Heal(5);
             player.DecreaseHunger(5);

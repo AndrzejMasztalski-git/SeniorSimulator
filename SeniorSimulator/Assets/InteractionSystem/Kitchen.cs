@@ -40,6 +40,7 @@ public class Kitchen : MonoBehaviour, IInteractable
     public AudioClip popcornSound;
     public AudioClip cuttingSound;
     public AudioClip writtingSound;
+    public AudioClip backerSound;
     public bool Interact(Interactor interactor)
     {
         GameObject timeController = GameObject.Find("TimeController");
@@ -90,6 +91,7 @@ public class Kitchen : MonoBehaviour, IInteractable
             {
                 if (player.dirt < acceptable_dirt)
                 {
+                    audioSource.PlayOneShot(backerSound, 0.3f);
                     Debug.Log("Bake cake!");
                     player.food -= 2;
                     player.TakeDamage(10);

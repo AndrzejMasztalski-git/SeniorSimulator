@@ -24,6 +24,10 @@ public class Toilet : MonoBehaviour, IInteractable
     public Text option31Text;
     public Text option33Text;
     public Player player;
+    public AudioSource audioSource;
+    public AudioClip pooSound;
+    public AudioClip peeSound;
+    public AudioClip sitSound;
 
     public bool Interact(Interactor interactor)
     {
@@ -49,6 +53,7 @@ public class Toilet : MonoBehaviour, IInteractable
         option31Text.text = "Pee";
         option33Text.text = "Just sit";
         option11.onClick.AddListener(() => {
+            audioSource.PlayOneShot(pooSound, 0.2f);
             Debug.Log("Poo");
             panel.SetActive(false);
             player.Heal(1);
@@ -60,6 +65,7 @@ public class Toilet : MonoBehaviour, IInteractable
             RemoveListeners();
         });
         option13.onClick.AddListener(() => {
+            audioSource.PlayOneShot(pooSound, 0.2f);
             Debug.Log("Poo with mobile phone");
             panel.SetActive(false);
             player.Heal(3);
@@ -71,6 +77,7 @@ public class Toilet : MonoBehaviour, IInteractable
             RemoveListeners();
         });
         option31.onClick.AddListener(() => {
+            audioSource.PlayOneShot(peeSound, 0.2f);
             Debug.Log("Pee");
             panel.SetActive(false);
             player.Heal(1);
@@ -82,6 +89,7 @@ public class Toilet : MonoBehaviour, IInteractable
             RemoveListeners();
         });
         option33.onClick.AddListener(() => {
+            audioSource.PlayOneShot(sitSound, 0.2f);
             Debug.Log("Just sit");
             panel.SetActive(false);
             timeControllerScript.AddHoursToTime(0.3);

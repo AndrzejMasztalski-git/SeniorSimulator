@@ -140,6 +140,7 @@ public class Fireplace : MonoBehaviour, IInteractable
         else if (counter == 0)
         {
             errorPrompt.gameObject.SetActive(false);
+            counter = -1;
         }
     }
     void RemoveListeners()

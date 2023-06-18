@@ -18,7 +18,7 @@ public class PickUpItem : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("dziadekTest").transform;
         PickUpPoint = GameObject.Find("PickUpPoint").transform;
     }
 

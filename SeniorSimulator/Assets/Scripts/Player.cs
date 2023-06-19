@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
     //LAPTOP
     public bool cs = false;
     //FLOWERS
+    public bool water = false;
+    public bool weeds = false;
 
     
     public void SavePlayer()

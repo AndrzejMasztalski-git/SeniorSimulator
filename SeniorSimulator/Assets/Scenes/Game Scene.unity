@@ -9920,7 +9920,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9.1835e-41, y: 3.673421e-39, z: 2.6448623e-36, w: 1.147944e-39}
+  m_BoundingSphereOverride: {x: 0, y: 2.7917993e-37, z: 1.6759978e-38, w: -6.61671e-40}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -11829,6 +11829,8 @@ MonoBehaviour:
   jumpHeight: 2
   airControlPercent: 0
   speedSmoothTime: 0.1
+  jumpButtonGracePeriod: 0
+  jumpSpeed: 0
 --- !u!82 &987895484
 AudioSource:
   m_ObjectHideFlags: 0
@@ -44851,6 +44853,10 @@ PrefabInstance:
     - target: {fileID: 6335136109953716667, guid: 01703f21ce284a1498b9b8bea9ac8103, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335136109953716667, guid: 01703f21ce284a1498b9b8bea9ac8103, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7633078590863173186, guid: 01703f21ce284a1498b9b8bea9ac8103, type: 3}
       propertyPath: m_Layer

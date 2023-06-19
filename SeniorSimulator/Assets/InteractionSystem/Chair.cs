@@ -18,6 +18,7 @@ public class Chair : MonoBehaviour, IInteractable
     public Button option31;
     public Button option32;
     public Button option33;
+    public Button exit;
     public Image image;
     public Canvas interactionPrompt;
     public Text option12Text;
@@ -88,6 +89,12 @@ public class Chair : MonoBehaviour, IInteractable
             Time.timeScale = 1;
             RemoveListeners();
         });
+        exit.onClick.AddListener(() => {
+            panel.SetActive(false);
+            interactionPrompt.gameObject.SetActive(true);
+            Time.timeScale = 1;
+            RemoveListeners();
+        });
         return true;
     }
     void RemoveListeners()
@@ -101,6 +108,7 @@ public class Chair : MonoBehaviour, IInteractable
         option31.onClick.RemoveAllListeners();
         option32.onClick.RemoveAllListeners();
         option33.onClick.RemoveAllListeners();
+        exit.onClick.RemoveAllListeners();
     }
 }
 

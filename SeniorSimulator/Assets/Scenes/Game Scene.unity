@@ -156,6 +156,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   errorPrompt: {fileID: 374676540}
@@ -1182,6 +1183,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -6483,6 +6485,142 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &251675485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 251675486}
+  - component: {fileID: 251675490}
+  - component: {fileID: 251675489}
+  - component: {fileID: 251675488}
+  - component: {fileID: 251675487}
+  m_Layer: 5
+  m_Name: Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &251675486
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251675485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.05, y: 1.05, z: 1.05}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1232541662}
+  m_Father: {fileID: 637273527}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -324, y: 198}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &251675487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251675485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54042c34849fb364ea3833b20c9302b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 637273526}
+--- !u!114 &251675488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251675485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 251675489}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &251675489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251675485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 761e93d61af1911418a25344a66a8deb, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &251675490
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251675485}
+  m_CullTransparentMesh: 1
 --- !u!1 &260197078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 189208, guid: 36ebaa25b1c08964b99fdbb5a236580b, type: 3}
@@ -7159,6 +7297,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -7761,6 +7900,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 2038144043}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -7907,6 +8047,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 374676540}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -8348,6 +8489,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -9285,6 +9427,7 @@ RectTransform:
   - {fileID: 669918790}
   - {fileID: 277849696}
   - {fileID: 589928569}
+  - {fileID: 251675486}
   m_Father: {fileID: 10030184}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9607,6 +9750,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 2038144043}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -9922,7 +10066,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.7917993e-37, z: 1.6759978e-38, w: -6.61671e-40}
+  m_BoundingSphereOverride: {x: 0, y: 3.4e-44, z: 0, w: 1.6898305e+29}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -10052,6 +10196,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -10653,6 +10798,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 2038144043}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -10970,6 +11116,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -11766,7 +11913,6 @@ MonoBehaviour:
   clean_cloaths: 3
   cs: 0
   water: 0
-  collected: 0
   weeds: 0
 --- !u!114 &987895481
 MonoBehaviour:
@@ -11975,7 +12121,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34080
+  m_Name: pb_Mesh34024
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13250,6 +13396,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218315500}
   m_CullTransparentMesh: 1
+--- !u!1 &1232541661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232541662}
+  - component: {fileID: 1232541664}
+  - component: {fileID: 1232541663}
+  m_Layer: 5
+  m_Name: OptionOneThreeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1232541662
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232541661}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 251675486}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1232541663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232541661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 44
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 53
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: X
+--- !u!222 &1232541664
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232541661}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1269880700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13364,6 +13590,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -13958,6 +14185,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -44901,6 +45129,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option11Text: {fileID: 1641313836}
@@ -45490,6 +45719,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -45668,6 +45898,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -46147,6 +46378,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   errorPrompt: {fileID: 374676540}
@@ -46276,6 +46508,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option11Text: {fileID: 1641313836}
@@ -46338,6 +46571,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -46420,6 +46654,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -47273,6 +47508,7 @@ MonoBehaviour:
   option31: {fileID: 0}
   option32: {fileID: 0}
   option33: {fileID: 0}
+  exit: {fileID: 0}
   image: {fileID: 0}
   interactionPrompt: {fileID: 0}
   option12Text: {fileID: 0}
@@ -47453,6 +47689,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -47722,6 +47959,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 2038144043}
   interactionPrompt: {fileID: 283443075}
   option11Text: {fileID: 1641313836}
@@ -48419,6 +48657,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 2038144043}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -48943,6 +49182,7 @@ MonoBehaviour:
   option23: {fileID: 1627892707}
   option31: {fileID: 669918792}
   option33: {fileID: 589928571}
+  exit: {fileID: 251675488}
   image: {fileID: 2038144043}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}
@@ -49079,6 +49319,7 @@ MonoBehaviour:
   option31: {fileID: 669918792}
   option32: {fileID: 277849698}
   option33: {fileID: 589928571}
+  exit: {fileID: 0}
   image: {fileID: 433726558}
   interactionPrompt: {fileID: 283443075}
   option12Text: {fileID: 1720674292}

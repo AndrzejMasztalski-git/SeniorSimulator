@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 2;
     public float runSpeed = 6;
     public float turnSmootTime = 0.2f;
-    public float jumpHeight = 1;
+    public float jumpHeight = 0.5f;
 
     [Range(0,1)]
     public float airControlPercent;
